@@ -22,8 +22,8 @@ function getCookie(cname) {
 }
 
 function goback() {
-    if (location.pathname != "/") {
-        location = hist.split(",")[hist.split(",").length - 2]
+    if (location.pathname + location.search != "/?p=" && location.search != "" ) {
+        location = "/?p="+hist.split(",")[hist.split(",").length - 2]
         hist = hist.split(",").slice(0, hist.split(",").length - 2)
         setCookie("hist", hist)
     }
@@ -32,7 +32,7 @@ function goback() {
 function renderbreadcrumb() {
     bread = document.getElementById("breadcrumb")
     hist.split(",").forEach(crumb => {
-        bread.innerHTML = bread.innerHTML + "<a href=\"" + crumb + "\">" + crumb + " >  </a>"
+        bread.innerHTML = bread.innerHTML + "<a href=\"/?p=" + crumb + "\">" + crumb + " >  </a>"
     });
 }
 
@@ -58,7 +58,7 @@ function removeconsecutiveduplicates() {
 
 function loaddata() {
     local = findGetParameter("p")
-    if (local != "") {
+    if (local != null) {
         loadpage(local)
     }else {
         loadpage("index")
@@ -81,6 +81,7 @@ function loadpage(name) {
                 bodyexamplehtml = r.responseText
                 document.body.innerHTML = Mustache.render(bodyexamplehtml,data)
                 document.title = data["title"]
+                load()
             })
         }
     })
@@ -89,13 +90,13 @@ function loadpage(name) {
 function load() {
     hist = getCookie("hist")
     if (hist != "") {
-        if (location.pathname == "/") {
-            setCookie("hist", location.pathname)
+        if (location.pathname + location.search == "/?p=" || location.search == "" || location.search == "?p=index") {
+            setCookie("hist", "index")
         } else {
-            setCookie("hist", hist + "," + location.pathname)
+            setCookie("hist", hist + "," + findGetParameter("p"))
         }
     } else {
-        setCookie("hist", location.pathname)
+        setCookie("hist", findGetParameter("p"))
     }
     hist = getCookie("hist")
     removeconsecutiveduplicates()
