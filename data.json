@@ -66,7 +66,7 @@
         },
         {
             "filename":"qandp",
-            "title":"Questions relating to course or project",
+            "title":"Questions relating to individual course or project",
             "type":"advice",
             "info":"If your question relates to an individual course or project, check the moodle or email the course lecturer"
         },
@@ -143,13 +143,60 @@
                 {
                     "name":"Course of Study",
                     "info":"Switch between masters, honours and designated degree",
-                    "link":"course_of_study.html"
+                    "link":"goto_adviser.html"
                 },
                 {
                     "name":"Combined and Joint Honours",
-                    ""
+                    "link":"goto_adviser.html"
+                },
+                {
+                    "name":"Switch Major",
+                    "link":"within_college.html"
                 }
             ]
+        },
+        {
+            "filename":"within_college",
+            "title":"Is the subject you wish to switch to in the College of Science and Engineering?",
+            "subcats":[
+                {
+                    "name":"Yes",
+                    "link":"goto_adviser.html"
+                },
+                {
+                    "name":"No",
+                    "link":"transfer_outside_college.html"
+                }
+            ]
+            
+        },
+        {
+            "filname":"goto_adviser",
+            "title":"Go to your adviser of studies.",
+            "type":"action",
+            "info":"When contacting your adviser of studies try and include as much information  as possible about your situation and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
+            "subcats":
+                {
+                    "name":"Who is my adviser of studies?",
+                    "link":"adviser_info.html"
+                }
+        },
+        {
+            "filename":"adviser_info",
+            "title":"Adviser of Studies",
+            "type":"advice",
+            "info":"To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the Universiry staff A-Z."
+        },
+        {
+            "filename":"transfer_outside_college",
+            "title":"Transfer out of College of Science and Engineering",
+            "type":"action",
+            "info":"Go to your adviser of studies and discuss your options. You will also need to contact the college you wish to transfer to and see if they will accept you.",
+            "subcats":
+                {
+                    "name":"Who is my adviser of studies?",
+                    "link":"adviser_info.html"
+                }
         }
     ]
 
