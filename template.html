@@ -15,6 +15,12 @@
     <a href="{{ link }}">{{ name }}</a>
     {{ /subcats }}
     </div>
+<<<<<<< HEAD
+=======
+    <div id="breadcrumb">
+    </div>
+    <button onclick="goback()">back</button>
+>>>>>>> commiting
     <script>
     function setCookie(cname,cvalue,exdays) {
   var d = new Date();
@@ -23,6 +29,7 @@
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+<<<<<<< HEAD
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -40,6 +47,53 @@ function getCookie(cname) {
 }
     history = getCookie("history")
     setCookie("history",history+","+URL.name)
+=======
+      function goback() {
+        location = hist.split(",")[hist.split(",").length - 2]
+        hist = hist.split(",").slice(0,hist.split(",").length - 2)
+        setCookie("hist", hist)
+      }
+
+      function renderbreadcrumb() {
+        bread = document.getElementById("breadcrumb")
+        hist.split(",").forEach(crumb => {
+          bread.innerHTML = bread.innerHTML+"<a href=\""+crumb+"\">" + crumb + " >  </a>"
+        });
+      }
+
+      function removeconsecutiveduplicates() {
+        hista = hist.split(",")
+        out = []
+        previouscrumb = "/"
+        hista.forEach(crumb => {
+          if (crumb != previouscrumb) {
+            out.push(crumb)
+            previouscrumb = crumb
+          }
+        });
+        console.log(out)
+        hista = out
+        hist = ""
+        hista.forEach(crumb => {
+          hist += crumb + ","
+        });
+        setCookie("hist", hist)
+      }
+
+      hist = getCookie("hist")
+      if (hist != "") {
+        if (location.pathname == "/") {
+          setCookie("hist", location.pathname)
+        }else {
+          setCookie("hist", hist + "," + location.pathname)
+        }
+      } else {
+        setCookie("hist", location.pathname)
+      }
+      hist = getCookie("hist")
+      removeconsecutiveduplicates()
+      renderbreadcrumb()
+>>>>>>> commiting
     </script>
 </body>
 </html>
