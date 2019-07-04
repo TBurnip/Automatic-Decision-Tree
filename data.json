@@ -106,7 +106,7 @@
             "filename":"newstudent",
             "title":"Enrolment as a new student",
             "type":"advice",
-            "info":"You can go to the collage help desk for more help if you are still stuck",
+            "info":"You can go to the college help desk for more help if you are still stuck",
             "subcats":[
             ]
         },
@@ -133,6 +133,24 @@
                     "link":"creditenquires.html"
                 }
             ]
+        },
+        {
+            "filename":"Degree",
+            "title":"Degree Programme",
+            "type":"category",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Course of Study",
+                    "info":"Switch between masters, honours and designated degree",
+                    "link":"course_of_study.html"
+                },
+                {
+                    "name":"Combined and Joint Honours",
+                    ""
+                }
+            ]
         }
     ]
+
 }
