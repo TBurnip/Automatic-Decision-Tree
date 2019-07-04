@@ -13,11 +13,15 @@
   </head>
 
   <body>
+    <div id="header">
+      <div>Home</div>
+      <div>Back</div>
+    </div>
     <h1>{{ title }}</h1>
     <p id="info">{{ info }}</p>
     <div class="flex-container" id="category">
       {{ #subcats }}
-      <a href="{{ link }}">{{ name }}</a>
+      <a href="?p={{ link }}">{{ name }}</a>
       {{ /subcats }}
     </div>
     <div id="breadcrumb">

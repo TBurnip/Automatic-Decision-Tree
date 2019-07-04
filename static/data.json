@@ -8,31 +8,31 @@
             "subcats":[
                 {
                     "name":"Courses & Enrolment",
-                    "link":"?p=courses"
+                    "link":"courses"
                 },
                 {
                     "name":"Degree Programme",
-                    "link":"?p=degree"
+                    "link":"degree"
                 },                
                 {
                     "name":"Careers and Internships",
-                    "link":"?p=careers"
+                    "link":"careers"
                 },
                 {
                     "name":"Erasmus/Study Abroad",
-                    "link":"?p=studyabroad"
+                    "link":"studyabroad"
                 },
                 {
                     "name":"Finance",
-                    "link":"?p=finance"
+                    "link":"finance"
                 },
                 {
                     "name":"Other/FAQ",
-                    "link":"?p=other"
+                    "link":"other"
                 },
                 {
                     "name":"Exams, Assessments, Resits & Progression",
-                    "link":"?p=exams"
+                    "link":"exams"
                 }
             ]
         },
@@ -44,23 +44,23 @@
             "subcats":[
                 {
                     "name":"Timetable",
-                    "link":"?p=timetable"
+                    "link":"timetable"
                 },
                 {
                     "name":"Guide on How to Enrol (MyCampus)",
-                    "link":"?p=enrolguide"
+                    "link":"enrolguide"
                 },
                 {
                     "name":"Swap/Drop Course",
-                    "link":"?p=swapanddrop"
+                    "link":"swapanddrop"
                 },
                 {
                     "name":"Advice on choice of Course and Electives",
-                    "link":"?p=coursechoice"
+                    "link":"coursechoice"
                 },
                 {
                     "name":"Questions relating to course or project",
-                    "link":"?p=qandp"
+                    "link":"qandp"
                 }
             ]
         },
@@ -78,11 +78,11 @@
             "subcats":[
                 {
                     "name":"Timetable Clash",
-                    "link":"?p=timetableclash"
+                    "link":"timetableclash"
                 },
                 {
                     "name":"Lab & Tutorial Swaps",
-                    "link":"?p=labswaps"
+                    "link":"labswaps"
                 }
             ]
         },
@@ -98,7 +98,7 @@
                 },
                 {
                     "name":"New student?",
-                    "link":"?p=newstudent"
+                    "link":"newstudent"
                 }
             ]
         },
@@ -118,19 +118,19 @@
             "subcats":[
                 {
                     "name":"1P v 1CT",
-                    "link":"?p=pvct"
+                    "link":"pvct"
                 },
                 {
                     "name":"Maths",
-                    "link":"?p=maths"
+                    "link":"maths"
                 },
                 {
                     "name":"What course should i pick?",
-                    "link":"?p=whatcourse"
+                    "link":"whatcourse"
                 },
                 {
                     "name":"Enquires about number of credits",
-                    "link":"?p=creditenquires"
+                    "link":"creditenquires"
                 }
             ]
         },
@@ -143,15 +143,15 @@
                 {
                     "name":"Course of Study",
                     "info":"Switch between masters, honours and designated degree",
-                    "link":"?p=goto_adviser"
+                    "link":"goto_adviser"
                 },
                 {
                     "name":"Combined and Joint Honours",
-                    "link":"?p=goto_adviser"
+                    "link":"goto_adviser"
                 },
                 {
                     "name":"Switch Major",
-                    "link":"?p=within_college"
+                    "link":"within_college"
                 }
             ]
         },
@@ -161,11 +161,11 @@
             "subcats":[
                 {
                     "name":"Yes",
-                    "link":"?p=goto_adviser"
+                    "link":"goto_adviser"
                 },
                 {
                     "name":"No",
-                    "link":"?p=transfer_outside_college"
+                    "link":"transfer_outside_college"
                 }
             ]
             
@@ -178,7 +178,7 @@
             "subcats":
                 {
                     "name":"Who is my adviser of studies?",
-                    "link":"?p=adviser_info"
+                    "link":"adviser_info"
                 }
         },
         {
@@ -195,7 +195,7 @@
             "subcats":
                 {
                     "name":"Who is my adviser of studies?",
-                    "link":"?p=adviser_info"
+                    "link":"adviser_info"
                 }
         }
     ]

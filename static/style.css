@@ -58,3 +58,19 @@ button {
 button:hover{
   background-color: turquoise;
 }
+
+
+#header {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
+}
+
+#header > a {
+  background-color: #f1f1f1;
+  width: 100px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  text-decoration: none;
+}
