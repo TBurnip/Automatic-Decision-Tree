@@ -1,0 +1,20 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .flex-container > a {
+    background-color: #f1f1f1;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  h1{
+      text-align: center;
+    }
+
+  p {
+      text-align: center;
+    }

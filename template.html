@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--
     <style>
         .flex-container {
           display: flex;
@@ -27,11 +29,12 @@
             text-align: center;
         }
         </style>
+    -->
 </head>
 <body>
     <h1>{{ title }}</h1>
     <p>{{ info }}</p>
-    <div class="flex-container">
+    <div class="flex-container" id="category">
     {{ #subcats }}
     <a href="{{ link }}">{{ name }}</a>
     {{ /subcats }}
