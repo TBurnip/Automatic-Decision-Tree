@@ -7,6 +7,12 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    
+    <h1>{{ title }}</h1>
+    <p>{{ info }}</p>
+    <div class="flex-container">
+    {{ #subcats }}
+    <a href="{{ link }}">{{ name }}</a>
+    {{ /subcats }}
+    </div>
 </body>
 </html>
