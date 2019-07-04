@@ -147,6 +147,7 @@
                 },
                 {
                     "name":"Combined and Joint Honours",
+<<<<<<< HEAD
                     "link":"goto_adviser.html"
                 },
                 {
@@ -166,6 +167,9 @@
                 {
                     "name":"No",
                     "link":"transfer_outside_college.html"
+=======
+                    "":""
+>>>>>>> Updated things
                 }
             ]
             
