@@ -22,6 +22,7 @@ function getCookie(cname) {
 }
 
 function goback() {
+    console.log("going back")
     if (location.pathname + location.search != "/?p=" && location.search != "" ) {
         location = "/?p="+hist.split(",")[hist.split(",").length - 2]
         hist = hist.split(",").slice(0, hist.split(",").length - 2)
