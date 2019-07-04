@@ -71,6 +71,46 @@
             "info":"If your question relates to an individual course or project, check the moodle or email the course lecturer"
         },
         {
+            "filename":"timetable",
+            "title":"Timetable",
+            "type":"category",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Timetable Clash",
+                    "link":"timetableclash.html"
+                },
+                {
+                    "name":"Lab & Tutorial Swaps",
+                    "link":"labswaps.html"
+                }
+            ]
+        },
+        {
+            "filename":"enrolguide",
+            "title":"Guide on How to Enrol (MyCampus)",
+            "type":"category",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"See Registry Page",
+                    "link":"linktoregistrypage"
+                },
+                {
+                    "name":"New student?",
+                    "link":"newstudent.html"
+                }
+            ]
+        },
+        {
+            "filename":"newstudent",
+            "title":"Enrolment as a new student",
+            "type":"advice",
+            "info":"You can go to the collage help desk for more help if you are still stuck",
+            "subcats":[
+            ]
+        },
+        {
             "filename":"coursechoice",
             "title":"Advice on choice of course and electives",
             "type":"category",
