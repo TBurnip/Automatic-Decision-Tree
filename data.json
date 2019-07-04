@@ -1,0 +1,98 @@
+{
+    "Page":[
+        {
+            "filename":"index",
+            "title":"General",
+            "type":"category",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Courses & Enrolment",
+                    "link":"courses.html"
+                },
+                {
+                    "name":"Degree Programme",
+                    "link":"degree.html"
+                },                
+                {
+                    "name":"Careers and Internships",
+                    "link":"careers.html"
+                },
+                {
+                    "name":"Erasmus/Study Abroad",
+                    "link":"studyabroad.html"
+                },
+                {
+                    "name":"Finance",
+                    "link":"finance.html"
+                },
+                {
+                    "name":"Other/FAQ",
+                    "link":"other.html"
+                },
+                {
+                    "name":"Exams, Assessments, Resits & Progression",
+                    "link":"exams.html"
+                }
+            ]
+        },
+        {
+            "filename":"courses",
+            "title":"Courses & Enrolment",
+            "type":"category",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Timetable",
+                    "link":"timetable.html"
+                },
+                {
+                    "name":"Guide on How to Enrol (MyCampus)",
+                    "link":"enrolguide.html"
+                },
+                {
+                    "name":"Swap/Drop Course",
+                    "link":"swapanddrop.html"
+                },
+                {
+                    "name":"Advice on choice of Course and Electives",
+                    "link":"coursechoice.html"
+                },
+                {
+                    "name":"Questions relating to course or project",
+                    "link":"qandp.html"
+                }
+            ]
+        },
+        {
+            "filename":"qandp",
+            "title":"Questions relating to course or project",
+            "type":"advice",
+            "info":"If your question relates to an individual course or project, check the moodle or email the course lecturer"
+        },
+        {
+            "filename":"coursechoice",
+            "title":"Advice on choice of course and electives",
+            "type":"category",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"1P v 1CT",
+                    "link":"pvct.html"
+                },
+                {
+                    "name":"Maths",
+                    "link":"maths.html"
+                },
+                {
+                    "name":"What course should i pick?",
+                    "link":"whatcourse.html"
+                },
+                {
+                    "name":"Enquires about number of credits",
+                    "link":"creditenquires.html"
+                }
+            ]
+        }
+    ]
+}
