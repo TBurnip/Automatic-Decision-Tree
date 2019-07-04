@@ -70,11 +70,17 @@ function loadpage(name) {
     getrequest("/data.json", {}, function (r) {
         resp = JSON.parse(r.responseText);
         console.log(resp["Page"])
+        found = false
         resp["Page"].forEach(page => {
             if (page["filename"] == name) {
                 data = page
+                found = true
             }
         });
+        if (found == false) {
+            location = "/404.html"
+            return
+        }
         console.log("The Data is: "+data)
         if (data != null) {
             getrequest("/bodyexample.html", {}, function (r) {

@@ -14,7 +14,7 @@
 
   <body>
     <h1>{{ title }}</h1>
-    <p>{{ info }}</p>
+    <p id="info">{{ info }}</p>
     <div class="flex-container" id="category">
       {{ #subcats }}
       <a href="{{ link }}">{{ name }}</a>
@@ -22,7 +22,7 @@
     </div>
     <div id="breadcrumb">
     </div>
-    <button onclick="goback()">back</button>
+    <button onclick="goback()">Back</button>
     <script>
     loaddata()
     load()
