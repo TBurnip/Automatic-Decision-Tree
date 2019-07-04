@@ -1,0 +1,116 @@
+function setCookie(cname, cvalue) {
+    var d = new Date();
+    d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function goback() {
+    if (location.pathname != "/") {
+        location = hist.split(",")[hist.split(",").length - 2]
+        hist = hist.split(",").slice(0, hist.split(",").length - 2)
+        setCookie("hist", hist)
+    }
+}
+
+function renderbreadcrumb() {
+    bread = document.getElementById("breadcrumb")
+    hist.split(",").forEach(crumb => {
+        bread.innerHTML = bread.innerHTML + "<a href=\"" + crumb + "\">" + crumb + " >  </a>"
+    });
+}
+
+function removeconsecutiveduplicates() {
+    hista = hist.split(",")
+    console.log(hista)
+    out = []
+    previouscrumb = ""
+    hista.forEach(crumb => {
+        if (crumb != previouscrumb) {
+            out.push(crumb)
+            previouscrumb = crumb
+        }
+    });
+    console.log(out)
+    hista = out
+    hist = hista[0]
+    hista.slice(1).forEach(crumb => {
+        hist += "," + crumb
+    });
+    setCookie("hist", hist)
+}
+
+function loaddata() {
+    local = findGetParameter("p")
+    if (local != "") {
+        loadpage(local)
+    }else {
+        loadpage("index")
+    }
+}
+
+function loadpage(name) {
+    console.log("Geting Data for: "+name)
+    getrequest("/data.json", {}, function (r) {
+        resp = JSON.parse(r.responseText);
+        console.log(resp["Page"])
+        resp["Page"].forEach(page => {
+            if (page["filename"] == name) {
+                data = page
+            }
+        });
+        console.log("The Data is: "+data)
+        if (data != null) {
+            getrequest("/bodyexample.html", {}, function (r) {
+                bodyexamplehtml = r.responseText
+                document.body.innerHTML = Mustache.render(bodyexamplehtml,data)
+                document.title = data["title"]
+            })
+        }
+    })
+}
+
+function load() {
+    hist = getCookie("hist")
+    if (hist != "") {
+        if (location.pathname == "/") {
+            setCookie("hist", location.pathname)
+        } else {
+            setCookie("hist", hist + "," + location.pathname)
+        }
+    } else {
+        setCookie("hist", location.pathname)
+    }
+    hist = getCookie("hist")
+    removeconsecutiveduplicates()
+    renderbreadcrumb()
+}
+
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}

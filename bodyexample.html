@@ -1,0 +1,10 @@
+<h1>{{ title }}</h1>
+<p>{{ info }}</p>
+<div class="flex-container" id="category">
+  {{ #subcats }}
+  <a href="{{ link }}">{{ name }}</a>
+  {{ /subcats }}
+</div>
+<div id="breadcrumb">
+</div>
+<button onclick="goback()">back</button>
