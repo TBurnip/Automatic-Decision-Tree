@@ -49,9 +49,11 @@ function getCookie(cname) {
     setCookie("history",history+","+URL.name)
 =======
       function goback() {
-        location = hist.split(",")[hist.split(",").length - 2]
-        hist = hist.split(",").slice(0,hist.split(",").length - 2)
-        setCookie("hist", hist)
+        if (location.pathname != "/") {
+          location = hist.split(",")[hist.split(",").length - 2]
+          hist = hist.split(",").slice(0,hist.split(",").length - 2)
+          setCookie("hist", hist)
+        }
       }
 
       function renderbreadcrumb() {
@@ -63,8 +65,9 @@ function getCookie(cname) {
 
       function removeconsecutiveduplicates() {
         hista = hist.split(",")
+        console.log(hista)
         out = []
-        previouscrumb = "/"
+        previouscrumb = ""
         hista.forEach(crumb => {
           if (crumb != previouscrumb) {
             out.push(crumb)
@@ -73,9 +76,9 @@ function getCookie(cname) {
         });
         console.log(out)
         hista = out
-        hist = ""
-        hista.forEach(crumb => {
-          hist += crumb + ","
+        hist = hista[0]
+        hista.slice(1).forEach(crumb => {
+          hist += ","+ crumb
         });
         setCookie("hist", hist)
       }
