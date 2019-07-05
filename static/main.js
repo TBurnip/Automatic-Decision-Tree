@@ -92,6 +92,9 @@ function loadpage(name) {
                 });
             });
         }
+        var d = new Date();
+        var n = d.getMonth();
+        data["motm"] = resp["motm"][n]
 
         console.log("The Data is: " + data)
         if (data != null) {
