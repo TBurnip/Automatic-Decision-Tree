@@ -2,8 +2,34 @@
   
 }
 
+.category {
+  color: black;
+  background-color: #cfe2f3ff;
+}
+
+.question {
+  color: black;
+  background-color: #b6d7a8ff;
+}
+
+.advice {
+  color: black;
+  background-color: #ea9999ff;
+}
+
+.action {
+  color: black;
+  background-color: #ffe599ff;
+}
+
+.anwser {
+  color:white;
+  background-color: grey;
+}
+
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: transparent;
 }
 
 #info {
@@ -11,6 +37,11 @@ body {
   background-color: #789cd6;
   border-radius: 2px;
   font-size: 24px;
+  padding: 10px;
+}
+
+#info:empty {
+  padding: 0px;
 }
 
 .flex-container {
@@ -22,8 +53,8 @@ body {
 
 .flex-container>a {
   text-decoration: none;
-  color: white;
-  background-color: #789cd6;
+  /* color: black; */
+  /* background-color: #789cd6; */
   border-radius: 2px;
   width: 200px;
   margin: 10px;
@@ -33,7 +64,8 @@ body {
 }
 
 .flex-container>a:hover{
-  background-color: turquoise;
+  opacity: 0.5;
+  /* background-color: turquoise; */
 }
 
 h1 {
@@ -79,28 +111,10 @@ button:hover{
   background-color: turquoise;
 }
 
-.category {
-  background-color: ;
-}
 
-.question {
-  background-color: ;
-}
-
-.advice {
-  background-color: ;
-}
-
-.action {
-  background-color: ;
-}
-
-.anwser {
-  background-color: ;
-}
 
 
 #motm {
   text-align: center;
-  
+
 }
