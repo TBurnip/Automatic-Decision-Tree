@@ -20,6 +20,10 @@
                     "link":"careers"
                 },
                 {
+                    "name":"Health and Absence",
+                    "link":"health"
+                },
+                {
                     "name":"Erasmus/ Study Abroad",
                     "link":"studyabroad"
                 },
@@ -167,6 +171,7 @@
         {
             "filename":"within_college",
             "title":"Is the subject you wish to switch to in the College of Science and Engineering?",
+            "type":"question",
             "descp":"",
             "subcats":[
                 {
@@ -186,11 +191,11 @@
             "type":"action",
             "descp":"",
             "info":"When contacting your adviser of studies try and include as much information  as possible about your situation and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
-            "subcats":
+            "subcats":[
                 {
                     "name":"Who is my adviser of studies?",
                     "link":"adviser_info"
-                }
+                }]
         },
         {
             "filename":"adviser_info",
@@ -205,11 +210,111 @@
             "type":"action",
             "descp":"",
             "info":"Go to your adviser of studies and discuss your options. You will also need to contact the college you wish to transfer to and see if they will accept you.",
-            "subcats":
+            "subcats":[
                 {
                     "name":"Who is my adviser of studies?",
                     "link":"adviser_info"
+                }]
+        },
+        {
+            "filename":"health",
+            "title":"Health and Absence",
+            "type":"category",
+            "descp":"",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Disabillities",
+                    "link":"health_disabled"
+                },
+                {
+                    "name":"Have you been absent or missed and assessment?",
+                    "link":"health_good_cause"
+                },
+                {
+                    "name":"Fitness to Study",
+                    "link":"health_fit_to_study"
+                },
+                {
+                    "name":"Local Health Sevices",
+                    "link":"local_health"
                 }
+            ]
+        },
+        {
+            "filename":"health_disabled",
+            "title":"Disabillites",
+            "type":"advice",
+            "descp":"",
+            "info":"See <a href=\"disabilitesunipage\">Disabilities services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>",
+            "subcats":[]
+        },
+        {
+            "filename":"health_good_cause",
+            "title":"Good Cause",
+            "type":"advice",
+            "descp":"",
+            "info":"Good Cause <a href=\"linktopdfongoodcause\">PDF</a>",
+            "subcats":[]
+        },
+        {
+            "filename":"health_fit_to_study",
+            "title":"Fitness to Study",
+            "type":"category",
+            "descp":"",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Do you want to be Considered for a fitness to study case?",
+                    "link":"goto_adviser"
+                },
+                {
+                    "name":"What is a fiteness to study case?",
+                    "link":"fit_to_study_guide"
+                }
+            ]
+        },
+        {
+            "filename":"fit_to_study_guide",
+            "title":"The fitness to Study Guide",
+            "type":"advice",
+            "descp":"",
+            "info":"Here is a pdf?",
+            "subcats":[
+            ]
+        },
+        {
+            "filename":"local_health",
+            "title":"Local Health Services",
+            "type":"advice",
+            "descp":"",
+            "info":"Here's some info on the local health services",
+            "subcats":[]
+        },
+        {
+            "filename":"finance",
+            "title":"Health and Absence",
+            "type":"category",
+            "descp":"",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Disabillities",
+                    "link":"health_disabled"
+                },
+                {
+                    "name":"Have you been absent or missed and assessment?",
+                    "link":"health_good_cause"
+                },
+                {
+                    "name":"Fitness to Study",
+                    "link":"health_fit_to_study"
+                },
+                {
+                    "name":"Local Health Sevices",
+                    "link":"local_health"
+                }
+            ]
         }
     ],
     "motm":{

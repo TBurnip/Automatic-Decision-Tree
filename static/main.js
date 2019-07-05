@@ -86,7 +86,11 @@ function loadpage(name) {
             data["subcats"].forEach(subcat => {
                 resp["Page"].forEach(page => {
                     if (page["filename"] == subcat["link"]) {
-                        subcat["type"] = page["type"]
+                        if (data["type"] != "question") {
+                            subcat["type"] = page["type"]
+                        }else {
+                            subcat["type"] = "anwser"
+                        }
                         subcat["descp"] = page["descp"]
                     }
                 });
