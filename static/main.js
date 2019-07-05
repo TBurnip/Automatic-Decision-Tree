@@ -87,10 +87,14 @@ function loadpage(name) {
                 resp["Page"].forEach(page => {
                     if (page["filename"] == subcat["link"]) {
                         subcat["type"] = page["type"]
+                        subcat["descp"] = page["descp"]
                     }
                 });
             });
         }
+        var d = new Date();
+        var n = d.getMonth();
+        data["motm"] = resp["motm"][n]
 
         console.log("The Data is: " + data)
         if (data != null) {
