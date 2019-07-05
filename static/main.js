@@ -24,7 +24,7 @@ function getCookie(cname) {
 function goback() {
     console.log("going back")
     if (location.pathname + location.search != "/?p=" && (location.search != "" || location.pathname == "/404.html")) {
-        location = "/?p="+hist.split(",")[hist.split(",").length - 2]
+        location = "/?p=" + hist.split(",")[hist.split(",").length - 2]
         hist = hist.split(",").slice(0, hist.split(",").length - 2)
         setCookie("hist", hist)
     }
@@ -61,13 +61,13 @@ function loaddata() {
     local = findGetParameter("p")
     if (local != null) {
         loadpage(local)
-    }else {
+    } else {
         loadpage("index")
     }
 }
 
 function loadpage(name) {
-    console.log("Geting Data for: "+name)
+    console.log("Geting Data for: " + name)
     getrequest("/data.json", {}, function (r) {
         resp = JSON.parse(r.responseText);
         console.log(resp["Page"])
@@ -82,11 +82,21 @@ function loadpage(name) {
             location = "/404.html"
             return
         }
-        console.log("The Data is: "+data)
+        if (data["subcats"] != undefined) {
+            data["subcats"].forEach(subcat => {
+                resp["Page"].forEach(page => {
+                    if (page["filename"] == subcat["link"]) {
+                        subcat["type"] = page["type"]
+                    }
+                });
+            });
+        }
+
+        console.log("The Data is: " + data)
         if (data != null) {
             getrequest("/bodyexample.html", {}, function (r) {
                 bodyexamplehtml = r.responseText
-                document.body.innerHTML = Mustache.render(bodyexamplehtml,data)
+                document.body.innerHTML = Mustache.render(bodyexamplehtml, data)
                 document.body.id = data["type"]
                 document.title = data["title"]
                 load()
@@ -118,8 +128,8 @@ function findGetParameter(parameterName) {
         .substr(1)
         .split("&")
         .forEach(function (item) {
-          tmp = item.split("=");
-          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
         });
     return result;
 }

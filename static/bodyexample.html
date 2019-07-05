@@ -6,8 +6,8 @@
 </div>
 <h1>{{ title }}</h1>
 <p id="info">{{ info }}</p>
-<div class="flex-container" id="category">
+<div class="flex-container">
   {{ #subcats }}
-  <a href="?p={{ link }}">{{ name }}</a>
+  <a class="{{ type }}" href="?p={{ link }}">{{ name }}<span>{{ descp }}</span></a>
   {{ /subcats }}
 </div>
