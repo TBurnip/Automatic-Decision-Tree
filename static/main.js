@@ -87,6 +87,7 @@ function loadpage(name) {
                 resp["Page"].forEach(page => {
                     if (page["filename"] == subcat["link"]) {
                         subcat["type"] = page["type"]
+                        subcat["descp"] = page["descp"]
                     }
                 });
             });
