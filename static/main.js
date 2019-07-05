@@ -23,7 +23,7 @@ function getCookie(cname) {
 
 function goback() {
     console.log("going back")
-    if (location.pathname + location.search != "/?p=" && location.search != "" ) {
+    if (location.pathname + location.search != "/?p=" && (location.search != "" || location.pathname == "/404.html")) {
         location = "/?p="+hist.split(",")[hist.split(",").length - 2]
         hist = hist.split(",").slice(0, hist.split(",").length - 2)
         setCookie("hist", hist)
@@ -97,7 +97,7 @@ function loadpage(name) {
 function load() {
     hist = getCookie("hist")
     if (hist != "") {
-        if (location.pathname + location.search == "/?p=" || location.search == "" || location.search == "?p=index") {
+        if (location.pathname + location.search == "/?p=" || (location.search == "" && location.pathname != "/404.html") || location.search == "?p=index") {
             setCookie("hist", "index")
         } else {
             setCookie("hist", hist + "," + findGetParameter("p"))
