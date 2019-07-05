@@ -4,6 +4,7 @@
             "filename":"index",
             "title":"General",
             "type":"category",
+            "descp":"",
             "info":"",
             "subcats":[
                 {
@@ -41,6 +42,7 @@
             "filename":"courses",
             "title":"Courses & Enrolment",
             "type":"category",
+            "descp":"This includes info on Courses, Enrolment and Timetables",
             "info":"",
             "subcats":[
                 {
@@ -69,12 +71,14 @@
             "filename":"qandp",
             "title":"Questions relating to individual course or project",
             "type":"advice",
+            "descp":"",
             "info":"If your question relates to an individual course or project, check the moodle or email the course lecturer"
         },
         {
             "filename":"timetable",
             "title":"Timetable",
             "type":"category",
+            "descp":"",
             "info":"",
             "subcats":[
                 {
@@ -91,6 +95,7 @@
             "filename":"enrolguide",
             "title":"Guide on How to Enrol (MyCampus)",
             "type":"category",
+            "descp":"",
             "info":"",
             "subcats":[
                 {
@@ -107,6 +112,7 @@
             "filename":"newstudent",
             "title":"Enrolment as a new student",
             "type":"advice",
+            "descp":"",
             "info":"You can go to the college help desk for more help if you are still stuck",
             "subcats":[
             ]
@@ -115,6 +121,7 @@
             "filename":"coursechoice",
             "title":"Advice on choice of course and electives",
             "type":"category",
+            "descp":"",
             "info":"",
             "subcats":[
                 {
@@ -139,6 +146,7 @@
             "filename":"degree",
             "title":"Degree Programme",
             "type":"category",
+            "descp":"",
             "info":"",
             "subcats":[
                 {
@@ -159,6 +167,7 @@
         {
             "filename":"within_college",
             "title":"Is the subject you wish to switch to in the College of Science and Engineering?",
+            "descp":"",
             "subcats":[
                 {
                     "name":"Yes",
@@ -175,6 +184,7 @@
             "filename":"goto_adviser",
             "title":"Go to your adviser of studies.",
             "type":"action",
+            "descp":"",
             "info":"When contacting your adviser of studies try and include as much information  as possible about your situation and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
             "subcats":
                 {
@@ -186,12 +196,14 @@
             "filename":"adviser_info",
             "title":"Adviser of Studies",
             "type":"advice",
+            "descp":"",
             "info":"To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the Universiry staff A-Z."
         },
         {
             "filename":"transfer_outside_college",
             "title":"Transfer out of College of Science and Engineering",
             "type":"action",
+            "descp":"",
             "info":"Go to your adviser of studies and discuss your options. You will also need to contact the college you wish to transfer to and see if they will accept you.",
             "subcats":
                 {
