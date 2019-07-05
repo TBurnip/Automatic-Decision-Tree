@@ -29,6 +29,7 @@ body {
   margin: 10px;
   text-align: center;
   font-size: 30px;
+  padding: 5px;
 }
 
 .flex-container>a:hover{

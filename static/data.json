@@ -19,7 +19,7 @@
                     "link":"careers"
                 },
                 {
-                    "name":"Erasmus/Study Abroad",
+                    "name":"Erasmus/ Study Abroad",
                     "link":"studyabroad"
                 },
                 {
@@ -27,13 +27,14 @@
                     "link":"finance"
                 },
                 {
-                    "name":"Other/FAQ",
-                    "link":"other"
-                },
-                {
                     "name":"Exams, Assessments, Resits & Progression",
                     "link":"exams"
+                },
+                {
+                    "name":"Other/FAQ",
+                    "link":"other"
                 }
+
             ]
         },
         {
@@ -135,7 +136,7 @@
             ]
         },
         {
-            "filename":"Degree",
+            "filename":"degree",
             "title":"Degree Programme",
             "type":"category",
             "info":"",
@@ -171,7 +172,7 @@
             
         },
         {
-            "filname":"goto_adviser",
+            "filename":"goto_adviser",
             "title":"Go to your adviser of studies.",
             "type":"action",
             "info":"When contacting your adviser of studies try and include as much information  as possible about your situation and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",

@@ -87,6 +87,7 @@ function loadpage(name) {
             getrequest("/bodyexample.html", {}, function (r) {
                 bodyexamplehtml = r.responseText
                 document.body.innerHTML = Mustache.render(bodyexamplehtml,data)
+                document.body.id = data["type"]
                 document.title = data["title"]
                 load()
             })
