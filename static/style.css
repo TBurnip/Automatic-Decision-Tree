@@ -1,7 +1,3 @@
-#category {
-  
-}
-
 .category {
   color: black;
   background-color: #cfe2f3ff;
@@ -110,9 +106,6 @@ button:hover{
 #header > a:hover {
   background-color: turquoise;
 }
-
-
-
 
 #motm {
   text-align: center;
