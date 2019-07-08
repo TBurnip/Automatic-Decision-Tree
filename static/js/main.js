@@ -73,7 +73,7 @@ function loaddata() {
     }
 }
 
-// 
+// Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
 function loadpage(name) {
     console.log("Geting Data for: " + name)
     getrequest("/js/data.json", {}, function (r) {
@@ -121,6 +121,7 @@ function loadpage(name) {
     })
 }
 
+// Load is a whole bunch of miscellaneous stuff related to loading the page.
 function load() {
     hist = getCookie("hist")
     if (hist != "") {
@@ -137,6 +138,7 @@ function load() {
     renderbreadcrumb()
 }
 
+// This just returns data for a get parameter named when calling the function
 function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
