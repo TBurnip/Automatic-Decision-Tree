@@ -163,7 +163,9 @@ function findGetParameter(parameterName) {
 }
 
 function onhover(l) {
-    document.getElementById("tooltip").innerHTML = "Tooltip: " + l
+    if (l != "") {
+        document.getElementById("tooltip").innerHTML = "Tooltip: " + l
+    }
 }
 
 function onnothover() {
