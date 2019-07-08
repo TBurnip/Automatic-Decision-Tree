@@ -161,3 +161,11 @@ function findGetParameter(parameterName) {
         });
     return result;
 }
+
+function onhover(l) {
+    document.getElementById("tooltip").innerHTML = "Tooltip: " + l
+}
+
+function onnothover() {
+    document.getElementById("tooltip").innerHTML = ""
+}

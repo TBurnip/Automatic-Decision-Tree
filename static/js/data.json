@@ -150,7 +150,7 @@
             "filename":"degree",
             "title":"Degree Programme",
             "type":"category",
-            "descp":"",
+            "descp":"this is a test",
             "info":"",
             "subcats":[
                 {
@@ -343,7 +343,7 @@
             "filename":"careers",
             "title":"Careers and Internships",
             "type":"advice",
-            "descp":"",
+            "descp":"this is a test",
             "info":"See <a href=\"linktocareershubpage\">Careers hub page</a><br>Or goto Careers Team<ul><li><a href=\"mailto:careers@glasgow.ac.uk\">careers@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri 1000-1600</li></ul>",
             "subcats":[
             ]
