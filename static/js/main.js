@@ -90,27 +90,27 @@ function loadpage(name) {
             location = "/404.html"
             return
         }
-        if (data["subcats"] != undefined) {
+        if (!(data["subcats"] == null || data["subcats"] == undefined)) {
             data["subcats"].forEach(subcat => {
                 templink = subcat["link"]
                 re = /^\/\?p=(.*)|^(https?:\/\/.*)/;
                 result = re.exec(templink);
-                console.log(result)
-                if (result[1] != undefined) {
+                console.log("LOOK HERE" + result);
+                if (!(result[1] == null || result[1] == undefined)) {
                     templink = result[1]
                     resp["Page"].forEach(page => {
                         if (page["filename"] == templink) {
                             if (data["type"] != "question") {
-                                subcat["type"] = page["type"]
+                                subcat["type"] = page["type"];
                             }else {
-                                subcat["type"] = "anwser"
+                                subcat["type"] = "anwser";
                             }
-                            subcat["descp"] = page["descp"]
+                            subcat["descp"] = page["descp"];
                         }
                     });
                 } else if (result[2] != undefined) {
-                    subcat["type"] = external
-                    subcat["descp"] = "This is an external link. Use caution when proceeding"
+                    subcat["type"] = external;
+                    subcat["descp"] = "This is an external link. Use caution when proceeding";
                 }
             });
         }

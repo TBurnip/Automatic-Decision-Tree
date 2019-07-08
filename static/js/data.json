@@ -121,7 +121,7 @@
                 },
                 {
                     "name":"No",
-                    "link":"/?=possible_to_drop_or_swap_course"
+                    "link":"/?p=possible_to_drop_or_swap_course"
                 }
             ]
         },
@@ -134,30 +134,30 @@
             "subcats":[
                 {
                     "name":"This doesn't solve the problem.",
-                    "link":"/?=possible_to_drop_or_swap"
+                    "link":"/?p=possible_to_drop_or_swap"
                 }
             ]
         },
         {
-            "filename":"possible_to_drop_or_swap_course",
+            "filename":"possible_to_drop_or_swap",
             "title":"Can you swap or drop one of the courses?",
             "type":"question",
             "desc":"",
-            "info":"Is it possible to solve the problem by swapping or dropping one of the course?",
+            "info":"Is it possible to solve the problem by swapping or dropping one of the courses?",
             "subcats":[
                 {
                     "name":"Yes",
-                    "link":"/?=goto_adviser"
+                    "link":"/?p=goto_adviser"
                 },
                 {
                     "name:":"No",
-                    "link":"/?=unavoidable_course_crash"
+                    "link":"/?p=unavoidable_course_clash"
                 }
             ]
         },
         {
-            "filename":"unavoidable_course_crash",
-            "title":"Unavoidable Course Crash",
+            "filename":"unavoidable_course_clash",
+            "title":"Unavoidable Course Clash",
             "type":"advice",
             "desc":"",
             "info":"If two courses you want to take clash and no workaround exists, you will need to:<ul><li>Consult this guide</li><li>Speak to your adviser</li><li>discuss with the lectures of the courses in question</li></ul>",
@@ -310,7 +310,7 @@
                 },
                 {
                     "name":"Exam Arangements",
-                    "link":"/?=exam_disability_access"
+                    "link":"/?p=exam_disability_access"
                 }
             ]
         },
@@ -439,28 +439,59 @@
             "subcats":[
                 {
                     "name":"Disability Arangements",
-                    "link":"/?=exam_disability_access"
+                    "link":"/?p=exam_disability_access"
                 },
                 {
                     "name":"Results Info",
-                    "link":"/?=exam_registry_info"
+                    "link":"/?p=exam_registry_info"
                 },
                 {
                     "name":"Resits",
-                    "link":"/?=resits"
+                    "link":"/?p=resits"
                 },
                 {
                     "name":"Not got the results to progress",
-                    "link":"/?=cant_progress"
+                    "link":"/?p=cant_progress"
                 },
                 {
                     "name":"Academic Standing and Appeals",
-                    "link":"/?=acadmic_standing"
+                    "link":"/?p=acadmic_standing"
                 },
                 {
                     "name":"Academic Conduct and Appeals",
-                    "link":"/?=misconduct"
+                    "link":"/?p=misconduct"
                 }
+            ]
+        },
+        {
+            "filename":"exam_disability_access",
+            "title":"Exam Disability Arangements",
+            "type":"advice",
+            "desc":"",
+            "info":"See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul>",
+            "subcats":[
+            ]
+        },
+        {
+            "filename":"exam_registry_info",
+            "title":"Exams Info",
+            "type":"advice",
+            "desc":"",
+            "info":"See registry page on exams.",
+            "subcats":[]
+        },
+        {
+            "filename":"resits",
+            "title":"Resits",
+            "type":"category",
+            "desc":"",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Resit Enrolment",
+                    "link":"?/p=exam_registry_info"
+                }
+               
             ]
         }
 
