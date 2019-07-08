@@ -92,16 +92,26 @@ function loadpage(name) {
         }
         if (data["subcats"] != undefined) {
             data["subcats"].forEach(subcat => {
-                resp["Page"].forEach(page => {
-                    if (page["filename"] == subcat["link"]) {
-                        if (data["type"] != "question") {
-                            subcat["type"] = page["type"]
-                        }else {
-                            subcat["type"] = "anwser"
+                templink = subcat["link"]
+                re = /^\/\?p=(.*)|^(https?:\/\/.*)/;
+                result = re.exec(templink);
+                console.log(result)
+                if (result[1] != undefined) {
+                    templink = result[1]
+                    resp["Page"].forEach(page => {
+                        if (page["filename"] == templink) {
+                            if (data["type"] != "question") {
+                                subcat["type"] = page["type"]
+                            }else {
+                                subcat["type"] = "anwser"
+                            }
+                            subcat["descp"] = page["descp"]
                         }
-                        subcat["descp"] = page["descp"]
-                    }
-                });
+                    });
+                } else if (result[2] != undefined) {
+                    subcat["type"] = external
+                    subcat["descp"] = "This is an external link. Use caution when proceeding"
+                }
             });
         }
         var d = new Date();
