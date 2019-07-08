@@ -68,7 +68,7 @@ function loaddata() {
 
 function loadpage(name) {
     console.log("Geting Data for: " + name)
-    getrequest("/data.json", {}, function (r) {
+    getrequest("/js/data.json", {}, function (r) {
         resp = JSON.parse(r.responseText);
         console.log(resp["Page"])
         found = false
