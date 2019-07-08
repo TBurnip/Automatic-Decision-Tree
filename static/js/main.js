@@ -162,12 +162,14 @@ function findGetParameter(parameterName) {
     return result;
 }
 
+// When a subcat is hovered over this is used to show the tool tip
 function onhover(l) {
     if (l != "") {
         document.getElementById("tooltip").innerHTML = "Tooltip: " + l
     }
 }
 
+// When you move away from hovering over a subcat this make the tooltip diappear
 function onnothover() {
     document.getElementById("tooltip").innerHTML = ""
 }
