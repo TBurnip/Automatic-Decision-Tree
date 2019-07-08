@@ -439,27 +439,27 @@
             "subcats":[
                 {
                     "name":"Disability Arangements",
-                    "link":"/?=exam_disability_access"
+                    "link":"/?p=exam_disability_access"
                 },
                 {
                     "name":"Results Info",
-                    "link":"/?=exam_registry_info"
+                    "link":"/?p=exam_registry_info"
                 },
                 {
                     "name":"Resits",
-                    "link":"/?=resits"
+                    "link":"/?p=resits"
                 },
                 {
                     "name":"Not got the results to progress",
-                    "link":"/?=cant_progress"
+                    "link":"/?p=cant_progress"
                 },
                 {
                     "name":"Academic Standing and Appeals",
-                    "link":"/?=acadmic_standing"
+                    "link":"/?p=acadmic_standing"
                 },
                 {
                     "name":"Academic Conduct and Appeals",
-                    "link":"/?=misconduct"
+                    "link":"/?p=misconduct"
                 }
             ]
         }
