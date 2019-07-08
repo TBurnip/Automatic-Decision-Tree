@@ -24,7 +24,7 @@
 }
 
 .external {
-
+  background-color: crimson;
 }
 
 :root {
@@ -127,3 +127,17 @@ button:hover{
   text-align: center;
 }
 
+#tooltip {
+  position: static;
+  color: white;
+  background-color: lightsalmon;
+  border-radius: 2px;
+  font-size: 24px;
+  padding: 10px;
+  box-shadow: var(--box-shadow-vars);
+}
+
+
+#tooltip:empty {
+  padding: 0px;
+}
