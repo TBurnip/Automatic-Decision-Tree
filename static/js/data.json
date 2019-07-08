@@ -9,35 +9,35 @@
             "subcats":[
                 {
                     "name":"Courses & Enrolment",
-                    "link":"courses"
+                    "link":"/?p=courses"
                 },
                 {
                     "name":"Degree Programme",
-                    "link":"degree"
+                    "link":"/?p=degree"
                 },                
                 {
                     "name":"Careers and Internships",
-                    "link":"careers"
+                    "link":"/?p=careers"
                 },
                 {
                     "name":"Health and Absence",
-                    "link":"health"
+                    "link":"/?p=health"
                 },
                 {
                     "name":"Erasmus/ Study Abroad",
-                    "link":"studyabroad"
+                    "link":"/?p=studyabroad"
                 },
                 {
                     "name":"Finance",
-                    "link":"finance"
+                    "link":"/?p=finance"
                 },
                 {
                     "name":"Exams, Assessments, Resits & Progression",
-                    "link":"exams"
+                    "link":"/?p=exams"
                 },
                 {
                     "name":"Other/FAQ",
-                    "link":"other"
+                    "link":"/?p=other"
                 }
 
             ]
@@ -51,23 +51,23 @@
             "subcats":[
                 {
                     "name":"Timetable",
-                    "link":"timetable"
+                    "link":"/?p=timetable"
                 },
                 {
                     "name":"Guide on How to Enrol (MyCampus)",
-                    "link":"enrolguide"
+                    "link":"/?p=enrolguide"
                 },
                 {
                     "name":"Swap/Drop Course",
-                    "link":"swapanddrop"
+                    "link":"/?p=swapanddrop"
                 },
                 {
                     "name":"Advice on choice of Course and Electives",
-                    "link":"coursechoice"
+                    "link":"/?p=coursechoice"
                 },
                 {
                     "name":"Questions relating to course or project",
-                    "link":"qandp"
+                    "link":"/?p=qandp"
                 }
             ]
         },
@@ -87,11 +87,11 @@
             "subcats":[
                 {
                     "name":"Timetable Clash",
-                    "link":"timetableclash"
+                    "link":"/?p=timetableclash"
                 },
                 {
                     "name":"Lab & Tutorial Swaps",
-                    "link":"labswaps"
+                    "link":"/?p=labswaps"
                 }
             ]
         },
@@ -104,11 +104,11 @@
             "subcats":[
                 {
                     "name":"See Registry Page",
-                    "link":"linktoregistrypage"
+                    "link":"/?p=linktoregistrypage"
                 },
                 {
                     "name":"New student?",
-                    "link":"newstudent"
+                    "link":"/?p=newstudent"
                 }
             ]
         },
@@ -130,19 +130,19 @@
             "subcats":[
                 {
                     "name":"1P v 1CT",
-                    "link":"pvct"
+                    "link":"/?p=pvct"
                 },
                 {
                     "name":"Maths",
-                    "link":"maths"
+                    "link":"/?p=maths"
                 },
                 {
                     "name":"What course should i pick?",
-                    "link":"whatcourse"
+                    "link":"/?p=whatcourse"
                 },
                 {
                     "name":"Enquires about number of credits",
-                    "link":"creditenquires"
+                    "link":"/?p=creditenquires"
                 }
             ]
         },
@@ -156,15 +156,15 @@
                 {
                     "name":"Course of Study",
                     "info":"Switch between masters, honours and designated degree",
-                    "link":"goto_adviser"
+                    "link":"/?p=goto_adviser"
                 },
                 {
                     "name":"Combined and Joint Honours",
-                    "link":"goto_adviser"
+                    "link":"/?p=goto_adviser"
                 },
                 {
                     "name":"Switch Major",
-                    "link":"within_college"
+                    "link":"/?p=within_college"
                 }
             ]
         },
@@ -176,11 +176,11 @@
             "subcats":[
                 {
                     "name":"Yes",
-                    "link":"goto_adviser"
+                    "link":"/?p=goto_adviser"
                 },
                 {
                     "name":"No",
-                    "link":"transfer_outside_college"
+                    "link":"/?p=transfer_outside_college"
                 }
             ]
             
@@ -194,7 +194,7 @@
             "subcats":[
                 {
                     "name":"Who is my adviser of studies?",
-                    "link":"adviser_info"
+                    "link":"/?p=adviser_info"
                 }]
         },
         {
@@ -213,7 +213,7 @@
             "subcats":[
                 {
                     "name":"Who is my adviser of studies?",
-                    "link":"adviser_info"
+                    "link":"/?p=adviser_info"
                 }]
         },
         {
@@ -225,19 +225,19 @@
             "subcats":[
                 {
                     "name":"Disabillities",
-                    "link":"health_disabled"
+                    "link":"/?p=health_disabled"
                 },
                 {
                     "name":"Have you been absent or missed and assessment?",
-                    "link":"health_good_cause"
+                    "link":"/?p=health_good_cause"
                 },
                 {
                     "name":"Fitness to Study",
-                    "link":"health_fit_to_study"
+                    "link":"/?p=health_fit_to_study"
                 },
                 {
                     "name":"Local Health Sevices",
-                    "link":"local_health"
+                    "link":"/?p=local_health"
                 }
             ]
         },
@@ -266,11 +266,11 @@
             "subcats":[
                 {
                     "name":"Do you want to be Considered for a fitness to study case?",
-                    "link":"goto_adviser"
+                    "link":"/?p=goto_adviser"
                 },
                 {
                     "name":"What is a fiteness to study case?",
-                    "link":"fit_to_study_guide"
+                    "link":"/?p=fit_to_study_guide"
                 }
             ]
         },
@@ -300,15 +300,15 @@
             "subcats":[
                 {
                     "name":"Scholarships and Funding",
-                    "link":"finance_financeTeam"
+                    "link":"/?p=finance_financeTeam"
                 },
                 {
                     "name":"Disability Support and Funding",
-                    "link":"finance_disabled"
+                    "link":"/?p=finance_disabled"
                 },
                 {
                     "name":"Extra Resources",
-                    "link":"finance_extra"
+                    "link":"/?p=finance_extra"
                 }
             ]
         },

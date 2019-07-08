@@ -1,3 +1,4 @@
+// As the name suggest it sets a cookie. This is a modified version of a bit of code of the internet
 function setCookie(cname, cvalue) {
     var d = new Date();
     d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
@@ -5,6 +6,7 @@ function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+// same as above but for getting a cookie
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -21,6 +23,7 @@ function getCookie(cname) {
     return "";
 }
 
+// This function takes advantage of a variable and cookie called hist. Hist stands for history and is an array of all the previous pages a user has been to. This function simply steps back up the array and deletes the page you are on while doing so.
 function goback() {
     console.log("going back")
     if (location.pathname + location.search != "/?p=" && (location.search != "" || location.pathname == "/404.html")) {
@@ -30,6 +33,7 @@ function goback() {
     }
 }
 
+// This takes the data in hist and displays it as an interactive breadcrumb trail
 function renderbreadcrumb() {
     bread = document.getElementById("breadcrumb")
     hist.split(",").forEach(crumb => {
@@ -37,6 +41,7 @@ function renderbreadcrumb() {
     });
 }
 
+// This removes duplicate history entries from the history (I know this is not a good function and should be broken out for general use however it is only used once).
 function removeconsecutiveduplicates() {
     hista = hist.split(",")
     console.log(hista)
@@ -57,6 +62,8 @@ function removeconsecutiveduplicates() {
     setCookie("hist", hist)
 }
 
+
+// This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
 function loaddata() {
     local = findGetParameter("p")
     if (local != null) {
@@ -66,6 +73,7 @@ function loaddata() {
     }
 }
 
+// 
 function loadpage(name) {
     console.log("Geting Data for: " + name)
     getrequest("/js/data.json", {}, function (r) {

@@ -1,3 +1,6 @@
+// This is my custom library for get requests
+
+// This take a path a set of keyvalues and a function which it runs once the request responds with http code 200
 function getrequest(path,keyvalues,oncedone) {
     console.log(path);
     console.log(keyvalues);
