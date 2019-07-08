@@ -96,6 +96,75 @@
             ]
         },
         {
+            "filename":"timetableclash",
+            "title": "Timetable Clash",
+            "type": "advice",
+            "descp": "",
+            "info": "Have a look at the <a href=https://www.gla.ac.uk/myglasgow/registry/enrolment/#/step3:enrolonclasses(e.g.tutorialslabsessions)>registry page</a> on timetable clashes.<br />",
+            "subcats":[
+                {
+                   "name":"This doesn't solve the problem.",
+                   "link":"/?p=regdoesntfixclash"
+                }
+            ]
+        },
+        {
+            "filename":"regdoesntfixclash",
+            "title":"Swap a lab, tutorial or seminar",
+            "type":"question",
+            "descp":"",
+            "info":"Can the timetable clash be solved by swapping a lab, tutorial or seminar?",
+            "subcats":[
+                {
+                    "name":"Yes",
+                    "link":"/?p=labswaps"
+                },
+                {
+                    "name":"No",
+                    "link":"/?=possible_to_drop_or_swap_course"
+                }
+            ]
+        },
+        {
+            "filename":"labswaps",
+            "title":"Swap a lab, tutorial or seminar",
+            "type":"advice",
+            "desc":"",
+            "info": "Go to the relevant teaching office and ask about swapping the lab, tutorial or seminar.",
+            "subcats":[
+                {
+                    "name":"This doesn't solve the problem.",
+                    "link":"/?=possible_to_drop_or_swap"
+                }
+            ]
+        },
+        {
+            "filename":"possible_to_drop_or_swap_course",
+            "title":"Can you swap or drop one of the courses?",
+            "type":"question",
+            "desc":"",
+            "info":"Is it possible to solve the problem by swapping or dropping one of the course?",
+            "subcats":[
+                {
+                    "name":"Yes",
+                    "link":"/?=goto_adviser"
+                },
+                {
+                    "name:":"No",
+                    "link":"/?=unavoidable_course_crash"
+                }
+            ]
+        },
+        {
+            "filename":"unavoidable_course_crash",
+            "title":"Unavoidable Course Crash",
+            "type":"advice",
+            "desc":"",
+            "info":"If two courses you want to take clash and no workaround exists, you will need to:<ul><li>Consult this guide</li><li>Speak to your adviser</li><li>discuss with the lectures of the courses in question</li></ul>",
+            "subcats":[
+            ]
+        },
+        {
             "filename":"enrolguide",
             "title":"Guide on How to Enrol (MyCampus)",
             "type":"category",
@@ -238,6 +307,10 @@
                 {
                     "name":"Local Health Sevices",
                     "link":"/?p=local_health"
+                },
+                {
+                    "name":"Exam Arangements",
+                    "link":"/?=exam_disability_access"
                 }
             ]
         },
@@ -350,11 +423,44 @@
         },
         {
             "filename":"studyabroad",
-            "title":"Erasmus/ Study Abroad",
+            "title":"Erasmus/Study Abroad",
             "type":"action",
             "descp":"",
             "info":"Contact Gerardo Aragon Camarasa<a href=\"mailto:Gerardo.AragonCamarasa@glasgow.ac.uk\">Gerardo.AragonCamarasa@glasgow.ac.uk</a><br><a href=\"https://www.universitiesuk.ac.uk/International/Documents/2019/Gone-Intl-2019.pdf\">PDF</a> on study abroad",
             "subcats":[
+            ]
+        },
+        {
+            "filename":"exams",
+            "title":"Exams, Assessment, Resits and Progression",
+            "type":"category",
+            "descp":"",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"Disability Arangements",
+                    "link":"/?=exam_disability_access"
+                },
+                {
+                    "name":"Results Info",
+                    "link":"/?=exam_registry_info"
+                },
+                {
+                    "name":"Resits",
+                    "link":"/?=resits"
+                },
+                {
+                    "name":"Not got the results to progress",
+                    "link":"/?=cant_progress"
+                },
+                {
+                    "name":"Academic Standing and Appeals",
+                    "link":"/?=acadmic_standing"
+                },
+                {
+                    "name":"Academic Conduct and Appeals",
+                    "link":"/?=misconduct"
+                }
             ]
         }
 
