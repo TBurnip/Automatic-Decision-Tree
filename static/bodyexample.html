@@ -8,7 +8,7 @@
 <div id="info">{{{ info }}}</div>
 <div class="flex-container">
   {{ #subcats }}
-  <a class="subcat {{ type }}" href="{{ link }}" onmouseout="onnothover()" onmouseover="onhover('{{ descp }}')">{{ name }}</a>
+  <a class="subcat {{ type }}" href="{{ link }}" onfocus="onhover()" onmouseout="onnothover()" onmouseover="onhover('{{ descp }}')">{{ name }}</a>
   {{ /subcats }}
 </div>
 <div id="motm">

@@ -8,7 +8,7 @@
             "info":"",
             "subcats":[
                 {
-                    "name":"Courses & Enrolment",
+                    "name":"Courses, Timetabling & Enrolment",
                     "link":"/?p=courses"
                 },
                 {
@@ -44,7 +44,7 @@
         },
         {
             "filename":"courses",
-            "title":"Courses & Enrolment",
+            "title":"Courses, Timetabling & Enrolment",
             "type":"category",
             "descp":"This includes info on Courses, Enrolment and Timetables",
             "info":"",
