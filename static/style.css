@@ -24,7 +24,12 @@
 }
 
 .external {
-  
+  background-color: crimson;
+}
+
+:root {
+  --box-shadow-vars: 5px 10px 10px #00000070;
+  --box-shadow-hover: 2.5px 5px 5px #00000070;
 }
 
 body {
@@ -38,6 +43,7 @@ body {
   border-radius: 2px;
   font-size: 24px;
   padding: 10px;
+  box-shadow: var(--box-shadow-vars);
 }
 
 #info:empty {
@@ -48,7 +54,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 }
 
 .flex-container>a {
@@ -56,15 +62,18 @@ body {
   /* color: black; */
   /* background-color: #789cd6; */
   border-radius: 2px;
+  border: 1px solid black;
   width: 200px;
   margin: 10px;
   text-align: center;
   font-size: 30px;
   padding: 5px;
+  box-shadow: var(--box-shadow-vars);
 }
 
 .flex-container>a:hover{
   opacity: 0.5;
+  box-shadow: var(--box-shadow-hover);
   /* background-color: turquoise; */
 }
 
@@ -96,6 +105,7 @@ button:hover{
 #header {
   display: flex;
   flex-wrap: wrap;
+  /* box-shadow: var(--box-shadow-vars); */
 }
 
 #header > a {
@@ -105,13 +115,29 @@ button:hover{
   line-height: 75px;
   font-size: 30px;
   text-decoration: none;
+  /* box-shadow: var(--box-shadow-vars); */
 }
 
 #header > a:hover {
   background-color: turquoise;
+  /* box-shadow: var(--box-shadow-hover); */
 }
 
 #motm {
   text-align: center;
+}
 
+#tooltip {
+  position: static;
+  color: white;
+  background-color: lightsalmon;
+  border-radius: 2px;
+  font-size: 24px;
+  padding: 10px;
+  box-shadow: var(--box-shadow-vars);
+}
+
+
+#tooltip:empty {
+  padding: 0px;
 }
