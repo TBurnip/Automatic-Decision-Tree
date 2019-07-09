@@ -109,7 +109,7 @@ function loadpage(name) {
                         }
                     });
                 } else if (result[2] != undefined) {
-                    subcat["type"] = external;
+                    subcat["type"] = "external\" target=\"_blank\" class=\"";
                     subcat["descp"] = "This is an external link. Use caution when proceeding";
                 }
             });

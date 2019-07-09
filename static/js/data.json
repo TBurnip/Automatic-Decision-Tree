@@ -216,6 +216,58 @@
             ]
         },
         {
+            "filename":"pvct",
+            "title":"1P v 1CT",
+            "type":"action",
+            "descp":"",
+            "info":"Resources mentioned by quintin. If you are still unsure contact quintin and till him what you got from the resources",
+            "subcats":[
+                {
+                    "name":"Swapping with another course?",
+                    "link":"/?p=dropoutperiod"
+                }
+            ]  
+        },
+        {
+            "filename":"whatcourse",
+            "title":"What course should i pick?",
+            "type":"action",
+            "descp":"",
+            "info":"Have a look at the course catalogue.<br> Now get in contact with your adviser to discuss it.",
+            "subcats":[
+                {
+                    "name":"Swapping with another course?",
+                    "link":"/?p=dropoutperiod"
+                }
+            ]  
+        },
+        {
+            "filename":"creditenquires",
+            "title":"Enquires about number of credits",
+            "type":"action",
+            "descp":"",
+            "info":"Goto The SSO",
+            "subcats":[
+                {
+                    "name":"Swapping with another course?",
+                    "link":"/?p=dropoutperiod"
+                }
+            ]  
+        },
+        {
+            "filename":"maths",
+            "title":"Maths",
+            "type":"action",
+            "descp":"",
+            "info":"Refer to documentation on maths courses",
+            "subcats":[
+                {
+                    "name":"Swapping with another course?",
+                    "link":"/?p=dropoutperiod"
+                }
+            ]  
+        },
+        {
             "filename":"degree",
             "title":"Degree Programme",
             "type":"category",
@@ -224,7 +276,7 @@
             "subcats":[
                 {
                     "name":"Course of Study",
-                    "info":"Switch between masters, honours and designated degree",
+                    "descp":"Switch between masters, honours and designated degree",
                     "link":"/?p=goto_adviser"
                 },
                 {
@@ -456,6 +508,10 @@
                 {
                     "name":"Academic Standing, Misconduct and Appeals",
                     "link":"/?p=standing_misconduct_and_appeals"
+                },
+                {
+                    "name":"Info about bands, progression, discretionary zones and degree classifications.",
+                    "link":"https://moodle.gla.ac.uk/course/view.php?id=3043"
                 }
             ]
         },
