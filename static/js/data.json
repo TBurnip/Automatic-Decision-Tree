@@ -572,7 +572,7 @@
             "subcats":[
                 {
                     "name":"Resit Enrolment",
-                    "link":"?/p=exam_registry_info"
+                    "link":"/?p=exam_registry_info"
                 },
                 {
                     "name":"International",
