@@ -96,7 +96,7 @@ function loadpage(name) {
                 re = /^\/\?p=(.*)|^(https?:\/\/.*)/;
                 result = re.exec(templink);
                 console.log("LOOK HERE" + result);
-                if (!(result[1] == null || result[1] == undefined)) {
+                if (!(result == null || result[1] == undefined)) {
                     templink = result[1]
                     resp["Page"].forEach(page => {
                         if (page["filename"] == templink) {
@@ -108,7 +108,7 @@ function loadpage(name) {
                             subcat["descp"] = page["descp"];
                         }
                     });
-                } else if (result[2] != undefined) {
+                } else if (!(result == null || result[2] == undefined)) {
                     subcat["type"] = "external\" target=\"_blank\" class=\"";
                     subcat["descp"] = "This is an external link. Use caution when proceeding";
                 }

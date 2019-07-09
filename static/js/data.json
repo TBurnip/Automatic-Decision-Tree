@@ -98,7 +98,7 @@
         {
             "filename":"timetable_clash",
             "title": "Timetable Clash",
-            "type": "advice",
+            "type": "action",
             "descp": "",
             "info": "Have a look at the <a href=https://www.gla.ac.uk/myglasgow/registry/enrolment/#/step3:enrolonclasses(e.g.tutorialslabsessions)>registry page</a> on timetable clashes.<br />",
             "subcats":[
@@ -128,7 +128,7 @@
         {
             "filename":"lab_swaps",
             "title":"Swap a lab, tutorial or seminar",
-            "type":"advice",
+            "type":"action",
             "descp":"",
             "info": "Go to the relevant teaching office and ask about swapping the lab, tutorial or seminar.",
             "subcats":[
@@ -184,7 +184,7 @@
         {
             "filename":"new_student",
             "title":"Enrolment as a new student",
-            "type":"advice",
+            "type":"action",
             "descp":"",
             "info":"You can go to the college help desk for more help if you are still stuck",
             "subcats":[
@@ -549,7 +549,7 @@
             "filename":"exam_disability_access",
             "title":"Exam Disability Arangements",
             "type":"advice",
-            "desc":"",
+            "descp":"",
             "info":"See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul>",
             "subcats":[
             ]
@@ -558,7 +558,7 @@
             "filename":"exam_registry_info",
             "title":"Exams Info",
             "type":"advice",
-            "desc":"",
+            "descp":"",
             "info":"See registry page on exams.",
             "subcats":[
             ]
@@ -567,7 +567,7 @@
             "filename":"resits",
             "title":"Resits",
             "type":"category",
-            "desc":"",
+            "descp":"",
             "info":"",
             "subcats":[
                 {
