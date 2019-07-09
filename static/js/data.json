@@ -59,7 +59,7 @@
                 },
                 {
                     "name":"Swap/Drop Course",
-                    "link":"/?p=swapanddrop"
+                    "link":"/?p=swap_drop_courses"
                 },
                 {
                     "name":"Advice on choice of Course and Electives",
@@ -129,7 +129,7 @@
             "filename":"labswaps",
             "title":"Swap a lab, tutorial or seminar",
             "type":"advice",
-            "desc":"",
+            "descp":"",
             "info": "Go to the relevant teaching office and ask about swapping the lab, tutorial or seminar.",
             "subcats":[
                 {
@@ -142,7 +142,7 @@
             "filename":"possible_to_drop_or_swap",
             "title":"Can you swap or drop one of the courses?",
             "type":"question",
-            "desc":"",
+            "descp":"",
             "info":"Is it possible to solve the problem by swapping or dropping one of the courses?",
             "subcats":[
                 {
@@ -159,7 +159,7 @@
             "filename":"unavoidable_course_clash",
             "title":"Unavoidable Course Clash",
             "type":"advice",
-            "desc":"",
+            "descp":"",
             "info":"If two courses you want to take clash and no workaround exists, you will need to:<ul><li>Consult this guide</li><li>Speak to your adviser</li><li>discuss with the lectures of the courses in question</li></ul>",
             "subcats":[
             ]
@@ -188,6 +188,40 @@
             "descp":"",
             "info":"You can go to the college help desk for more help if you are still stuck",
             "subcats":[
+            ]
+        },
+        {
+            "filename":"swap_drop_courses",
+            "title":"Swap and Drop Courses",
+            "type":"question",
+            "descp":"",
+            "info":"Do you know what course you would like to pick?",
+            "subcats":[
+                {
+                    "name":"Yes",
+                    "link":"/?p=add_drop_period"
+                },
+                {
+                    "name":"No",
+                    "link":"/?=coursechoice"
+                }
+            ]
+        },
+        {
+            "filename":"add_drop_period",
+            "title":"Add/Drop Period",
+            "type":"question",
+            "descp":"",
+            "info":"<b>Before swapping courses make sure to consult your adviser about the choice of course.</b><br />Is it outside the add/drop period? Dates can be found <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/#/makingchanges\">here.</a>",
+            "subcats":[
+                {
+                    "name":"Yes",
+                    "link":"/?=goto_adviser"
+                },
+                {
+                    "name":"No",
+                    "link":"/?p=compsci_teaching_office"
+                }
             ]
         },
         {
