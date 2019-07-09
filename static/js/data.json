@@ -451,15 +451,11 @@
                 },
                 {
                     "name":"Not got the results to progress",
-                    "link":"/?p=cant_progress"
+                    "link":"/?p=goto_adviser"
                 },
                 {
-                    "name":"Academic Standing and Appeals",
-                    "link":"/?p=acadmic_standing"
-                },
-                {
-                    "name":"Academic Conduct and Appeals",
-                    "link":"/?p=misconduct"
+                    "name":"Academic Standing, Misconduct and Appeals",
+                    "link":"/?p=standing_misconduct_and_appeals"
                 }
             ]
         },
@@ -478,7 +474,8 @@
             "type":"advice",
             "desc":"",
             "info":"See registry page on exams.",
-            "subcats":[]
+            "subcats":[
+            ]
         },
         {
             "filename":"resits",
@@ -500,8 +497,41 @@
                     "link":"/?p=compsci_teaching_office"
                 }
             ]
+        },
+        {
+            "filename":"standing_misconduct_and_appeals",
+            "title":"Academic Standing",
+            "type":"category",
+            "descp":"",
+            "info":"",
+            "subcats":[
+                {
+                    "name":"List of Academic Standing Codes",
+                    "link":"https://www.gla.ac.uk/myglasgow/registry/registration/#/accesstoregistration"
+                },
+                {
+                    "name":"Appeals",
+                    "link":"/?p=appeals"
+                },
+                {
+                    "name":"Plagiarism",
+                    "link":"/?p=plagiarism"
+                }
+            ]
+        },
+        {
+            "filename":"appeals",
+            "title":"Appeals",
+            "type":"advice",
+            "descp":"",
+            "info":"For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals.<br />Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action.<br />Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">Jane MacAllistar</a> for further information on appeals.",
+            "subcats":[
+                {
+                    "name":"Who is my adviser of studies?",
+                    "link":"/?p=adviser_info"
+                }
+            ]
         }
-
     ],
     "motm":{
         "0":"January",
