@@ -37,7 +37,7 @@ function goback() {
 function renderbreadcrumb() {
     bread = document.getElementById("breadcrumb")
     hist.split(",").forEach(crumb => {
-        bread.innerHTML = bread.innerHTML + "<a href=\"/?p=" + crumb + "\">" + crumb + "</a>  >  "
+        bread.innerHTML = bread.innerHTML + "<li class=\"breadcrumb-item\"><a href=\"/?p=" + crumb + "\">" + crumb + "</a></li>"
     });
 }
 
