@@ -232,15 +232,15 @@
             "info":"",
             "subcats":[
                 {
-                    "name":"1P v 1CT",
-                    "link":"/?p=pvct"
+                    "name":"1P vs 1CT",
+                    "link":"/?p=1p_or_1ct"
                 },
                 {
-                    "name":"Maths",
+                    "name":"Advice on what maths courses to take",
                     "link":"/?p=maths"
                 },
                 {
-                    "name":"What course should i pick?",
+                    "name":"General advice on ",
                     "link":"/?p=whatcourse"
                 },
                 {
@@ -250,56 +250,54 @@
             ]
         },
         {
-            "filename":"pvct",
-            "title":"1P v 1CT",
-            "type":"action",
+            "filename":"1p_or_1ct",
+            "title":"1P or 1CT",
+            "type":"advice",
             "descp":"",
-            "info":"Resources mentioned by quintin. If you are still unsure contact quintin and till him what you got from the resources",
+            "info":"Have a look at these advisory resources REMINDER: ACTUALLY GET RESOURCES AND LINK THEM HERE",
             "subcats":[
                 {
-                    "name":"Swapping with another course?",
-                    "link":"/?p=dropoutperiod"
-                }
-            ]  
-        },
-        {
-            "filename":"whatcourse",
-            "title":"What course should i pick?",
-            "type":"action",
-            "descp":"",
-            "info":"Have a look at the course catalogue.<br> Now get in contact with your adviser to discuss it.",
-            "subcats":[
+                    "name":"Still unsure about the what choice is best?",
+                    "link":"/?p=1p_or_1ct_resources_didnt_help"
+                },
                 {
-                    "name":"Swapping with another course?",
-                    "link":"/?p=dropoutperiod"
+                    "name":"Swapping between 1P and 1CT",
+                    "link":"/?p=add_drop_period"
                 }
-            ]  
-        },
-        {
-            "filename":"creditenquires",
-            "title":"Enquires about number of credits",
-            "type":"action",
-            "descp":"",
-            "info":"Goto The SSO",
-            "subcats":[
-                {
-                    "name":"Swapping with another course?",
-                    "link":"/?p=dropoutperiod"
-                }
-            ]  
+            ]
         },
         {
             "filename":"maths",
-            "title":"Maths",
-            "type":"action",
-            "descp":"",
-            "info":"Refer to documentation on maths courses",
+            "title":"Maths Courses",
+            "type":"advice",
+            "descp":"Guidance on maths electives and their relevance to a Computing Science degree.",
+            "info":"Look at the course catalogue and this guide.",
             "subcats":[
                 {
                     "name":"Swapping with another course?",
-                    "link":"/?p=dropoutperiod"
+                    "link":"/?p=add_drop_period"
                 }
-            ]  
+            ]
+        },
+        {
+            "filename":"whatcourse",
+            "title":"General Advice on Course Choices",
+            "type":"action",
+            "descp":"",
+            "info":"Look at the course catalogue and find some courses that sound interesting you do, then contact your adviser of studies to discuss how suitable they would be.",
+            "subcats":[
+                {
+                    "name":"Swapping with another course?",
+                    "link":"/?p=add_drop_period"
+                }
+            ]
+        },
+        {
+            "filename":"creditenquiries",
+            "title":"How Many Credits to Take",
+            "type":"advice",
+            "descp":"",
+            "info":"Students should enroll in 120 credits (usually 60 per semester) worth of courses before the start of teaching time. If you have further questions about taking credits, speak to a Student Support Officer."
         },
         {
             "filename":"degree",
@@ -310,7 +308,7 @@
             "subcats":[
                 {
                     "name":"Course of Study",
-                    "descp":"Switch between masters, honours and designated degree",
+                    "info":"Switch between masters, honours and designated degree",
                     "link":"/?p=goto_adviser"
                 },
                 {
@@ -337,8 +335,7 @@
                     "name":"No",
                     "link":"/?p=transfer_outside_college"
                 }
-            ]
-            
+            ]    
         },
         {
             "filename":"goto_adviser",
@@ -542,10 +539,6 @@
                 {
                     "name":"Academic Standing, Misconduct and Appeals",
                     "link":"/?p=standing_misconduct_and_appeals"
-                },
-                {
-                    "name":"Info about bands, progression, discretionary zones and degree classifications.",
-                    "link":"https://moodle.gla.ac.uk/course/view.php?id=3043"
                 }
             ]
         },
