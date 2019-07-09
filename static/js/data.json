@@ -25,7 +25,7 @@
                 },
                 {
                     "name":"Erasmus/ Study Abroad",
-                    "link":"/?p=studyabroad"
+                    "link":"/?p=study_abroad"
                 },
                 {
                     "name":"Finance",
@@ -55,7 +55,7 @@
                 },
                 {
                     "name":"Guide on How to Enrol (MyCampus)",
-                    "link":"/?p=enrolguide"
+                    "link":"/?p=enrol_guide"
                 },
                 {
                     "name":"Swap/Drop Course",
@@ -63,16 +63,16 @@
                 },
                 {
                     "name":"Advice on choice of Course and Electives",
-                    "link":"/?p=coursechoice"
+                    "link":"/?p=course_choice"
                 },
                 {
                     "name":"Questions relating to course or project",
-                    "link":"/?p=qandp"
+                    "link":"/?p=indivividual_courses_and_projects"
                 }
             ]
         },
         {
-            "filename":"qandp",
+            "filename":"indivividual_courses_and_projects",
             "title":"Questions relating to individual course or project",
             "type":"advice",
             "descp":"",
@@ -87,16 +87,16 @@
             "subcats":[
                 {
                     "name":"Timetable Clash",
-                    "link":"/?p=timetableclash"
+                    "link":"/?p=timetable_clash"
                 },
                 {
                     "name":"Lab & Tutorial Swaps",
-                    "link":"/?p=labswaps"
+                    "link":"/?p=lab_swaps"
                 }
             ]
         },
         {
-            "filename":"timetableclash",
+            "filename":"timetable_clash",
             "title": "Timetable Clash",
             "type": "advice",
             "descp": "",
@@ -104,12 +104,12 @@
             "subcats":[
                 {
                    "name":"This doesn't solve the problem.",
-                   "link":"/?p=regdoesntfixclash"
+                   "link":"/?p=registry_doesnt_fix_clash"
                 }
             ]
         },
         {
-            "filename":"regdoesntfixclash",
+            "filename":"registry_doesnt_fix_clash",
             "title":"Swap a lab, tutorial or seminar",
             "type":"question",
             "descp":"",
@@ -117,7 +117,7 @@
             "subcats":[
                 {
                     "name":"Yes",
-                    "link":"/?p=labswaps"
+                    "link":"/?p=lab_swaps"
                 },
                 {
                     "name":"No",
@@ -126,7 +126,7 @@
             ]
         },
         {
-            "filename":"labswaps",
+            "filename":"lab_swaps",
             "title":"Swap a lab, tutorial or seminar",
             "type":"advice",
             "descp":"",
@@ -165,7 +165,7 @@
             ]
         },
         {
-            "filename":"enrolguide",
+            "filename":"enrol_guide",
             "title":"Guide on How to Enrol (MyCampus)",
             "type":"category",
             "descp":"",
@@ -173,16 +173,16 @@
             "subcats":[
                 {
                     "name":"See Registry Page",
-                    "link":"/?p=linktoregistrypage"
+                    "link":"https://www.gla.ac.uk/myglasgow/registry/enrolment/"
                 },
                 {
                     "name":"New student?",
-                    "link":"/?p=newstudent"
+                    "link":"/?p=new_student"
                 }
             ]
         },
         {
-            "filename":"newstudent",
+            "filename":"new_student",
             "title":"Enrolment as a new student",
             "type":"advice",
             "descp":"",
@@ -203,7 +203,7 @@
                 },
                 {
                     "name":"No",
-                    "link":"/?=coursechoice"
+                    "link":"/?=course_choice"
                 }
             ]
         },
@@ -225,7 +225,7 @@
             ]
         },
         {
-            "filename":"coursechoice",
+            "filename":"course_choice",
             "title":"Advice on choice of course and electives",
             "type":"category",
             "descp":"",
@@ -241,11 +241,11 @@
                 },
                 {
                     "name":"General advice on ",
-                    "link":"/?p=whatcourse"
+                    "link":"/?p=what_course"
                 },
                 {
                     "name":"Enquires about number of credits",
-                    "link":"/?p=creditenquires"
+                    "link":"/?p=credit_enquiries"
                 }
             ]
         },
@@ -280,7 +280,7 @@
             ]
         },
         {
-            "filename":"whatcourse",
+            "filename":"what_course",
             "title":"General Advice on Course Choices",
             "type":"action",
             "descp":"",
@@ -293,7 +293,7 @@
             ]
         },
         {
-            "filename":"creditenquiries",
+            "filename":"credit_enquiries",
             "title":"How Many Credits to Take",
             "type":"advice",
             "descp":"",
@@ -347,14 +347,17 @@
                 {
                     "name":"Who is my adviser of studies?",
                     "link":"/?p=adviser_info"
-                }]
+                }
+            ]
         },
         {
             "filename":"adviser_info",
             "title":"Adviser of Studies",
             "type":"advice",
             "descp":"",
-            "info":"To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the Universiry staff A-Z."
+            "info":"To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the Universiry staff A-Z.",
+            "subcats":[
+            ]
         },
         {
             "filename":"transfer_outside_college",
@@ -505,7 +508,7 @@
             ]
         },
         {
-            "filename":"studyabroad",
+            "filename":"study_abroad",
             "title":"Erasmus/Study Abroad",
             "type":"action",
             "descp":"",
