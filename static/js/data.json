@@ -587,6 +587,19 @@
                     "link":"/?p=adviser_info"
                 }
             ]
+        },
+        {
+            "filename":"plagiarism",
+            "title":"Plagiarism",
+            "type":"advice",
+            "descp":"",
+            "info":"See the Undergraduate Class Guide sections on plagiarism.",
+            "subcats":[
+                {
+                    "name":"Plagiarism appeals",
+                    "link":"/?p=appeals"
+                }
+            ]
         }
     ],
     "motm":{
