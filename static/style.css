@@ -39,3 +39,19 @@
 #tooltip:empty  {
   padding: 0px;
 }
+
+#what {
+  background-color: #fff!important;
+  border-radius: 0px;
+  border: 0px;
+  -webkit-appearance: none;
+  overflow-y: auto;
+  width: 100%;
+  resize: none;
+  outline: none;
+  padding: 0px;
+}
+
+#what:focus {
+  outline: none!important;
+}

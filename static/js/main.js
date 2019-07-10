@@ -1,3 +1,5 @@
+var hist
+
 // As the name suggest it sets a cookie. This is a modified version of a bit of code of the internet
 function setCookie(cname, cvalue) {
     var d = new Date();
@@ -102,7 +104,7 @@ function loadpage(name) {
                         if (page["filename"] == templink) {
                             if (data["type"] != "question") {
                                 subcat["type"] = page["type"];
-                            }else {
+                            } else {
                                 subcat["type"] = "anwser";
                             }
                             subcat["descp"] = page["descp"];
@@ -145,6 +147,10 @@ function load() {
         setCookie("hist", findGetParameter("p"))
     }
     hist = getCookie("hist")
+    gethist = findGetParameter("h")
+    if (gethist != null) {
+        hist = gethist
+    }
     removeconsecutiveduplicates()
     renderbreadcrumb()
 }
@@ -173,4 +179,49 @@ function onhover(l) {
 // When you move away from hovering over a subcat this make the tooltip diappear
 function onnothover() {
     document.getElementById("tooltip").innerHTML = ""
+}
+
+
+function loadadviser() {
+    h = findGetParameter("h")
+    if (h != null) {
+        setCookie("hist", h)
+    }
+    x = findGetParameter("g")
+    if (x != null) {
+        jdata = atob(x)
+        jobject = JSON.parse(jdata)
+        document.getElementById("why").innerHTML = jobject["why"]
+        document.getElementById("what").innerHTML = jobject["what"]
+        text = document.getElementById("link").getElementsByTagName("input")[0]
+        hist = getCookie("hist")
+        linkstr = document.URL + "&h=" + hist
+        text.setAttribute("value", linkstr)
+        link = document.getElementById("link").getElementsByTagName("a")[0]
+        link.setAttribute("href",linkstr)
+    }
+}
+
+function clicktocopy() {
+    console.log("copying")
+    /* Get the text field */
+    link = document.getElementById("link").getElementsByTagName("input")[0]
+
+    /* Select the text field */
+    link.select();
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+}
+
+function copywhat(t) {
+    console.log("copying")
+    /* Get the text field */
+    link = document.getElementById("what")
+
+    /* Select the text field */
+    link.select();
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
 }
