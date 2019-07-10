@@ -38,6 +38,7 @@ function goback() {
 // This takes the data in hist and displays it as an interactive breadcrumb trail
 function renderbreadcrumb() {
     bread = document.getElementById("breadcrumb")
+    bread.innerHTML = ""
     hist.split(",").forEach(crumb => {
         bread.innerHTML = bread.innerHTML + "<li class=\"breadcrumb-item\"><a href=\"/?p=" + crumb + "\">" + crumb + "</a></li>"
     });
@@ -183,10 +184,7 @@ function onnothover() {
 
 
 function loadadviser() {
-    h = findGetParameter("h")
-    if (h != null) {
-        setCookie("hist", h)
-    }
+    load()
     x = findGetParameter("g")
     if (x != null) {
         jdata = atob(x)
