@@ -121,6 +121,7 @@ function loadpage(name) {
         console.log("The Data is: " + data)
         if (data != null) {
             getrequest("/bodyexample.html", {}, function (r) {
+                // console.log(data)
                 bodyexamplehtml = r.responseText
                 document.body.innerHTML = Mustache.render(bodyexamplehtml, data)
                 document.body.id = data["type"]

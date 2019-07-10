@@ -12,7 +12,7 @@ var static string
 func init() {
 	port = os.Getenv("port")
 	if port == "" {
-		port = "80"
+		port = "8080"
 	}
 	static = os.Getenv("static")
 	if static == "" {
