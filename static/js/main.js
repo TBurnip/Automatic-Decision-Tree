@@ -186,18 +186,19 @@ function onnothover() {
 function loadadviser() {
     load()
     x = findGetParameter("g")
-    if (x != null) {
-        jdata = atob(x)
-        jobject = JSON.parse(jdata)
+    getrequest("/js/data.json", {}, function (r) {
+        resp = JSON.parse(r.responseText);
+        console.log(resp["goto_adviser"])
+        jobject = resp["goto_adviser"][x]
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
         text = document.getElementById("link").getElementsByTagName("input")[0]
         hist = getCookie("hist")
-        linkstr = document.URL + "&h=" + hist
+
+        linkstr = location.origin + location.pathname + "/?g=" + x + "&h=" + hist
         text.setAttribute("value", linkstr)
         link = document.getElementById("link").getElementsByTagName("a")[0]
-        link.setAttribute("href",linkstr)
-    }
+    })
 }
 
 function clicktocopy() {

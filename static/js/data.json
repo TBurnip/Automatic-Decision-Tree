@@ -652,5 +652,31 @@
         "9": "October",
         "10": "November",
         "11": "Decemebr"
+    },
+    "goto_adviser":{
+        "possible_to_drop_or_swap":{
+            "why":"",
+            "what":""
+        },
+        "add_drop_period":{
+            "why":"",
+            "what":""
+        },
+        "degree":{
+            "why":"this is why",
+            "what":"this is what"
+        },
+        "within_college":{
+            "why":"",
+            "what":""
+        },
+        "health_fit_to_study":{
+            "why":"",
+            "what":""
+        },
+        "exams":{
+            "why":"",
+            "what":""
+        }
     }
 }
