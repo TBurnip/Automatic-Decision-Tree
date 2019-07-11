@@ -193,7 +193,7 @@
             "title": "Guide on How to Enrol (MyCampus)",
             "type": "category",
             "descp": "",
-            "info": "The registry has a useful <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/\">guide</a> to enrolling for students.",
+            "info": "The registry has a useful <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/\">guide</a>  for students on enrolling.",
             "subcats": [
                 {
                     "name": "New student?",
@@ -206,7 +206,7 @@
             "title": "Enrolment as a new student",
             "type": "action",
             "descp": "",
-            "info": "You can go to the college help desk for more help if you are still stuck",
+            "info": "New students can go to  the College of Science and Engineering helpdesk (located on Boyd Orr Level 3) for help with enrolling.",
             "subcats": []
         },
         {
@@ -214,7 +214,7 @@
             "title": "Swap and Drop Courses",
             "type": "question",
             "descp": "",
-            "info": "Do you know what course you would like to pick?",
+            "info": "Do you know what course you would like to take?",
             "subcats": [
                 {
                     "name": "Yes",
@@ -231,7 +231,7 @@
             "title": "Add/Drop Period",
             "type": "question",
             "descp": "",
-            "info": "<b>Before swapping courses make sure to consult your adviser about the choice of course.</b><br />Is it outside the add/drop period? Dates can be found <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/#/makingchanges\">here.</a> <br><br> <h5>(The add drop period is the first to weeks of teaching in the year. It finishes on the friday of the second week of teaching. It is used to enable students to get a taste for whether they enjoy there course or not and is there to give them an opertunity to change course before they get to far into the course.)</h5>",
+            "info": "<p><b>Before swapping courses make sure to consult your adviser about the choice of course.</b><br />Is it outside the add/drop period? Dates can be found <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/#/makingchanges\">here.</a> <br><br> <h5>(The add/drop period is the first to weeks of teaching in the year. It finishes on the friday of the second week of teaching. It exists so that students aren't tied down to their course choices before the start of term and gives them the fexibility to change them.)</h5></p>",
             "subcats": [
                 {
                     "name": "Yes",
@@ -255,7 +255,7 @@
                     "link": "/?p=1p_or_1ct"
                 },
                 {
-                    "name": "Advice on what maths courses to take",
+                    "name": "Advice on Maths Courses",
                     "link": "/?p=maths"
                 },
                 {
@@ -303,7 +303,7 @@
             "title": "General Advice on Course Choices",
             "type": "action",
             "descp": "",
-            "info": "Look at the course catalogue and find some courses that sound interesting to you, then contact your adviser of studies to discuss how suitable they would be.",
+            "info": "Look at the course catalogue and find some courses that sound interesting to you, then contact your adviser of studies to discuss whether they would be suitable.",
             "subcats": [
                 {
                     "name": "Swapping with another course?",
@@ -316,7 +316,7 @@
             "title": "How Many Credits to Take",
             "type": "advice",
             "descp": "",
-            "info": "Students should enroll in 120 credits (usually 60 per semester) worth of courses before the start of teaching time. If you have any further questions about taking credits, speak to a Student Support Officer."
+            "info": "<p>Students should enroll in 120 credits (usually 60 per semester) worth of courses before the start of teaching time. If you have any further questions about taking credits, speak to a Student Support Officer.</p>"
         },
         {
             "filename": "degree",
@@ -382,7 +382,7 @@
             "title": "Transfer out of College of Science and Engineering",
             "type": "action",
             "descp": "",
-            "info": "Go to your adviser of studies and discuss your options. You will also need to contact the college you wish to transfer to and see if they will accept you.",
+            "info": "Go to your adviser of studies and discuss your options. You will also need to contact the college that you wish to transfer to and see if they will accept you.",
             "subcats": [
                 {
                     "name": "Who is my adviser of studies?",
@@ -420,7 +420,7 @@
             "title": "Disabillites",
             "type": "advice",
             "descp": "",
-            "info": "See <a href=\"disabilitesunipage\">Disabilities services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>",
+            "info": "See <a href=\"disabilitesunipage\">Disabilities Services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>",
             "subcats": []
         },
         {
@@ -439,7 +439,7 @@
             "info": "",
             "subcats": [
                 {
-                    "name": "I want to be Considered for a fitness to study case?",
+                    "name": "I would like to be Considered for a fitness to study case",
                     "link": "/?p=goto_adviser"
                 },
                 {
@@ -473,7 +473,7 @@
             "subcats": [
                 {
                     "name": "Scholarships and Funding",
-                    "link": "/?p=finance_financeTeam"
+                    "link": "/?p=financial_aid_team"
                 },
                 {
                     "name": "Disability Support and Funding",
@@ -486,11 +486,11 @@
             ]
         },
         {
-            "filename": "finance_financeTeam",
+            "filename": "financial_aid_team",
             "title": "Scholarships and funding",
             "type": "advice",
             "descp": "",
-            "info": "See financial aid <a href=\"https://www.gla.ac.uk/myglasgow/registry/finance/funds/\">registry page</a><br><h2>Giti Financial Aid Team</h2><ul><li><a href=\"mailto:reg.finaid@glasgow.ac.uk\">reg.finaid@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri 1000-1600</li></ul>",
+            "info": "<p>See financial aid <a href=\"https://www.gla.ac.uk/myglasgow/registry/finance/funds/\">registry page</a> or contact the Financial Aid Team<ul><li><a href=\"mailto:reg.finaid@glasgow.ac.uk\">reg.finaid@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul></p>",
             "subcats": []
         },
         {
@@ -506,7 +506,7 @@
             "title": "Extra Resources",
             "type": "advice",
             "descp": "",
-            "info": "<a href=\"https://www.glasgowstudent.net/advice/money/\">SRC Money Page</a> and <a href=\"https://www.moneyadviceservice.org.uk/en/articles/budgeting-for-college-or-university#how-to-budget-at-uni\">Money Advice Service</a>",
+            "info": "<p>Have a look at these other resources for financial help:<ul><li><a href=\"https://www.glasgowstudent.net/advice/money/\">SRC Money Page</a></li><li><a href=\"https://www.moneyadviceservice.org.uk/en/articles/budgeting-for-college-or-university#how-to-budget-at-uni\">Money Advice Service</a></li></ul></p>",
             "subcats": []
         },
         {
@@ -514,7 +514,7 @@
             "title": "Careers and Internships",
             "type": "advice",
             "descp": "",
-            "info": "See <a href=\"https://www.gla.ac.uk/myglasgow/careers/\">Careers hub page</a><br>Or goto Careers Team<ul><li><a href=\"mailto:careers@glasgow.ac.uk\">careers@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri 1000-1600</li></ul>",
+            "info": "<p>See the <a href=\"https://www.gla.ac.uk/myglasgow/careers/\">Careers Hub page</a> or contact the Careers Team<ul><li><a href=\"mailto:careers@glasgow.ac.uk\">careers@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul>",
             "subcats": []
         },
         {
@@ -522,7 +522,7 @@
             "title": "Erasmus/Study Abroad",
             "type": "action",
             "descp": "",
-            "info": "Contact Gerardo Aragon Camarasa<a href=\"mailto:Gerardo.AragonCamarasa@glasgow.ac.uk\">Gerardo.AragonCamarasa@glasgow.ac.uk</a><br><a href=\"https://www.universitiesuk.ac.uk/International/Documents/2019/Gone-Intl-2019.pdf\">PDF</a> on study abroad",
+            "info": "<p>Contact Gerardo Aragon Camarasa<a href=\"mailto:Gerardo.AragonCamarasa@glasgow.ac.uk\">Gerardo.AragonCamarasa@glasgow.ac.uk</a><br /><a href=\"https://www.universitiesuk.ac.uk/International/Documents/2019/Gone-Intl-2019.pdf\">PDF</a> on study abroad</p>",
             "subcats": []
         },
         {
@@ -559,7 +559,7 @@
             "title": "Exam Disability Arangements",
             "type": "advice",
             "descp": "",
-            "info": "See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul>",
+            "info": "<p>See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul></p>",
             "subcats": []
         },
         {
@@ -617,7 +617,7 @@
             "title": "Appeals",
             "type": "advice",
             "descp": "",
-            "info": "For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals.<br />Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action.<br />Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">Jane MacAllistar</a> for further information on appeals.",
+            "info": "<p>For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals. Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action. Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">Jane MacAllistar</a> for further information on appeals.</p>",
             "subcats": [
                 {
                     "name": "Who is my adviser of studies?",
