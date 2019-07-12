@@ -35,7 +35,6 @@
   box-shadow: var(--box-shadow-vars);
 }
 
-
 #tooltip:empty  {
   padding: 0px;
 }
@@ -56,4 +55,21 @@
 
 #what:focus {
   outline: none!important;
+}
+
+#info {
+  font-size: 30px;
+}
+
+.jumbotron {
+  background-color:	#013564;
+  color: aliceblue;
+  position: relative;
+  top: 0px;
+}
+
+#logo {
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }
