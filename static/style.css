@@ -1,4 +1,4 @@
-.category {
+/* .category {
   background-color: #cfe2f3ff!important;
 }
 
@@ -16,7 +16,7 @@
 
 .external {
   background-color: tomato!important;
-}
+} */
 
 #motm {
   text-align: center;
@@ -63,6 +63,7 @@ nav.navbar-expand-sm {
   width: 33.3%;
   margin:5px;
   color:#343a40!important;
+  background-color: #cfe2f3ff!important;
   box-shadow: 10px, 10px;
 }
 
