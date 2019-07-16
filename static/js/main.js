@@ -39,8 +39,14 @@ function goback() {
 function renderbreadcrumb() {
     bread = document.getElementById("breadcrumb")
     bread.innerHTML = ""
+    count = 0
     hist.split(",").forEach(crumb => {
-        bread.innerHTML = bread.innerHTML + "<li class=\"breadcrumb-item\"><a href=\"/?p=" + crumb + "\">" + crumb + "</a></li>"
+        bread.innerHTML = bread.innerHTML + "<li class=\"breadcrumb-item\"><a onclick=\"clickhandler('/?p=" + 
+        crumb + "',this)\" href=\"#\" data-clickid=\"breadcrumb_"+ 
+        count +"\">" + 
+        crumb + "</a></li>"
+        count ++;
+
     });
 }
 
@@ -93,17 +99,21 @@ function jsonloaded(resp) {
     pagedata = data["pages"][pagename]
     if (pagedata != undefined) {
         if (!(pagedata["subcats"] == null || pagedata["subcats"] == undefined)) {
+            count = 0;
             pagedata["subcats"].forEach(subcat => {
                 if (subcat["linkexternal"] == false) {
                     if (data["pages"][subcat["link"]] != undefined) {
-                        subcat["type"] = data["pages"][subcat["link"]]["type"]
-                        subcat["descp"] = data["pages"][subcat["link"]]["descp"]
-                        subcat["link"] = "/?p=" + subcat["link"]
+                        subcat["type"] = data["pages"][subcat["link"]]["type"];
+                        subcat["descp"] = data["pages"][subcat["link"]]["descp"];
+                        subcat["link"] = "/?p=" + subcat["link"];
+                        subcat["clickid"] = count;
                     }
                 } else {
                     subcat["type"] = "external\" target=\"_blank\" class=\"";
                     subcat["descp"] = "This is an external link. Use caution when proceeding";
+                    subcat["clickid"] = count;
                 }
+                count ++;
             })
         }
 
@@ -204,4 +214,17 @@ function clicktocopy(element) {
 
     /* Copy the text inside the text field */
     document.execCommand("copy");
+}
+
+
+function clickhandler(url,t) {
+    clickid = t.getAttribute("data-clickid")
+    console.log(url,clickid,pagename)
+    clickdata = {"type":"click","currentpage":pagename,"clickname":clickid};
+    console.log(JSON.stringify(clickdata))
+    if (clickid.search(/subcat\_.*/) == 0) {
+        location = url
+    } else if (clickid.search(/breadcrumb\_.*/) == 0) {
+        console.log("Lets go breadcrumbing")
+    }
 }
