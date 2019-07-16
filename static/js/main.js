@@ -151,7 +151,7 @@ function load(name) {
     }
     removeconsecutiveduplicates()
     renderbreadcrumb()
-    bottomofpagelink(name)
+    bottomofpagelink(name,false)
 }
 
 // This just returns data for a get parameter named when calling the function
@@ -190,25 +190,21 @@ function loadadviser() {
         jobject = resp["goto_adviser"][x]
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
-        bottomofpagelinkadviser(x)
+        bottomofpagelink(x,true)
     });
 }
 
 
-function bottomofpagelinkadviser(page) {
+function bottomofpagelink(page,ad) {
     text = document.getElementById("link").getElementsByTagName("input")[0]
     hist = getCookie("hist")
 
-    linkstr = location.origin + location.pathname + "?g=" + page + "&h=" + hist
-    text.setAttribute("value", linkstr)
-    link = document.getElementById("link").getElementsByTagName("a")[0]
-}
-
-function bottomofpagelink(page) {
-    text = document.getElementById("link").getElementsByTagName("input")[0]
-    hist = getCookie("hist")
-
-    linkstr = location.origin + location.pathname + "?p=" + page + "&h=" + hist
+    if (ad) {
+        linkstr = location.origin + location.pathname + "?g=" + page + "&h=" + hist
+    }else {
+        linkstr = location.origin + location.pathname + "?p=" + page + "&h=" + hist
+    }
+    
     text.setAttribute("value", linkstr)
     link = document.getElementById("link").getElementsByTagName("a")[0]
 }

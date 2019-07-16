@@ -94,7 +94,7 @@ This is how the breadcrumb trail will be stored lovely and simple
 
 ### History. Now journey System (this may never be implemented this is more a wish than a must)
 
-Now for the maddness of the new journey system. This data will be used to create a journey page which will be displayed to the adviser from the link on the goto adviser page. This will show the path that the student took using vertical scrolling (i don't know if it will start from the most recent item or from the beginning).s
+Now for the maddness of the new journey system. This data will be used to create a journey page which will be displayed to the adviser from the link on the goto adviser page. This will show the path that the student took using vertical scrolling (i don't know if it will start from the most recent item or from the beginning).
 
 ```json
 [
