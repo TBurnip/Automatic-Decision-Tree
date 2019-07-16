@@ -88,6 +88,10 @@ nav.navbar-expand-sm {
 }
 
 @media only screen and (max-width: 600px) {
+  .subcat {
+    width: 50%;
+  }
+  
   .row {
     display: flex;
     flex-direction: column;
