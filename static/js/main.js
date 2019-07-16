@@ -65,7 +65,6 @@ function removeconsecutiveduplicates() {
     setCookie("hist", hist)
 }
 
-
 // This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
 function loaddata() {
     local = findGetParameter("p")
@@ -168,7 +167,6 @@ function findGetParameter(parameterName) {
     return result;
 }
 
-
 function loadadviser() {
     load()
     x = findGetParameter("g")
@@ -181,7 +179,6 @@ function loadadviser() {
         bottomofpagelink(x,true)
     });
 }
-
 
 function bottomofpagelink(page,ad) {
     text = document.getElementById("link").getElementsByTagName("input")[0]
