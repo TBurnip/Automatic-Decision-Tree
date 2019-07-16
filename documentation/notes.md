@@ -2,7 +2,6 @@
 
 ## Todo's
 
-
 ## Goto Adviser
 
 when ever you are directed to goto adviser this information is included
@@ -21,11 +20,11 @@ eyJ3aHkiOiJ0aGlzIGlzIHdoeSIsIndoYXQiOiJ0aGlzIGlzIHdoYXQifQ==
 this will be b64 encoded in the url
 
 Glossary:
- - "why" is a short desciption of why you have been sent to your adviser
- - "what" is what you should tell you adviser
 
+- "why" is a short desciption of why you have been sent to your adviser
+- "what" is what you should tell you adviser
 
- ### Test 1
+### Test 1
 
  ```json
 {
@@ -43,7 +42,9 @@ ewogICAgIndoeSI6ICJBcyB5b3UgbWF5IGhhdmUgZ3Vlc3NlZCBjaGFuZ2luZyBkZWdyZWUgcHJvZ3Jh
 Long story short the info dispalyed on the goto adviser page is nolonger passed through the url
 
 ## New data.json spec
+
 New Spec. Also to improve the effciency of the client side js data.json will get some modification from a compiletime script. eg change interal links so that they work, add the type of a page you are linking to into the subcats section. This is currently done in js but seems more efficent when done at compile.
+
 ```json
 {
     "compiled":false,
@@ -103,4 +104,117 @@ Now for the maddness of the new journey system. This data will be used to create
         "clickname":"[this only exist if type=click]"
     }
 ]
+```
+
+## The Refactering
+
+### main.js
+
+```js
+// Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
+function loadpage(name) {
+    console.log("Geting Data for: " + name)
+    getrequest("/js/data.json", {}, function (r) {
+        resp = JSON.parse(r.responseText);
+        console.log(resp["Page"])
+        found = false
+        resp["Page"].forEach(page => {
+            if (page["filename"] == name) {
+                data = page
+                found = true
+            }
+        });
+        if (found == false) {
+            location = "/404.html"
+            return
+        }
+
+        if (!(data["subcats"] == null || data["subcats"] == undefined)) {
+            data["subcats"].forEach(subcat => {
+
+                templink = subcat["link"]
+                re = /^\/\?p=(.*)|^(https?:\/\/.*)/;
+                result = re.exec(templink);
+                console.log("LOOK HERE" + result);
+                if (!(result == null || result[1] == undefined)) {
+                    templink = result[1]
+                    resp["Page"].forEach(page => {
+                        if (page["filename"] == templink) {
+                            if (data["type"] != "question") {
+                                subcat["type"] = page["type"];
+                            } else {
+                                subcat["type"] = "anwser";
+                            }
+                            subcat["descp"] = page["descp"];
+                        }
+                    });
+                } else if (!(result == null || result[2] == undefined)) {
+                    subcat["type"] = "external\" target=\"_blank\" class=\"";
+                    subcat["descp"] = "This is an external link. Use caution when proceeding";
+                }
+            });
+        }
+        var d = new Date();
+        var n = d.getMonth();
+        data["motm"] = resp["motm"][n]
+
+        console.log("The Data is: " + data)
+        if (data != null) {
+            getrequest("/bodyexample.html", {}, function (r) {
+                // console.log(data)
+                bodyexamplehtml = r.responseText
+                document.body.innerHTML = Mustache.render(bodyexamplehtml, data)
+                document.body.id = data["type"]
+                document.title = data["title"]
+                load(name)
+            })
+        }
+    })
+}
+
+var data
+
+function loadpage(name) {
+    console.log("Geting Data for: " + name)
+    getrequest("/js/data.json", {},jsonloaded(r,name))
+}
+
+function jsonloaded(resp,name) {
+    data = JSON.parse(resp.responseText);
+    pagedata = data["pages"][name]
+    if (pagedata != undefined) {
+        if (!(data["subcats"] == null || data["subcats"] == undefined)) {
+            data["subcats"].forEach(subcat => {
+                if (subcat["linkexternal"] == false) {
+                    subcat["type"] = data["pages"][subcat["link"]]["type"]
+                    subcat["descp"] = data["pages"][subcat["link"]]["descp"]
+                } else {
+                    subcat["type"] = "external\" target=\"_blank\" class=\"";
+                    subcat["descp"] = "This is an external link. Use caution when proceeding";
+                }
+        }
+
+        var d = new Date();
+        var n = d.getMonth();
+        data["motm"] = resp["motm"][n]
+        if (data != null) {
+            getrequest("/bodyexample.html", {}, bodyexampleloaded(r,name))
+        }
+    }
+
+    }else {
+        location = "/404.html"
+        return
+    }
+}
+
+function bodyexampleloaded(r,name) {
+    bodyexamplehtml = r.responseText
+    document.body.innerHTML = Mustache.render(bodyexamplehtml, data)
+    document.body.id = data["type"]
+    document.title = data["title"]
+    load(name)
+}
+
+
 ```
