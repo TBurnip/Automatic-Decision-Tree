@@ -20,6 +20,7 @@
 
 #motm {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 #tooltip {
@@ -61,10 +62,12 @@
   color: aliceblue;
   position: relative;
   top: 0px;
+  border-radius: 0px;
+  margin: 0px;
 }
 
-.navbar-nav {
-  border: 8px aliceblue;
+nav.navbar-expand-sm {
+  margin-bottom: 50px;
 }
 
 .subcat {
@@ -90,4 +93,12 @@
   position: absolute;
   right: 20px;
   top: 10px;
+}
+
+.breadcrumb {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0px;
 }
