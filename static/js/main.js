@@ -2,27 +2,12 @@ var hist
 
 // As the name suggest it sets a cookie. This is a modified version of a bit of code of the internet
 function setCookie(cname, cvalue) {
-    var d = new Date();
-    d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    sessionStorage.setItem(cname,cvalue)
 }
 
 // same as above but for getting a cookie
 function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+    return sessionStorage.getItem(cname)
 }
 
 // This function takes advantage of a variable and cookie called hist. Hist stands for history and is an array of all the previous pages a user has been to. This function simply steps back up the array and deletes the page you are on while doing so.
@@ -155,12 +140,21 @@ function load(name) {
     }
     hist = getCookie("hist")
     gethist = findGetParameter("h")
-    if (gethist != null) {
+    if (gethist != undefined) {
         hist = gethist
     }
     removeconsecutiveduplicates()
+    removebrowserbackeventduplicates()
     renderbreadcrumb()
     bottomofpagelink(name,false)
+}
+
+function removebrowserbackeventduplicates() {
+    hista = hist.split(",")
+    if (hista[hista.length - 3] == pagename) {
+        console.log("browser back")
+        hist = hista.slice(0,-2).join();
+    }
 }
 
 // This just returns data for a get parameter named when calling the function
