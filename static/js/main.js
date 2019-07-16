@@ -185,7 +185,7 @@ function loadadviser() {
     load()
     x = findGetParameter("g")
     $.get("/js/data.json",function (r) {
-        resp = JSON.parse(r.responseText);
+        resp = r
         console.log(resp["goto_adviser"])
         jobject = resp["goto_adviser"][x]
         document.getElementById("why").innerHTML = jobject["why"]
@@ -199,7 +199,7 @@ function bottomofpagelinkadviser(page) {
     text = document.getElementById("link").getElementsByTagName("input")[0]
     hist = getCookie("hist")
 
-    linkstr = location.origin + location.pathname + "/?g=" + page + "&h=" + hist
+    linkstr = location.origin + location.pathname + "?g=" + page + "&h=" + hist
     text.setAttribute("value", linkstr)
     link = document.getElementById("link").getElementsByTagName("a")[0]
 }
@@ -213,22 +213,10 @@ function bottomofpagelink(page) {
     link = document.getElementById("link").getElementsByTagName("a")[0]
 }
 
-function clicktocopy() {
+function clicktocopy(element) {
     console.log("copying")
     /* Get the text field */
-    link = document.getElementById("link").getElementsByTagName("input")[0]
-
-    /* Select the text field */
-    link.select();
-
-    /* Copy the text inside the text field */
-    document.execCommand("copy");
-}
-
-function copywhat(t) {
-    console.log("copying")
-    /* Get the text field */
-    link = document.getElementById("what")
+    link = element
 
     /* Select the text field */
     link.select();
