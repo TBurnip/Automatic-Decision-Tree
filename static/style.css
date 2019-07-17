@@ -18,6 +18,10 @@
   background-color: tomato!important;
 } */
 
+body {
+  background-color: transparent!important;
+}
+
 #motm {
   text-align: center;
   font-size: 40%!important;
