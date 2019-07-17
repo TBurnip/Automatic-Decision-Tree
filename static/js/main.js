@@ -58,14 +58,12 @@ function removeconsecutiveduplicates() {
 
 // This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
 function loaddata() {
-    local = findGetParameter("p")
-    if (local != null) {
-        pagename = local
-        loadpage()
-    } else {
-        pagename = "index"
-        loadpage()
+    local = findGetParameter("p");
+    pagename = "index";
+    if (local) {
+        pagename = local;
     }
+    loadpage();
 }
 
 // Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
@@ -94,8 +92,8 @@ function jsonloaded(resp) {
             pagedata["subcats"].forEach(subcat => {
                 //if link isn't external and link is defined in data.json
                 if (!(subcat["linkexternal"] || data["pages"][subcat["link"]] == undefined)) {
-                        subcat["type"] = data["pages"][subcat["link"]]["type"];
-                        subcat["link"] = "/?p=" + subcat["link"];
+                    subcat["type"] = data["pages"][subcat["link"]]["type"];
+                    subcat["link"] = "/?p=" + subcat["link"];
                 } else {
                     subcat["type"] = "external\" target=\"_blank\" class=\"";
                 }
@@ -201,8 +199,9 @@ function findGetParameter(parameterName) {
             //then for each element in the array
             //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
             tmp = item.split("=");
-            if (tmp[0] === parameterName) { return decodeURIComponent(tmp[1]) };
+            if (tmp[0] === parameterName) { result = decodeURIComponent(tmp[1]) };
         });
+        return result
 }
 
 // Loadadviser loads the data into the goto_adviser page
