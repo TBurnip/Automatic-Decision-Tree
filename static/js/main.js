@@ -1,14 +1,103 @@
-var hist
+var hist;
+var data;
+var pagename;
+var pagedata;
 
-// As the name suggest it sets a cookie. This is a modified version of a bit of code of the internet
-function setCookie(cname, cvalue) {
-    sessionStorage.setItem(cname,cvalue)
+class Data {
+
+} 
+
+// This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
+function loaddata() {
+    //get the search parameter, and it it isn't null then set the pagename to it
+    local = findGetParameter("p");
+    local != null ? pagename = local : pagename = "index";
+    loadpage();
 }
 
-// same as above but for getting a cookie
-function getCookie(cname) {
-    return sessionStorage.getItem(cname)
+function loadpage() {
+    console.log("Geting Data for: " + pagename);
+    $.get("/js/data.json",jsonloaded);
 }
+
+// Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
+function jsonloaded(resp) {
+    data = resp
+    console.log("YOOOOOOOOOOOOOOOO" + data);
+    pagedata = data["pages"][pagename];
+
+    //check whether page is defined in data.json, if not then load 404 page
+    if (pagedata != undefined) {
+        if (pagedata["subcats"] != null) {
+            //needed for click handler
+            count = 0;
+            //loop through every subcategory
+            pagedata["subcats"].forEach(subcat => {
+                //if link isn't external and link is defined in data.json
+                page = data["pages"][subcat["link"]];
+                if (!(subcat["linkexternal"] || page == undefined)) {
+                        subcat["type"] = data["pages"][subcat["link"]]["type"];
+                        subcat["link"] = "/?p=" + subcat["link"];
+                } else {
+                    subcat["type"] = "external\" target=\"_blank\" class=\"";
+                }
+                //set clickID
+                subcat[""] = count++;
+            })
+        }
+
+        //handles the message of the month
+        var d = new Date();
+        pagedata["motm"] = data["motm"][d.getMonth()];
+        if (data != null) {
+            $.get("/bodyexample.html",bodyexampleloaded);
+        }
+    } else {
+        console.log(pagename)
+        location = "/404.html"
+        return
+    }
+}
+
+// Once the data from bodyexample.html has been loaded this code is ran. This renders the final webpage using Mustoche as a templating engine 
+function bodyexampleloaded(r) {
+    console.log(pagedata)
+    //console.log(r)
+    bodyexamplehtml = r
+    document.body.innerHTML = Mustache.render(bodyexamplehtml, pagedata)
+    document.body.id = pagedata["type"]
+    document.title = pagedata["title"]
+    load(pagename)
+}
+
+// Load is a whole bunch of miscellaneous stuff related to loading the page.
+function load(name) {
+    hist = getCookie("hist");
+    if (hist != "") {
+        if (location.pathname + location.search == "/?p="
+            || (location.search == "" && location.pathname != "/404.html")
+            || location.search == "?p=index") {
+            setCookie("hist", "index")
+        } else {
+            setCookie("hist", hist + "," + findGetParameter("p"))
+        }
+    } else {
+        setCookie("hist", findGetParameter("p"))
+    }
+    hist = getCookie("hist")
+    gethist = findGetParameter("h")
+    if (gethist != undefined) {
+        hist = gethist
+    }
+    removeconsecutiveduplicates()
+    removebrowserbackeventduplicates()
+    renderbreadcrumb()
+    bottomofpagelink(name,false)
+}
+
+// Getter and setter for cookies
+function setCookie(cname, cvalue) { sessionStorage.setItem(cname,cvalue); }
+function getCookie(cname) { return sessionStorage.getItem(cname); }
 
 // This function takes advantage of a variable and cookie called hist. Hist stands for history and is an array of all the previous pages a user has been to. This function simply steps back up the array and deletes the page you are on while doing so.
 function goback() {
@@ -27,11 +116,10 @@ function renderbreadcrumb() {
     count = 0
     hist.split(",").forEach(crumb => {
         bread.innerHTML = bread.innerHTML + "<li class=\"breadcrumb-item\"><a onclick=\"clickhandler('/?p=" + 
-        crumb + "',this)\" href=\"#\" data-clickid=\"breadcrumb_"+ 
+        crumb + "',this)\" href=\"#\" data-clickID=\"breadcrumb_"+ 
         count +"\">" + 
-        crumb + "</a></li>"
+        crumb + "</a></li>";
         count ++;
-
     });
 }
 
@@ -54,105 +142,6 @@ function removeconsecutiveduplicates() {
         hist += "," + crumb
     });
     setCookie("hist", hist)
-}
-
-// This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
-function loaddata() {
-    local = findGetParameter("p")
-    if (local != null) {
-        pagename = local
-        loadpage()
-    } else {
-        pagename = "index"
-        loadpage()
-    }
-}
-
-// Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
-var data
-var pagename
-var pagedata
-
-function loadpage() {
-    console.log("Geting Data for: " + pagename);
-    $.get("/js/data.json",jsonloaded);
-}
-
-function jsonloaded(resp) {
-    data = resp
-    console.log(data)
-    pagedata = data["pages"][pagename]
-
-    //check whether page is defined in data.json, if not then load 404 page
-    if (pagedata != undefined) {
-        if (!(pagedata["subcats"] == null || pagedata["subcats"] == undefined)) {
-
-
-            count = 0;
-
-            //loop through every subcategory
-            pagedata["subcats"].forEach(subcat => {
-                //if link isn't external and link is defined in data.json
-                if (!(subcat["linkexternal"] || data["pages"][subcat["link"]] == undefined)) {
-                        subcat["type"] = data["pages"][subcat["link"]]["type"];
-                        subcat["link"] = "/?p=" + subcat["link"];
-                } else {
-                    subcat["type"] = "external\" target=\"_blank\" class=\"";
-                }
-                //
-                subcat["clickid"] = count++;
-            })
-        }
-
-        var d = new Date();
-        var n = d.getMonth();
-        pagedata["motm"] = data["motm"][n]
-        if (data != null) {
-            $.get("/bodyexample.html",bodyexampleloaded);
-        }
-    } else {
-        console.log(pagename)
-        location = "/404.html"
-        return
-    }
-}
-
-
-// Once the data from bodyexample.html has been loaded this code is ran. This renders the final webpage using Mustoche as a templating engine 
-function bodyexampleloaded(r) {
-    console.log(pagedata)
-    console.log(r)
-    bodyexamplehtml = r
-    document.body.innerHTML = Mustache.render(bodyexamplehtml, pagedata)
-    document.body.id = pagedata["type"]
-    document.title = pagedata["title"]
-    load(pagename)
-}
-
-
-// Load is a whole bunch of miscellaneous stuff related to loading the page.
-function load(name) {
-    hist = getCookie("hist")
-    if (hist != "") {
-        if (location.pathname + location.search == "/?p="
-            || (location.search == "" && location.pathname != "/404.html")
-            || location.search == "?p=index") {
-            setCookie("hist", "index")
-        } else {
-            setCookie("hist", hist + "," + findGetParameter("p"))
-        }
-    } else {
-        setCookie("hist", findGetParameter("p"))
-    }
-    hist = getCookie("hist")
-    gethist = findGetParameter("h")
-    if (gethist != undefined) {
-        hist = gethist
-    }
-    removeconsecutiveduplicates()
-    removebrowserbackeventduplicates()
-    renderbreadcrumb()
-    bottomofpagelink(name,false)
 }
 
 // This function is used to detect if the browser back button has been used and if it has it removes the correct items from the bread crumb train.
@@ -201,8 +190,9 @@ function findGetParameter(parameterName) {
             //then for each element in the array
             //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
             tmp = item.split("=");
-            if (tmp[0] === parameterName) { return decodeURIComponent(tmp[1]) };
+            if (tmp[0] === parameterName) { result = decodeURIComponent(tmp[1]) };
         });
+        return result;
 }
 
 function loadadviser() {
@@ -243,16 +233,60 @@ function clicktocopy(element) {
     /* Copy the text inside the text field */
     document.execCommand("copy");
 }
-
-
 function clickhandler(url,t) {
-    clickid = t.getAttribute("data-clickid")
-    console.log(url,clickid,pagename)
-    clickdata = {"type":"click","currentpage":pagename,"clickname":clickid};
+    clickID = t.getAttribute("data-clickID")
+    console.log(url,clickID,pagename)
+    clickdata = {"type":"click","currentpage":pagename,"clickname":clickID};
     console.log(JSON.stringify(clickdata))
-    if (clickid.search(/subcat\_.*/) == 0) {
+    if (clickID.search(/subcat\_.*/) == 0) {
         location = url
-    } else if (clickid.search(/breadcrumb\_.*/) == 0) {
+    } else if (clickID.search(/breadcrumb\_.*/) == 0) {
         console.log("Lets go breadcrumbing")
+    }
+}
+
+class PageLoader {
+
+    /*
+    constructor(){
+    }
+    */
+
+    //method for loading the adviser page
+    load(){
+        hist = getCookie("hist")
+        if (hist != "") {
+            if (location.pathname + location.search == "/?p="
+                || (location.search == "" && location.pathname != "/404.html")
+                || location.search == "?p=index") {
+                setCookie("hist", "index")
+            } else {
+                setCookie("hist", hist + "," + findGetParameter("p"))
+            }
+        } else {
+            setCookie("hist", findGetParameter("p"))
+        }
+        hist = getCookie("hist")
+        gethist = findGetParameter("h")
+        if (gethist != undefined) {
+            hist = gethist
+        }
+        removeconsecutiveduplicates()
+        removebrowserbackeventduplicates()
+        renderbreadcrumb()
+        bottomofpagelink(name,false)
+    }
+
+    loadAdviser(){
+        load()
+        x = findGetParameter("g")
+        $.get("/js/data.json",function (r) {
+            resp = r
+            console.log(resp["goto_adviser"])
+            jobject = resp["goto_adviser"][x]
+            document.getElementById("why").innerHTML = jobject["why"]
+            document.getElementById("what").innerHTML = jobject["what"]
+            bottomofpagelink(x,true)
+        });
     }
 }
