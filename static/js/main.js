@@ -3,65 +3,12 @@ var data;
 var pagename;
 var pagedata;
 
-// This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
-function loaddata() {
-    //get the search parameter, and it it isn't null then set the pagename to it
-    local = findGetParameter("p");
-    local != null ? pagename = local : pagename = "index";
-    loadpage();
-}
-
-function loadpage() {
-    console.log("Geting Data for: " + pagename);
-    $.get("/js/data.json",jsonloaded);
-}
-
-// Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
-function jsonloaded(resp) {
-    data = resp
-    console.log("YOOOOOOOOOOOOOOOO" + data);
-    pagedata = data["pages"][pagename];
-
-    //check whether page is defined in data.json, if not then load 404 page
-    if (pagedata != undefined) {
-        if (pagedata["subcats"] != null) {
-            //needed for click handler
-            count = 0;
-            //loop through every subcategory
-            pagedata["subcats"].forEach(subcat => {
-                //if link isn't external and link is defined in data.json
-                page = data["pages"][subcat["link"]];
-                if (!(subcat["linkexternal"] || page == undefined)) {
-                        subcat["type"] = data["pages"][subcat["link"]]["type"];
-                        subcat["link"] = "/?p=" + subcat["link"];
-                } else {
-                    subcat["type"] = "external\" target=\"_blank\" class=\"";
-                }
-                //set clickID
-                subcat[""] = count++;
-            })
-        }
-
-        //handles the message of the month
-        var d = new Date();
-        pagedata["motm"] = data["motm"][d.getMonth()];
-        if (data != null) {
-            $.get("/bodyexample.html",bodyexampleloaded);
-        }
-    } else {
-        console.log(pagename)
-        location = "/404.html"
-        return
-    }
-}
-
 // Once the data from bodyexample.html has been loaded this code is ran. This renders the final webpage using Mustoche as a templating engine 
 function bodyexampleloaded(r) {
-    console.log(pagedata)
-    //console.log(r)
+    console.log(pagedata);
     bodyexamplehtml = r
     document.body.innerHTML = Mustache.render(bodyexamplehtml, pagedata)
-    document.body.id = pagedata["type"]
+    document.body.id = pagedata["type"] /* POSSIBLY CAN GET RID OF THIS SINCE IT ISN'T DOING ANYTHING IN THE CSS */
     document.title = pagedata["title"]
     load(pagename)
 }
@@ -85,7 +32,7 @@ function load(name) {
     if (gethist != undefined) {
         hist = gethist
     }
-    removeconsecutiveduplicates()
+    removeconsecutiveduplicates() //this function will be unescessary if we make history a set
     removebrowserbackeventduplicates()
     renderbreadcrumb()
     bottomofpagelink(name,false)
@@ -238,51 +185,5 @@ function clickhandler(url,t) {
         location = url
     } else if (clickID.search(/breadcrumb\_.*/) == 0) {
         console.log("Lets go breadcrumbing")
-    }
-}
-
-class PageLoader {
-
-    /*
-    constructor(){
-    }
-    */
-
-    //method for loading the adviser page
-    load(){
-        hist = getCookie("hist")
-        if (hist != "") {
-            if (location.pathname + location.search == "/?p="
-                || (location.search == "" && location.pathname != "/404.html")
-                || location.search == "?p=index") {
-                setCookie("hist", "index")
-            } else {
-                setCookie("hist", hist + "," + findGetParameter("p"))
-            }
-        } else {
-            setCookie("hist", findGetParameter("p"))
-        }
-        hist = getCookie("hist")
-        gethist = findGetParameter("h")
-        if (gethist != undefined) {
-            hist = gethist
-        }
-        removeconsecutiveduplicates()
-        removebrowserbackeventduplicates()
-        renderbreadcrumb()
-        bottomofpagelink(name,false)
-    }
-
-    loadAdviser(){
-        load()
-        x = findGetParameter("g")
-        $.get("/js/data.json",function (r) {
-            resp = r
-            console.log(resp["goto_adviser"])
-            jobject = resp["goto_adviser"][x]
-            document.getElementById("why").innerHTML = jobject["why"]
-            document.getElementById("what").innerHTML = jobject["what"]
-            bottomofpagelink(x,true)
-        });
     }
 }
