@@ -8,6 +8,7 @@ function main(){
     local = findGetParameter("p");
     local != null ? pagename = local : pagename = "index";
 
+    //
     console.log("Geting Data for: " + pagename);
     $.get("/js/data.json",jsonloaded);
 }

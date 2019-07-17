@@ -3,10 +3,6 @@ var data;
 var pagename;
 var pagedata;
 
-class Data {
-
-} 
-
 // This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
 function loaddata() {
     //get the search parameter, and it it isn't null then set the pagename to it
