@@ -157,10 +157,30 @@ function load(name) {
 
 // This function is used to detect if the browser back button has been used and if it has it removes the correct items from the bread crumb train.
 function removebrowserbackeventduplicates() {
-    hista = hist.split(",")
-    if (hista[hista.length - 3] == pagename) {
-        console.log("browser back")
-        hist = hista.slice(0,-2).join();
+
+    /*
+        example of how this works
+
+        if you are on a page called course_assignments
+        and your history was
+        index,course,course_assignments
+
+        then you were to use the browser back button
+        your history would become
+        index,course,course_assignments,course
+
+        to fix this once detected we simply remove
+        course_assignments and course
+
+        for the example bellow presume 
+        hist = "index,course,course_assignments,course"
+    */
+
+
+    hista = hist.split(",") // hista = ["index","course","course_assignments","course"]
+    if (hista[hista.length - 3] == pagename) { // 4 - 3 => 1 if hista[1] = "course"
+        console.log("browser back") 
+        hist = hista.slice(0,-2).join(); // makes removes the last two elements from hista then makes hist = hista joined with ","
     }
 }
 
