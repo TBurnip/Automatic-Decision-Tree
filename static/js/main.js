@@ -205,19 +205,20 @@ function findGetParameter(parameterName) {
         });
 }
 
+// Loadadviser loads the data into the goto_adviser page
 function loadadviser() {
     load()
     x = findGetParameter("g")
     $.get("/js/data.json",function (r) {
-        resp = r
-        console.log(resp["goto_adviser"])
-        jobject = resp["goto_adviser"][x]
+        data = r
+        jobject = data["goto_adviser"][x]
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
         bottomofpagelink(x,true)
     });
 }
 
+// This creates the link for the bottom of the page and puts it in the input box for the link
 function bottomofpagelink(page,ad) {
     text = document.getElementById("link").getElementsByTagName("input")[0]
     hist = getCookie("hist")
@@ -231,6 +232,7 @@ function bottomofpagelink(page,ad) {
     text.setAttribute("value", linkstr)
     link = document.getElementById("link").getElementsByTagName("a")[0]
 }
+
 
 function clicktocopy(element) {
     console.log("copying")
