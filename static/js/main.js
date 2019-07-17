@@ -244,12 +244,19 @@ function clicktocopy(element) {
     document.execCommand("copy");
 }
 
-
+// This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
 function clickhandler(url,t) {
+    // This retrives a small bit of information about the thing that has been clicked
     clickid = t.getAttribute("data-clickid")
+
+    // This records the destination URL, clickid, name of the page you are on
     console.log(url,clickid,pagename)
+
+    // this is a section of data which will be used in the new journey system
     clickdata = {"type":"click","currentpage":pagename,"clickname":clickid};
     console.log(JSON.stringify(clickdata))
+
+    // This simply redirects you to the location your click was supposed to go to
     if (clickid.search(/subcat\_.*/) == 0) {
         location = url
     } else if (clickid.search(/breadcrumb\_.*/) == 0) {
