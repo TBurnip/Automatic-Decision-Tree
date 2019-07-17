@@ -117,6 +117,8 @@ function jsonloaded(resp) {
     }
 }
 
+
+// Once the data from bodyexample.html has been loaded this code is ran. This renders the final webpage using Mustoche as a templating engine 
 function bodyexampleloaded(r) {
     console.log(pagedata)
     console.log(r)
@@ -153,6 +155,7 @@ function load(name) {
     bottomofpagelink(name,false)
 }
 
+// This function is used to detect if the browser back button has been used and if it has it removes the correct items from the bread crumb train.
 function removebrowserbackeventduplicates() {
     hista = hist.split(",")
     if (hista[hista.length - 3] == pagename) {
