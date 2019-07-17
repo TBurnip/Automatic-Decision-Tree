@@ -82,21 +82,25 @@ function jsonloaded(resp) {
     data = resp
     console.log(data)
     pagedata = data["pages"][pagename]
+
+    //check whether page is defined in data.json, if not then load 404 page
     if (pagedata != undefined) {
         if (!(pagedata["subcats"] == null || pagedata["subcats"] == undefined)) {
+
+
             count = 0;
+
+            //loop through every subcategory
             pagedata["subcats"].forEach(subcat => {
-                if (subcat["linkexternal"] == false) {
-                    if (data["pages"][subcat["link"]] != undefined) {
+                //if link isn't external and link is defined in data.json
+                if (!(subcat["linkexternal"] || data["pages"][subcat["link"]] == undefined)) {
                         subcat["type"] = data["pages"][subcat["link"]]["type"];
                         subcat["link"] = "/?p=" + subcat["link"];
-                        subcat["clickid"] = count;
-                    }
                 } else {
                     subcat["type"] = "external\" target=\"_blank\" class=\"";
-                    subcat["clickid"] = count;
                 }
-                count ++;
+                //
+                subcat["clickid"] = count++;
             })
         }
 
@@ -128,7 +132,9 @@ function bodyexampleloaded(r) {
 function load(name) {
     hist = getCookie("hist")
     if (hist != "") {
-        if (location.pathname + location.search == "/?p=" || (location.search == "" && location.pathname != "/404.html") || location.search == "?p=index") {
+        if (location.pathname + location.search == "/?p="
+            || (location.search == "" && location.pathname != "/404.html")
+            || location.search == "?p=index") {
             setCookie("hist", "index")
         } else {
             setCookie("hist", hist + "," + findGetParameter("p"))
@@ -157,16 +163,23 @@ function removebrowserbackeventduplicates() {
 
 // This just returns data for a get parameter named when calling the function
 function findGetParameter(parameterName) {
-    var result = null,
-        tmp = [];
-    location.search
-        .substr(1)
-        .split("&")
+
+    var result = null, tmp = [];
+
+    /*
+        We'll use the following example URL to see how this function works:
+        "http://localhost/?p=exams&h=index,exams"
+    */
+
+    location.search //get the query URI - ie. "?p=exams&h=index,exams"
+        .substr(1) // => "p=exams&h=index,exams"
+        .split("&") //=> ["p=exams", "h=index,exams"]
         .forEach(function (item) {
+            //then for each element in the array
+            //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
             tmp = item.split("=");
-            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            if (tmp[0] === parameterName) { return decodeURIComponent(tmp[1]) };
         });
-    return result;
 }
 
 function loadadviser() {
