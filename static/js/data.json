@@ -4,7 +4,6 @@
             "filename": "index",
             "title": "General",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "Courses, Timetabling & Enrolment",
@@ -44,7 +43,6 @@
             "filename": "courses",
             "title": "Courses, Timetabling & Enrolment",
             "type": "category",
-            "descp": "This includes info on Courses, Enrolment and Timetables",
             "info": "",
             "subcats": [{
                 "name": "Timetable",
@@ -72,7 +70,6 @@
             "filename": "indivividual_courses_and_projects",
             "title": "Questions relating to individual course or project",
             "type": "question",
-            "descp": "",
             "info": "Are you already enrolled in the course?",
             "subcats": [{
                 "name": "Yes",
@@ -88,7 +85,6 @@
             "filename": "indivividual_courses_and_projects_enrolled",
             "title": "Questions relating to individual course or project and enrolled",
             "type": "advice",
-            "descp": "",
             "info": "Check the moodle for the course and if that still doesn't answer your question, email the course lecturer",
             "subcats": []
         },
@@ -96,7 +92,6 @@
             "filename": "indivividual_courses_and_projects_not_enrolled",
             "title": "Questions relating to individual course or project and not enrolled",
             "type": "advice",
-            "descp": "",
             "info": "Check the course catalogue for information on the course. If this still doesn't yield the info you want email you adviser for advice.",
             "subcats": []
         },
@@ -104,7 +99,6 @@
             "filename": "timetable",
             "title": "Timetable",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "Timetable Clash",
@@ -120,7 +114,6 @@
             "filename": "timetable_clash",
             "title": "Timetable Clash",
             "type": "action",
-            "descp": "",
             "info": "A timetable clash may occur between courses or class sections within a course.<br><br>If the course you are enrolling in to is a compulsory course try enrolling in to a different class section (e.g. a different seminar group).<br><br>If the course you are enrolling in to is an optional course try enrolling in to a different class section (e.g. a different seminar group), alternatively enrol in to a new course.<br><br>Download a pdf guide: <a href=\"https://www.gla.ac.uk/media/media_350111_en.pdf\" target=\"_blank\">Timetable clash (pdf)</a><br>Watch the how-to video: <a href=\"https://www.gla.ac.uk/myglasgow/registry/registration/videos/headline_284985_en.html\" target=\"_blank\">Enrolment - timetable clash</a>",
             "subcats": [{
                 "name": "This doesn't solve the problem.",
@@ -132,7 +125,6 @@
             "filename": "registry_doesnt_fix_clash",
             "title": "Move a lab, tutorial or seminar",
             "type": "question",
-            "descp": "",
             "info": "Can the timetable clash be solved by moving a lab, tutorial or seminar?",
             "subcats": [{
                 "name": "Yes",
@@ -148,7 +140,6 @@
             "filename": "lab_swaps",
             "title": "Move a lab, tutorial or seminar",
             "type": "action",
-            "descp": "",
             "info": "Go to the relevant teaching office and ask about moving the lab, tutorial or seminar.",
             "subcats": [{
                 "name": "This doesn't solve the problem.",
@@ -160,7 +151,6 @@
             "filename": "possible_to_drop_or_swap",
             "title": "Can you drop one of the courses?",
             "type": "question",
-            "descp": "",
             "info": "Is it possible to solve the problem by dropping one of the courses?",
             "subcats": [{
                 "name": "Yes",
@@ -176,7 +166,6 @@
             "filename": "unavoidable_course_clash",
             "title": "Unavoidable Course Clash",
             "type": "advice",
-            "descp": "",
             "info": "If two courses you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unaviodable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the courses in person</li></ul>",
             "subcats": []
         },
@@ -184,7 +173,6 @@
             "filename": "enrol_guide",
             "title": "Guide on How to Enrol (MyCampus)",
             "type": "category",
-            "descp": "",
             "info": "The registry has a useful <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/\">guide</a>  for students on enrolling.",
             "subcats": [{
                 "name": "New student?",
@@ -196,7 +184,6 @@
             "filename": "new_student",
             "title": "Enrolment as a new student",
             "type": "action",
-            "descp": "",
             "info": "New students can go to  the College of Science and Engineering helpdesk (located on Boyd Orr Level 3) for help with enrolling.",
             "subcats": []
         },
@@ -204,7 +191,6 @@
             "filename": "swap_drop_courses",
             "title": "Swap and Drop Courses",
             "type": "question",
-            "descp": "",
             "info": "Do you know what course you would like to take?",
             "subcats": [{
                 "name": "Yes",
@@ -220,15 +206,14 @@
             "filename": "add_drop_period",
             "title": "Add/Drop Period",
             "type": "question",
-            "descp": "",
-            "info": "<p><b>Before swapping courses make sure to consult your adviser about the choice of course.</b><br />Is it outside the add/drop period? Dates can be found <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/#/makingchanges\">here.</a> <br><br> <h5>(The add/drop period is the first to weeks of teaching in the year. It finishes on the friday of the second week of teaching. It exists so that students aren't tied down to their course choices before the start of term and gives them the fexibility to change them.)</h5></p>",
-            "subcats": [{
-                "name": "Yes",
-                "link": "goto_adviser",
-                "linkexternal": false
-            }, {
-                "name": "No",
+            "info": "<b>Before swapping courses make sure to consult your adviser about the choice of course.</b><br />Dates  for the add/drop period can be found <a href=\"https://www.gla.ac.uk/myglasgow/registry/enrolment/#/makingchanges\">here.</a> <br><br> (The add/drop period is the first to weeks of teaching in the year. It finishes on the friday of the second week of teaching. It exists so that students aren't tied down to their course choices before the start of term and gives them the fexibility to change them.)",
+            "subcats": [ {
+                "name": "Inside Add/Drop",
                 "link": "compsci_teaching_office",
+                "linkexternal": false
+            },{
+                "name": "Outside Add/Drop",
+                "link": "goto_adviser",
                 "linkexternal": false
             }]
         },
@@ -236,7 +221,6 @@
             "filename": "course_choice",
             "title": "Advice on choice of course and electives",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "1P vs 1CT",
@@ -260,7 +244,6 @@
             "filename": "1p_or_1ct",
             "title": "1P or 1CT",
             "type": "advice",
-            "descp": "",
             "info": "Have a look at these advisory resources REMINDER: ACTUALLY GET RESOURCES AND LINK THEM HERE",
             "subcats": [{
                 "name": "Still unsure about the what choice is best?",
@@ -276,7 +259,6 @@
             "filename": "maths",
             "title": "Maths Courses",
             "type": "advice",
-            "descp": "Guidance on maths electives and their relevance to a Computing Science degree.",
             "info": "Look at the <a href=\"https://www.gla.ac.uk/coursecatalogue/\">course catalogue</a> and this <a href=\"https://docs.google.com/document/d/1jp_B6i8Q01axzDfMM56u6DkQ_TT9ZPbBr-aW6zcVzUE/edit\">guide</a>.",
             "subcats": [{
                 "name": "Swapping with another course?",
@@ -288,7 +270,6 @@
             "filename": "what_course",
             "title": "General Advice on Course Choices",
             "type": "action",
-            "descp": "",
             "info": "Look at the course catalogue and find some courses that sound interesting to you, then contact your adviser of studies to discuss whether they would be suitable.",
             "subcats": [{
                 "name": "Swapping with another course?",
@@ -300,15 +281,13 @@
             "filename": "credit_enquiries",
             "title": "How Many Credits to Take",
             "type": "advice",
-            "descp": "",
             "info": "Students should enroll in 120 credits (usually 60 per semester) worth of courses before the start of teaching time. If you have any further questions about taking credits, speak to a Student Support Officer."
         },
         "degree": {
             "filename": "degree",
             "title": "Degree Programme and Course of Study",
             "type": "category",
-            "descp": "",
-            "info": "This covers things such as switching between different degree plans - i.e. changing from MSci to BSc (Hons) - and joint/combined honours. There can be a lot of complexity in this area so it it is generally best to discuss it with your adviser.<br><br>When contacting your adviser of studies try and include as much information  as possible about your situation and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
+            "info": "This covers things such as switching between different degree plans - i.e. changing from MSci to BSc (Hons) - and joint/combined honours. There can be a lot of complexity in this area so it it is generally best to discuss it with your adviser.<br><br>When contacting your adviser of studies try and include as much information  as possible about what you need help with and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
             "subcats": [{
                 "name": "Switch major outside of the College of Science and Engineering",
                 "link": "transfer_outside_college",
@@ -323,19 +302,25 @@
             "filename": "goto_adviser",
             "title": "Go to your adviser of studies.",
             "type": "action",
-            "descp": "",
-            "info": "When contacting your adviser of studies try and include as much information  as possible about your situation and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
+            "info": "When contacting your adviser of studies try and include as much information  as possible about what you need help with and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
             "subcats": [{
                 "name": "Who is my adviser of studies?",
                 "link": "adviser_info",
                 "linkexternal": false
             }]
         },
+        "compsci_teaching_office": {
+            "filename":"compsci_teaching_office",
+            "title":"Go to the Computing Science Teaching Office",
+            "type":"action",
+            "info":"You can find the teaching office in F161, 17 Lilybank Gardens",
+            "subcats":[]
+
+        },
         "adviser_info": {
             "filename": "adviser_info",
             "title": "Adviser of Studies",
             "type": "advice",
-            "descp": "",
             "info": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the Universiry staff A-Z.",
             "subcats": []
         },
@@ -343,7 +328,6 @@
             "filename": "transfer_outside_college",
             "title": "Transfer out of College of Science and Engineering",
             "type": "action",
-            "descp": "",
             "info": "Go to your adviser of studies and discuss your options. You will also need to contact the college that you wish to transfer to and see if they will accept you.",
             "subcats": [{
                 "name": "Who is my adviser of studies?",
@@ -355,7 +339,6 @@
             "filename": "health",
             "title": "Health and Absence",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "Disabillities and Exam Arangements",
@@ -379,7 +362,6 @@
             "filename": "health_disabled",
             "title": "Disabillites",
             "type": "advice",
-            "descp": "",
             "info": "See <a href=\"disabilitesunipage\">Disabilities Services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>",
             "subcats": []
         },
@@ -387,7 +369,6 @@
             "filename": "health_good_cause",
             "title": "Good Cause",
             "type": "advice",
-            "descp": "",
             "info": "Try and follow through <a href=\"/pdf/good_cause_flowchart.pdf\">this flowchart</a> to find the appropriate course of action. If you're still unsure you should speak to a Student Support Officer.",
             "subcats": []
         },
@@ -395,7 +376,6 @@
             "filename": "health_fit_to_study",
             "title": "Fitness to Study",
             "type": "category",
-            "descp": "",
             "info": "\"The Fitness to Study Procedure focuses on student welfare and seeks to support students encountering challenges which affect their ability to study and engage in wider University life.\" - Senate Office",
             "subcats": [{
                 "name": "I would like to be Considered for a fitness to study case",
@@ -411,7 +391,6 @@
             "filename": "local_health",
             "title": "Local Health Services",
             "type": "advice",
-            "descp": "",
             "info": "Here's some info on the <a href=\"/pdf/Local_Health_Services.pdf\">local health services</a>",
             "subcats": []
         },
@@ -419,7 +398,6 @@
             "filename": "finance",
             "title": "Finance",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "Scholarships and Funding",
@@ -439,15 +417,13 @@
             "filename": "financial_aid_team",
             "title": "Scholarships and funding",
             "type": "advice",
-            "descp": "",
-            "info": "<p>See financial aid <a href=\"https://www.gla.ac.uk/myglasgow/registry/finance/funds/\">registry page</a> or contact the Financial Aid Team<ul><li><a href=\"mailto:reg.finaid@glasgow.ac.uk\">reg.finaid@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul></p>",
+            "info": "See financial aid <a href=\"https://www.gla.ac.uk/myglasgow/registry/finance/funds/\">registry page</a> or contact the Financial Aid Team<ul><li><a href=\"mailto:reg.finaid@glasgow.ac.uk\">reg.finaid@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul>",
             "subcats": []
         },
         "finance_disabled": {
             "filename": "finance_disabled",
             "title": "Disability Support and Funding",
             "type": "advice",
-            "descp": "",
             "info": "Goto Disability Services page on <a href=\"https://www.gla.ac.uk/myglasgow/disability/financialassistance/\">finacial aid</a>",
             "subcats": []
         },
@@ -455,31 +431,27 @@
             "filename": "finance_extra",
             "title": "Extra Resources",
             "type": "advice",
-            "descp": "",
-            "info": "<p>Have a look at these other resources for financial help:<ul><li><a href=\"https://www.glasgowstudent.net/advice/money/\">SRC Money Page</a></li><li><a href=\"https://www.moneyadviceservice.org.uk/en/articles/budgeting-for-college-or-university#how-to-budget-at-uni\">Money Advice Service</a></li></ul></p>",
+            "info": "Have a look at these other resources for financial help:<ul><li><a href=\"https://www.glasgowstudent.net/advice/money/\">SRC Money Page</a></li><li><a href=\"https://www.moneyadviceservice.org.uk/en/articles/budgeting-for-college-or-university#how-to-budget-at-uni\">Money Advice Service</a></li></ul>",
             "subcats": []
         },
         "careers": {
             "filename": "careers",
             "title": "Careers and Internships",
             "type": "advice",
-            "descp": "",
-            "info": "<p>See the <a href=\"https://www.gla.ac.uk/myglasgow/careers/\">Careers Hub page</a> or contact the Careers Team<ul><li><a href=\"mailto:careers@glasgow.ac.uk\">careers@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul>",
+            "info": "See the <a href=\"https://www.gla.ac.uk/myglasgow/careers/\">Careers Hub page</a> or contact the Careers Team<ul><li><a href=\"mailto:careers@glasgow.ac.uk\">careers@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul>",
             "subcats": []
         },
         "study_abroad": {
             "filename": "study_abroad",
             "title": "Erasmus/Study Abroad",
             "type": "action",
-            "descp": "",
-            "info": "<p>Contact Gerardo Aragon Camarasa<a href=\"mailto:Gerardo.AragonCamarasa@glasgow.ac.uk\">Gerardo.AragonCamarasa@glasgow.ac.uk</a><br /><a href=\"https://www.universitiesuk.ac.uk/International/Documents/2019/Gone-Intl-2019.pdf\">PDF</a> on study abroad</p>",
+            "info": "Contact Gerardo Aragon Camarasa<a href=\"mailto:Gerardo.AragonCamarasa@glasgow.ac.uk\">Gerardo.AragonCamarasa@glasgow.ac.uk</a><br /><a href=\"https://www.universitiesuk.ac.uk/International/Documents/2019/Gone-Intl-2019.pdf\">PDF</a> on study abroad.",
             "subcats": []
         },
         "exams": {
             "filename": "exams",
             "title": "Exams, Assessment, Resits and Progression",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "Disability Arangements",
@@ -507,15 +479,13 @@
             "filename": "exam_disability_access",
             "title": "Exam Disability Arangements",
             "type": "advice",
-            "descp": "",
-            "info": "<p>See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul></p>",
+            "info": "See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul>",
             "subcats": []
         },
         "exam_registry_info": {
             "filename": "exam_registry_info",
             "title": "Exams Info",
             "type": "advice",
-            "descp": "",
             "info": "See <a href=\"https://www.gla.ac.uk/myglasgow/registry/exams/\">registry page</a> on exams.",
             "subcats": []
         },
@@ -523,7 +493,6 @@
             "filename": "resits",
             "title": "Resits",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "Resit Enrolment",
@@ -543,7 +512,6 @@
             "filename": "standing_misconduct_and_appeals",
             "title": "Academic Standing",
             "type": "category",
-            "descp": "",
             "info": "",
             "subcats": [{
                 "name": "List of Academic Standing Codes",
@@ -563,8 +531,7 @@
             "filename": "appeals",
             "title": "Appeals",
             "type": "advice",
-            "descp": "",
-            "info": "<p>For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals. Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action. Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">Jane MacAllistar</a> for further information on appeals.</p>",
+            "info": "For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals. Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action.<br><br>Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">senate-appeals@glasgow.ac.uk</a> for further information on appeals.",
             "subcats": [{
                 "name": "Who is my adviser of studies?",
                 "link": "adviser_info",
@@ -575,7 +542,6 @@
             "filename": "plagiarism",
             "title": "Plagiarism",
             "type": "advice",
-            "descp": "",
             "info": "See the Undergraduate <a href=\"/pdf/compsci_class_guide.pdf\">Class Guide</a> sections on plagiarism.",
             "subcats": [{
                 "name": "Plagiarism appeals",
