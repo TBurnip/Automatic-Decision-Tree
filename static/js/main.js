@@ -245,6 +245,37 @@ function loadadviser() {
         jobject = data["goto_adviser"][x]
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
+        
+        var arr = [].slice.call(document.getElementsByClassName("who"));
+        arr.forEach(element => {
+            element.innerHTML = jobject["who"]
+        });
+        
+        var dp
+        if (jobject["who"] == "adviser") {
+            dp = "your adviser of studies"
+        } else if (jobject["who"] == "SSO") {
+            dp = "the SSO"
+        }
+
+        var fdp
+        if (jobject["who"] == "adviser") {
+            fdp = "my adviser of studies"
+        } else if (jobject["who"] == "SSO") {
+            fdp = "the SSO"
+        }
+
+        var arr2 = [].slice.call(document.getElementsByClassName("dpwho"));
+        arr2.forEach(element => {
+            element.innerHTML = dp   
+        });
+
+        var arr3 = [].slice.call(document.getElementsByClassName("fdpwho"));
+        arr3.forEach(element => {
+            element.innerHTML = fdp   
+        });
+
+        document.getElementsByTagName("title")[0].innerHTML = "Go to "+dp+"."
         bottomofpagelink(x,true)
     });
 }
