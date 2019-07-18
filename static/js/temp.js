@@ -30,7 +30,6 @@ function main(){
     //create new page object of pagename and render
     page =  new Page(page_args);
     page.render();
-
 }
 
 class History {
@@ -57,16 +56,11 @@ class Page {
             //iterate through all the subcats
             subcats.forEach(subcat => {
                 target_page = new Page(subcat["link"]);
-<<<<<<< HEAD
-                if (target_page.data) {
-                    subcat["link"] = "/p=" + subcat["link"]; //prepend proper string formatting to link
-=======
                 if (!(target_page || subcat["linkexternal"])) {
                     subcat["type"] = target_page["type"]; //set type of subcat (POSSIBLY GETTING REMOVED)
                     subcat["link"] = "/p=" + subcat["link"]; //append proper string formatting to link
                 } else {
                     subcat["type"] = "external\" class=\"";
->>>>>>> 039d62c756aeb0c89412f3c1e558adad3ce135b1
                 }
                 //set clickID
                 subcat["clickID"] = clickID++;
