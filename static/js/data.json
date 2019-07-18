@@ -154,8 +154,8 @@
             "info": "Is it possible to solve the problem by dropping one of the courses?",
             "subcats": [{
                 "name": "Yes",
-                "link": "goto_adviser",
-                "linkexternal": false
+                "link": "/goto_adviser.html?g=possible_to_drop_or_swap",
+                "linkexternal": true
             }, {
                 "name": "No",
                 "link": "unavoidable_course_clash",
@@ -213,7 +213,7 @@
                 "linkexternal": false
             },{
                 "name": "Outside Add/Drop",
-                "link": "goto_adviser",
+                "link": "/goto_adviser.html?g=add_drop_period",
                 "linkexternal": false
             }]
         },
@@ -379,7 +379,7 @@
             "info": "\"The Fitness to Study Procedure focuses on student welfare and seeks to support students encountering challenges which affect their ability to study and engage in wider University life.\" - Senate Office",
             "subcats": [{
                 "name": "I would like to be Considered for a fitness to study case",
-                "link": "goto_adviser",
+                "link": "/goto_adviser.html?g=health_fit_to_study",
                 "linkexternal": false
             }, {
                 "name": "Senate Office Guidance on Fitness to Study",
@@ -467,7 +467,7 @@
                 "linkexternal": false
             }, {
                 "name": "Not got the results to progress",
-                "link": "goto_adviser",
+                "link": "/goto_adviser.html?g=exams",
                 "linkexternal": false
             }, {
                 "name": "Academic Standing, Misconduct and Appeals",
@@ -566,40 +566,40 @@
     },
     "goto_adviser": {
         "possible_to_drop_or_swap": {
-            "who":"[sso or adviser]",
-            "why":"",
-            "what":"",
+            "who":"SSO",
+            "why":"As the only way to solve this timetable clash is to drop one of the courses in question, you should consult with the SSO to ensure you drop the right course and that it won't negatively affect your studies - for example, to make sure you don’t inadvertently drop science credits meaning that you won’t be able to progress to the next year.",
+            "what":"I have a timetable clash between [subject a] and [subject b]. I have already looked and it doesn't appear to be able to be solved by changing a lab, tutorial or seminar. Because of this I am going to drop one of the subjects and I need help choosing which  one to drop as well as choosing a subject to pick up.",
             "notesforadviser":""
         },
         "add_drop_period": {
-            "who":"[sso or adviser]",
-            "why":"",
-            "what":"",
+            "who":"SSO",
+            "why":"The add/drop period exists to give students time to try out courses and still be able to change without falling too far behind, therefore changing courses outside the add/drop period could result in a lot of extra work for you - especially if you have missed assessment for the course you wish to change to. Changing courses is still possible however you should certainly discuss it with the SSO to ensure that you make the best decision for you.",
+            "what":"I'm looking to drop [subject] and it is outside the add drop period. Can I discuss this with you to see if it's a good decision?",
             "notesforadviser":""
         },
         "degree": 
         {
-            "who":"[sso or adviser]",
-            "why": "this is why",
-            "what": "this is what",
+            "who":"adviser",
+            "why": "Changing your degree programme is a big decision that will affect the rest of your time at university. Due to the nature of changing degrees you should discuss it with your adviser to ensure that you understand all that is involved and how to go about it. It will also be useful to discuss why you want to change in case something in the department can be improved for the benefit of yourself and other students. There are lots of rules in regards to switching degree programme - especially between colleges - so you will need to check with your adviser that you meet all the credit requirements for the degree you wish to switch to, otherwise you may need to resit a year.",
+            "what": "I'm thinking of changing degree from [current degree programme] to [possible future degree programme]. What is involved in this and how should I go about it?",
             "notesforadviser":""
         },
         "within_college": {
-            "who":"[sso or adviser]",
-            "why":"",
-            "what":"",
+            "who":"adviser",
+            "why":"Changing your degree programme is a big decision that will affect the rest of your time at university. Due to the nature of changing degrees you should discuss it with your adviser to ensure that you understand all that is involved and how to go about it. It will also be useful to discuss why you want to change in case something in the department can be improved for the benefit of yourself and other students. There are lots of rules in regards to switching degree programme - especially between colleges - so you will need to check with your adviser that you meet all the credit requirements for the degree you wish to switch to, otherwise you may need to resit a year.",
+            "what":"I'm thinking of changing degree from [current degree programme] to [possible future degree programme]. What is involved in this and how should I go about it?",
             "notesforadviser":""
         },
         "health_fit_to_study": {
-            "who":"[sso or adviser]",
+            "who":"SSO",
             "why":"",
             "what":"",
             "notesforadviser":""
         },
         "exams": {
-            "who":"[sso or adviser]",
-            "why":"",
-            "what":"",
+            "who":"SSO",
+            "why":"The SSO is best placed to discuss what you should do next.",
+            "what":"I didn't get the results I need to progress. What should I do now?",
             "notesforadviser":""
         }
     }
