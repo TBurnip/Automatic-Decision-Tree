@@ -2,11 +2,33 @@ function main(){
     var hist;
 
     //get the search parameter, and it it isn't null then set the pagename to it
+    
+
+    //args object for passing to the page constructor, set default arguments for datafile and template_name, these only change if the get parameter "g" is non-null
+    page_args = Object();
+    page_args["datafile"] = "js/page_data.json";
+    page_args["template"] = "bodyexample.html"
+
+    //find the name to be passed to the constructor
     local = findGetParameter("p");
-    local != null ? pagename = local : pagename = "index";
+    if (!local) {
+        //if null is returned for "p", try "g"
+        local = findGetParameter("g");
+        if (local) {
+            //if get parameter for "g" is non-null then set data and template for adviser page
+            page_args["datafile"] = "js/adviser_info.json";
+            page_args["template"] = "goto_adviser.html";
+        } else {
+            //if both p and g return null then set local to index
+            local = "index"
+        }
+    }
+
+    //set the page name in args to local
+    page_args["name"] = local;
 
     //create new page object of pagename and render
-    page =  new Page(pagename);
+    page =  new Page(page_args);
     page.render();
 
 }
@@ -20,9 +42,11 @@ class History {
 class Page {
 
     //upon object creation, set name and automatically get the data for the page
-    constructor(name){
-        this.name = name;
-        this.data = this.getData(name);
+    constructor(args){
+        this.name = args["name"];
+        this.datafile = args["datafile"];
+        this.template_name = args["template"];
+        this.data = this.getData(this.name);
     }
     
     setUpSubcats() {
@@ -30,18 +54,22 @@ class Page {
         subcats = this.data["subcats"];
         if (subcats) {
             var clickID = 0;
-
             //iterate through all the subcats
             subcats.forEach(subcat => {
                 target_page = new Page(subcat["link"]);
+<<<<<<< HEAD
+                if (target_page.data) {
+                    subcat["link"] = "/p=" + subcat["link"]; //prepend proper string formatting to link
+=======
                 if (!(target_page || subcat["linkexternal"])) {
                     subcat["type"] = target_page["type"]; //set type of subcat (POSSIBLY GETTING REMOVED)
                     subcat["link"] = "/p=" + subcat["link"]; //append proper string formatting to link
                 } else {
                     subcat["type"] = "external\" class=\"";
+>>>>>>> 039d62c756aeb0c89412f3c1e558adad3ce135b1
                 }
                 //set clickID
-                subcat["clickID"];
+                subcat["clickID"] = clickID++;
             })
         }
     }
@@ -49,13 +77,13 @@ class Page {
     getData(name) {
         console.log("Geting Data for: " + name);
         //gets the data for the page of a given name using a HTTP request for data.json
-        $.get("/js/data.json", function(data) { return data["pages"][this.name]; });
+        $.get(this.datafile, function(data) { return data[this.name]; });
     }
 
     getMotm() {
-        $.get("/js/data.json", function(data) { 
+        $.get("/js/motm.json", function(data) { 
             var d = new Date();
-            return data["motm"][d.getMonth()];            
+            return data[d.getMonth()];            
         });
     }
 
@@ -69,7 +97,7 @@ class Page {
         this.setUpSubcats();
         this.data["motm"] = this.getMotm();
 
-        $.get("bodyexample.html", function(template) {
+        $.get(this.template_name, function(template) {
             document.body.innerHTML = Mustache.render(template, this.data);
             document.body.id = data["type"]; /* POSSIBLY CAN GET RID OF THIS SINCE IT ISN'T DOING ANYTHING IN THE CSS */
             document.title = data["title"];
@@ -77,7 +105,6 @@ class Page {
 
     }
 }
-
 
 
 
