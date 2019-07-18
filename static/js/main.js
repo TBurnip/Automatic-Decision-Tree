@@ -149,6 +149,7 @@ function jsonloaded(resp) {
 
 // Once the data from bodyexample.html has been loaded this code is ran. This renders the final webpage using Mustoche as a templating engine 
 function bodyexampleloaded(r) {
+    console.log("got this far")
     console.log(pagedata)
     console.log(r)
     bodyexamplehtml = r
@@ -277,7 +278,7 @@ function clicktocopy(element) {
 }
 
 // This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
-function clickhandler(url,t,external) {
+function clickhandler(url,t,external,goto_adviser) {
     // This retrives a small bit of information about the thing that has been clicked
     clickid = t.getAttribute("data-clickid")
 
@@ -293,6 +294,8 @@ function clickhandler(url,t,external) {
         if (external) {
             var win = window.open(url, '_blank');
             win.focus();
+        } else if (goto_adviser) {
+            location = url
         } else {
             location = url
         }
