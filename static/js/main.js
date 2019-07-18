@@ -58,14 +58,12 @@ function removeconsecutiveduplicates() {
 
 // This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
 function loaddata() {
-    local = findGetParameter("p")
-    if (local != null) {
-        pagename = local
-        loadpage()
-    } else {
-        pagename = "index"
-        loadpage()
+    local = findGetParameter("p");
+    pagename = "index";
+    if (local) {
+        pagename = local;
     }
+    loadpage();
 }
 
 // Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
@@ -94,8 +92,8 @@ function jsonloaded(resp) {
             pagedata["subcats"].forEach(subcat => {
                 //if link isn't external and link is defined in data.json
                 if (!(subcat["linkexternal"] || data["pages"][subcat["link"]] == undefined)) {
-                        subcat["type"] = data["pages"][subcat["link"]]["type"];
-                        subcat["link"] = "/?p=" + subcat["link"];
+                    subcat["type"] = data["pages"][subcat["link"]]["type"];
+                    subcat["link"] = "/?p=" + subcat["link"];
                 } else {
                     subcat["type"] = "external\" target=\"_blank\" class=\"";
                 }
@@ -201,23 +199,25 @@ function findGetParameter(parameterName) {
             //then for each element in the array
             //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
             tmp = item.split("=");
-            if (tmp[0] === parameterName) { return decodeURIComponent(tmp[1]) };
+            if (tmp[0] === parameterName) { result = decodeURIComponent(tmp[1]) };
         });
+        return result
 }
 
+// Loadadviser loads the data into the goto_adviser page
 function loadadviser() {
     load()
     x = findGetParameter("g")
     $.get("/js/data.json",function (r) {
-        resp = r
-        console.log(resp["goto_adviser"])
-        jobject = resp["goto_adviser"][x]
+        data = r
+        jobject = data["goto_adviser"][x]
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
         bottomofpagelink(x,true)
     });
 }
 
+// This creates the link for the bottom of the page and puts it in the input box for the link
 function bottomofpagelink(page,ad) {
     text = document.getElementById("link").getElementsByTagName("input")[0]
     hist = getCookie("hist")
@@ -232,6 +232,7 @@ function bottomofpagelink(page,ad) {
     link = document.getElementById("link").getElementsByTagName("a")[0]
 }
 
+
 function clicktocopy(element) {
     console.log("copying")
     /* Get the text field */
@@ -244,12 +245,19 @@ function clicktocopy(element) {
     document.execCommand("copy");
 }
 
-
+// This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
 function clickhandler(url,t) {
+    // This retrives a small bit of information about the thing that has been clicked
     clickid = t.getAttribute("data-clickid")
+
+    // This records the destination URL, clickid, name of the page you are on
     console.log(url,clickid,pagename)
+
+    // this is a section of data which will be used in the new journey system
     clickdata = {"type":"click","currentpage":pagename,"clickname":clickid};
     console.log(JSON.stringify(clickdata))
+
+    // This simply redirects you to the location your click was supposed to go to
     if (clickid.search(/subcat\_.*/) == 0) {
         location = url
     } else if (clickid.search(/breadcrumb\_.*/) == 0) {
