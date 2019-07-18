@@ -87,13 +87,13 @@ nav.navbar-expand-sm {
   top: 10px;
 }
 
-.breadcrumb {
+/* .breadcrumb {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   margin: 0px;
-}
+} */
 
 @media only screen and (max-width: 600px) {
   .subcat {

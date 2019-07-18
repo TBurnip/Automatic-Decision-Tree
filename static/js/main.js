@@ -87,8 +87,6 @@ function removeconsecutiveduplicates() {
     setCookie("hist", hist)
 }
 
-<<<<<<< HEAD
-=======
 // This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
 function loaddata() {
     local = findGetParameter("p");
@@ -186,7 +184,6 @@ function load(name) {
     bottomofpagelink(name,false)
 }
 
->>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
 // This function is used to detect if the browser back button has been used and if it has it removes the correct items from the bread crumb train.
 function removebrowserbackeventduplicates() {
 
@@ -235,27 +232,16 @@ function findGetParameter(parameterName) {
             tmp = item.split("=");
             if (tmp[0] === parameterName) { result = decodeURIComponent(tmp[1]) };
         });
-<<<<<<< HEAD
-        return result;
-=======
         return result
->>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
 }
 
 // Loadadviser loads the data into the goto_adviser page
 function loadadviser() {
     load()
     x = findGetParameter("g")
-<<<<<<< HEAD
-    $.get("/js/data.json", function (r) {
-        resp = r
-        console.log(resp["goto_adviser"])
-        jobject = resp["goto_adviser"][x]
-=======
     $.get("/js/data.json",function (r) {
         data = r
         jobject = data["goto_adviser"][x]
->>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
         bottomofpagelink(x,true)
@@ -289,14 +275,6 @@ function clicktocopy(element) {
     /* Copy the text inside the text field */
     document.execCommand("copy");
 }
-<<<<<<< HEAD
-function clickhandler(url,t) {
-    clickID = t.getAttribute("data-clickID")
-    console.log(url,clickID,pagename)
-    clickdata = {"type":"click","currentpage":pagename,"clickname":clickID};
-    console.log(JSON.stringify(clickdata))
-    if (clickID.search(/subcat\_.*/) == 0) {
-=======
 
 // This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
 function clickhandler(url,t) {
@@ -312,7 +290,6 @@ function clickhandler(url,t) {
 
     // This simply redirects you to the location your click was supposed to go to
     if (clickid.search(/subcat\_.*/) == 0) {
->>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
         location = url
     } else if (clickID.search(/breadcrumb\_.*/) == 0) {
         console.log("Lets go breadcrumbing")
