@@ -141,7 +141,7 @@ function findGetParameter(parameterName) {
 function loadadviser() {
     load()
     x = findGetParameter("g")
-    $.get("/js/data.json",function (r) {
+    $.get("/js/data.json", function (r) {
         resp = r
         console.log(resp["goto_adviser"])
         jobject = resp["goto_adviser"][x]
