@@ -87,6 +87,106 @@ function removeconsecutiveduplicates() {
     setCookie("hist", hist)
 }
 
+<<<<<<< HEAD
+=======
+// This is used to load data into the page. This only a switch which allows for the use of localhost to represent index.
+function loaddata() {
+    local = findGetParameter("p");
+    pagename = "index";
+    if (local) {
+        pagename = local;
+    }
+    loadpage();
+}
+
+// Loads the page with the given name. This uses the data from the json to load the page and uses a file called bodyexample.html as a template.
+var data
+var pagename
+var pagedata
+
+function loadpage() {
+    console.log("Geting Data for: " + pagename);
+    $.get("/js/data.json",jsonloaded);
+}
+
+function jsonloaded(resp) {
+    data = resp
+    console.log(data)
+    pagedata = data["pages"][pagename]
+
+    //check whether page is defined in data.json, if not then load 404 page
+    if (pagedata != undefined) {
+        if (!(pagedata["subcats"] == null || pagedata["subcats"] == undefined)) {
+
+
+            count = 0;
+
+            //loop through every subcategory
+            pagedata["subcats"].forEach(subcat => {
+                //if link isn't external and link is defined in data.json
+                if (!(subcat["linkexternal"] || data["pages"][subcat["link"]] == undefined)) {
+                    subcat["type"] = data["pages"][subcat["link"]]["type"];
+                    subcat["link"] = "/?p=" + subcat["link"];
+                } else {
+                    subcat["type"] = "external\" target=\"_blank\" class=\"";
+                }
+                //
+                subcat["clickid"] = count++;
+            })
+        }
+
+        var d = new Date();
+        var n = d.getMonth();
+        pagedata["motm"] = data["motm"][n]
+        if (data != null) {
+            $.get("/bodyexample.html",bodyexampleloaded);
+        }
+    } else {
+        console.log(pagename)
+        location = "/404.html"
+        return
+    }
+}
+
+
+// Once the data from bodyexample.html has been loaded this code is ran. This renders the final webpage using Mustoche as a templating engine 
+function bodyexampleloaded(r) {
+    console.log(pagedata)
+    console.log(r)
+    bodyexamplehtml = r
+    document.body.innerHTML = Mustache.render(bodyexamplehtml, pagedata)
+    document.body.id = pagedata["type"]
+    document.title = pagedata["title"]
+    load(pagename)
+}
+
+
+// Load is a whole bunch of miscellaneous stuff related to loading the page.
+function load(name) {
+    hist = getCookie("hist")
+    if (hist != "") {
+        if (location.pathname + location.search == "/?p="
+            || (location.search == "" && location.pathname != "/404.html")
+            || location.search == "?p=index") {
+            setCookie("hist", "index")
+        } else {
+            setCookie("hist", hist + "," + findGetParameter("p"))
+        }
+    } else {
+        setCookie("hist", findGetParameter("p"))
+    }
+    hist = getCookie("hist")
+    gethist = findGetParameter("h")
+    if (gethist != undefined) {
+        hist = gethist
+    }
+    removeconsecutiveduplicates()
+    removebrowserbackeventduplicates()
+    renderbreadcrumb()
+    bottomofpagelink(name,false)
+}
+
+>>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
 // This function is used to detect if the browser back button has been used and if it has it removes the correct items from the bread crumb train.
 function removebrowserbackeventduplicates() {
 
@@ -135,22 +235,34 @@ function findGetParameter(parameterName) {
             tmp = item.split("=");
             if (tmp[0] === parameterName) { result = decodeURIComponent(tmp[1]) };
         });
+<<<<<<< HEAD
         return result;
+=======
+        return result
+>>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
 }
 
+// Loadadviser loads the data into the goto_adviser page
 function loadadviser() {
     load()
     x = findGetParameter("g")
+<<<<<<< HEAD
     $.get("/js/data.json", function (r) {
         resp = r
         console.log(resp["goto_adviser"])
         jobject = resp["goto_adviser"][x]
+=======
+    $.get("/js/data.json",function (r) {
+        data = r
+        jobject = data["goto_adviser"][x]
+>>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
         bottomofpagelink(x,true)
     });
 }
 
+// This creates the link for the bottom of the page and puts it in the input box for the link
 function bottomofpagelink(page,ad) {
     text = document.getElementById("link").getElementsByTagName("input")[0]
     hist = getCookie("hist")
@@ -165,6 +277,7 @@ function bottomofpagelink(page,ad) {
     link = document.getElementById("link").getElementsByTagName("a")[0]
 }
 
+
 function clicktocopy(element) {
     console.log("copying")
     /* Get the text field */
@@ -176,12 +289,30 @@ function clicktocopy(element) {
     /* Copy the text inside the text field */
     document.execCommand("copy");
 }
+<<<<<<< HEAD
 function clickhandler(url,t) {
     clickID = t.getAttribute("data-clickID")
     console.log(url,clickID,pagename)
     clickdata = {"type":"click","currentpage":pagename,"clickname":clickID};
     console.log(JSON.stringify(clickdata))
     if (clickID.search(/subcat\_.*/) == 0) {
+=======
+
+// This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
+function clickhandler(url,t) {
+    // This retrives a small bit of information about the thing that has been clicked
+    clickid = t.getAttribute("data-clickid")
+
+    // This records the destination URL, clickid, name of the page you are on
+    console.log(url,clickid,pagename)
+
+    // this is a section of data which will be used in the new journey system
+    clickdata = {"type":"click","currentpage":pagename,"clickname":clickid};
+    console.log(JSON.stringify(clickdata))
+
+    // This simply redirects you to the location your click was supposed to go to
+    if (clickid.search(/subcat\_.*/) == 0) {
+>>>>>>> 04a2923f58757650fd1ddd4168f5ca10ed00fe37
         location = url
     } else if (clickID.search(/breadcrumb\_.*/) == 0) {
         console.log("Lets go breadcrumbing")
