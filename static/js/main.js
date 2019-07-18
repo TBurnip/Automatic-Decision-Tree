@@ -149,6 +149,7 @@ function jsonloaded(resp) {
 
 // Once the data from bodyexample.html has been loaded this code is ran. This renders the final webpage using Mustoche as a templating engine 
 function bodyexampleloaded(r) {
+    console.log("got this far")
     console.log(pagedata)
     console.log(r)
     bodyexamplehtml = r
@@ -244,6 +245,37 @@ function loadadviser() {
         jobject = data["goto_adviser"][x]
         document.getElementById("why").innerHTML = jobject["why"]
         document.getElementById("what").innerHTML = jobject["what"]
+        
+        var arr = [].slice.call(document.getElementsByClassName("who"));
+        arr.forEach(element => {
+            element.innerHTML = jobject["who"]
+        });
+        
+        var dp
+        if (jobject["who"] == "adviser") {
+            dp = "your adviser of studies"
+        } else if (jobject["who"] == "SSO") {
+            dp = "the SSO"
+        }
+
+        var fdp
+        if (jobject["who"] == "adviser") {
+            fdp = "my adviser of studies"
+        } else if (jobject["who"] == "SSO") {
+            fdp = "the SSO"
+        }
+
+        var arr2 = [].slice.call(document.getElementsByClassName("dpwho"));
+        arr2.forEach(element => {
+            element.innerHTML = dp   
+        });
+
+        var arr3 = [].slice.call(document.getElementsByClassName("fdpwho"));
+        arr3.forEach(element => {
+            element.innerHTML = fdp   
+        });
+
+        document.getElementsByTagName("title")[0].innerHTML = "Go to "+dp+"."
         bottomofpagelink(x,true)
     });
 }
@@ -277,7 +309,7 @@ function clicktocopy(element) {
 }
 
 // This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
-function clickhandler(url,t,external) {
+function clickhandler(url,t,external,goto_adviser) {
     // This retrives a small bit of information about the thing that has been clicked
     clickid = t.getAttribute("data-clickid")
 
@@ -293,6 +325,8 @@ function clickhandler(url,t,external) {
         if (external) {
             var win = window.open(url, '_blank');
             win.focus();
+        } else if (goto_adviser) {
+            location = url
         } else {
             location = url
         }

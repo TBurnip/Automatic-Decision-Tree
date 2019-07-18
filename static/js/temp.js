@@ -30,7 +30,6 @@ function main(){
     console.log(JSON.stringify(page));
     console.log(page.data);
     page.render();
-
 }
 
 class History {
