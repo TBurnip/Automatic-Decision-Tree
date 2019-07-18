@@ -105,4 +105,8 @@ nav.navbar-expand-sm {
     display: flex;
     flex-direction: column;
   }
+
+  #logo {
+    width: 40px;
+  }
 }
