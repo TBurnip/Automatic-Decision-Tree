@@ -38,7 +38,7 @@ class Page {
                     subcat["type"] = target_page["type"]; //set type of subcat (POSSIBLY GETTING REMOVED)
                     subcat["link"] = "/p=" + subcat["link"]; //append proper string formatting to link
                 } else {
-                    subcat["type"] = "external\" target=\"_blank\" class=\"";
+                    subcat["type"] = "external\" class=\"";
                 }
                 //set clickID
                 subcat["clickID"];

@@ -126,7 +126,7 @@ function jsonloaded(resp) {
                     subcat["type"] = data["pages"][subcat["link"]]["type"];
                     subcat["link"] = "/?p=" + subcat["link"];
                 } else {
-                    subcat["type"] = "external\" target=\"_blank\" class=\"";
+                    subcat["type"] = "external\" class=\"";
                 }
                 //
                 subcat["clickid"] = count++;
@@ -277,7 +277,7 @@ function clicktocopy(element) {
 }
 
 // This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
-function clickhandler(url,t) {
+function clickhandler(url,t,external) {
     // This retrives a small bit of information about the thing that has been clicked
     clickid = t.getAttribute("data-clickid")
 
@@ -290,7 +290,12 @@ function clickhandler(url,t) {
 
     // This simply redirects you to the location your click was supposed to go to
     if (clickid.search(/subcat\_.*/) == 0) {
-        location = url
+        if (external) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        } else {
+            location = url
+        }
     } else if (clickID.search(/breadcrumb\_.*/) == 0) {
         console.log("Lets go breadcrumbing")
     }
