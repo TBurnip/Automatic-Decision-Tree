@@ -101,6 +101,7 @@ Now for the maddness of the new journey system. This data will be used to create
     {
         "type":"[page or click]",
         "pagename":"[this only exist if type=page]",
+        "currentpage":"[this only exist if type=click]",
         "clickname":"[this only exist if type=click]"
     }
 ]
@@ -217,4 +218,12 @@ function bodyexampleloaded(r,name) {
 }
 
 
+```
+
+
+
+## HTML Embed Code V1
+
+```html
+<iframe src="tburnip.github.io" width="100%" style="height:60vh;border:0px;"></iframe>
 ```
