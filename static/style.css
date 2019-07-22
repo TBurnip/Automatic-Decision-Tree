@@ -128,3 +128,16 @@ body {
 .row {
   max-width: 100vw!important;
 }
+
+#glossery {
+  color: aliceblue;
+}
+
+
+a.nav-link {
+  font-size: 18pt;
+}
+
+ul#breadcrumb>li>a {
+  font-size: 14pt;
+}
