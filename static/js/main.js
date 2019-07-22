@@ -26,21 +26,12 @@ function load(name) {
         }
     } else {
         setCookie("hist", findGetParameter("p"))
-<<<<<<< HEAD
     }
     hist = getCookie("hist")
     gethist = findGetParameter("h")
     if (gethist != undefined) {
         hist = gethist
     }
-=======
-    }
-    hist = getCookie("hist")
-    gethist = findGetParameter("h")
-    if (gethist != undefined) {
-        hist = gethist
-    }
->>>>>>> d214012a5350f6f2fb2e1f9507ddd5c28bd03e37
     removeconsecutiveduplicates() //this function will be unescessary if we make history a set
     removebrowserbackeventduplicates()
     renderbreadcrumb()
