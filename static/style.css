@@ -132,3 +132,12 @@ body {
 #glossery {
   color: aliceblue;
 }
+
+
+a.nav-link {
+  font-size: 18pt;
+}
+
+ul#breadcrumb>li>a {
+  font-size: 14pt;
+}
