@@ -1,9 +1,8 @@
-function main(){
-    
+async function main(){
     //args object for passing to the page constructor, set default arguments for datafile and template_name, these only change if the get parameter "g" is non-null
     page_args = Object();
     page_args["datafile"] = "js/page_data.json";
-    page_args["template"] = "bodyexample.html"
+    page_args["template"] = "bodyexample.html";
 
     //find the name to be passed to the constructor
     local = findGetParameter("p");
@@ -20,27 +19,13 @@ function main(){
         }
     }
 
-    //set the page name in args to local
     page_args["name"] = local;
 
-    console.log(page_args);
-
-    //create new page object of pagename and render
-    page =  new Page(page_args);
-    console.log(JSON.stringify(page));
-    console.log(page.data);
-    page.render();
-}
-
-class History {
-    constructor() {
-        this.full_hist = new Array();
-        this.breadcrumb = new Set();
-    }
-
-    //get history from session storage
-    static getHistory(){ sessionStorage.getItem("hist"); }
-    storeHistory(){ sessionStorage.setItem(this); }
+    Page.getData(page_args["name"], page_args["datafile"], function(data){
+        page_args["data"] = data;
+        var page = new Page(page_args);
+        page.render();
+    });
 }
 
 class Page {
@@ -50,9 +35,7 @@ class Page {
         this.name = args["name"];
         this.datafile = args["datafile"];
         this.template_name = args["template"];
-        var self = this;
-        console.log("getting data for: " + this.name + " from: " + this.datafile);
-        $.get(this.datafile, function(self, data) { self.data = data[self.name]; });
+        this.data = args["data"];
     }
     
     setUpSubcats() {
@@ -62,16 +45,20 @@ class Page {
         if (this.data["subcats"]) {
             var clickID = 0;
             //iterate through all the subcats
-            subcats = this.data["subcats"];
+            var subcats = this.data["subcats"];
             subcats.forEach(subcat => {
-                target_page = new Page(subcat["link"]);
-                if (target_page.data) {
-                    subcat["link"] = "/p=" + subcat["link"]; //prepend proper string formatting to link
+                if (!subcat["linkexternal"]) {
+                    subcat["link"] = "/?p=" + subcat["link"]; //prepend proper string formatting to link
                 }
                 //set clickID
                 subcat["clickID"] = clickID++;
             })
         }
+    }
+
+    static getData(name, datafile, callback){
+        console.log("Getting data for: " + name + " from: " + datafile);
+        $.get(datafile, function(data) { callback(data[name]); });
     }
 
     setMotm() {
@@ -88,31 +75,59 @@ class Page {
         if (this.data) {
             this.setUpSubcats();
             this.setMotm();
-            document.title = data["title"];
+            console.log(this.data);
+            document.title = this.data["title"];
         } else {
             console.log("yoooo");
             this.template_name = "404.html";
             document.title = "(404) Page Not Found";
         }
 
+        var self = this;
         $.get(this.template_name, function(template) {
-            document.body.innerHTML = Mustache.render(template, this.data);
+            document.body.innerHTML = Mustache.render(template, self.data);
         })
 
     }
 }
 
+class History {
+    constructor() {
+        this.full_hist = new Array();
+        this.breadcrumb = new Set();
+    }
 
+    //get history from session storage
+    static getHistory(){ sessionStorage.getItem("hist"); }
+    storeHistory(){ sessionStorage.setItem(this); }
+}
 
+// This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
+function clickhandler(url,t,external,goto_adviser) {
+    // This retrives a small bit of information about the thing that has been clicked
+    clickid = t.getAttribute("data-clickid");
 
+    // This records the destination URL, clickid, name of the page you are on
+    console.log(url,clickid,pagename)
 
+    // this is a section of data which will be used in the new journey system
+    clickdata = {"type":"click","currentpage":pagename,"clickname":clickid};
+    console.log(JSON.stringify(clickdata))
 
-
-
-
-
-
-
+    // This simply redirects you to the location your click was supposed to go to
+    if (clickid.search(/subcat\_.*/) == 0) {
+        if (external) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        } else if (goto_adviser) {
+            location = url
+        } else {
+            location = url
+        }
+    } else if (clickID.search(/breadcrumb\_.*/) == 0) {
+        console.log("Lets go breadcrumbing")
+    }
+}
 
 
 
