@@ -21,7 +21,8 @@ async function main(){
 
     Page.getData(page_name, datafile, function(data){
         var page = new Page(page_name, template, data);
-        History.update(page.hist, page_name);
+        page.hist.update(page_name);
+        console.log(page.hist);
         History.storeHistory(page.hist);
         page.render();
     });
@@ -44,7 +45,7 @@ class Page {
         this.template = template;
         this.data = data;
         this.hist = History.retrieveHistory();
-        console.log(this.hist);
+        this.hist.test
     }
 
     static async getData(name, datafile, callback){
@@ -100,7 +101,7 @@ class Page {
 }
 
 class History {
-    constructor() {
+    constructor(full_hist = []) {
 
         /*
             Attributes for History:
@@ -117,30 +118,54 @@ class History {
             this.breadcrumb = new Set(split_hist);    
         } else {
             //otherwise create empty array and set
-            this.full_hist = new Array();
-            this.breadcrumb = new Set();
+            this.full_hist = full_hist;
+            this.breadcrumb = new Set(this.getCrumbFromHist());
         }
+    }
+
+    //iterate through full_hist and find most recent instance of "index"
+    getCrumbFromHist() {
+        //by default the last instance of index will be the first element
+        var last_index = 0;
+
+        //go through the history backwards
+        var len = this.full_hist.length;
+        for (var i = len - 1; i >= 0; i--) {
+            //if we match index then set the last occurence to i  and exit the loop
+            if (this.full_hist[i] === "index") {
+                last_index = i;
+                break;
+            }
+        }
+        return this.full_hist.slice(last_index);
     }
 
     //get history from session storage and return it, if history doesn't exist in session storage return new history
     static retrieveHistory(){
         var hist = JSON.parse(sessionStorage.getItem("hist"));
-        if (hist) { return hist; }
-        else { return new History(); }
+        var items;
+        hist ? items = hist["full_hist"] : items = [];
+        return new History(items);
     }
 
     //store a JSON serialized version of the history in session storage
     static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
 
-    static update(hist, page) {
-        hist.full_hist.push(page);
-        console.log(hist.breadcrumb);
+    update(page) {
+
+        //we don't want repeated entries in our history
+        //so check if the element we're trying to add is the same as the last element in the history
+        //if it isn't then we're okay to add
+        var last_page = this.full_hist[this.full_hist.length -1];
+        if (last_page != page) { 
+            this.full_hist.push(page);   
+        }
 
         if (page === "index") {
-            hist.breadcrumb = new Set([page]);
+            this.breadcrumb = new Set(["index"]);
         } else {
-            var breadcrumb = new Set(hist.full_hist);
-            hist.breadcrumb = breadcrumb;
+            var breadcrumb = this.breadcrumb.add(page);
+            this.breadcrumb = breadcrumb;
         }
     }
 
@@ -148,6 +173,8 @@ class History {
         //if the length of the history is greater than 1 (ie a previous page exists), then return the previous page
         var len = this.full_hist.length;
         if (len > 1) { return this.full_hist[len - 2]; }
+        //otherwise return the only element
+        else { return this.full_hist[len - 1]; }
     }
 }
 
