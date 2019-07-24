@@ -119,7 +119,7 @@ class History {
         } else {
             //otherwise create empty array and set
             this.full_hist = full_hist;
-            this.breadcrumb = new Set(this.getCrumbFromHist());
+            this.breadcrumb = this.getCrumbFromHist();
         }
     }
 
@@ -137,7 +137,10 @@ class History {
                 break;
             }
         }
-        return this.full_hist.slice(last_index);
+
+        //take slice from last instance of "index"
+        var last_elements = this.full_hist.slice(last_index);
+        return new Set(last_elements);
     }
 
     //get history from session storage and return it, if history doesn't exist in session storage return new history
