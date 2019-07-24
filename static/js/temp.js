@@ -1,29 +1,28 @@
 async function main(){
-    //args object for passing to the page constructor, set default arguments for datafile and template_name, these only change if the get parameter "g" is non-null
+    //args object for passing to the page constructor, set default arguments for datafile and template, these only change if the get parameter "g" is non-null
     page_args = Object();
-    page_args["datafile"] = "js/page_data.json";
-    page_args["template"] = "bodyexample.html";
+    var datafile = "js/page_data.json";
+    var template = "bodyexample.html";
 
     //find the name to be passed to the constructor
-    local = findGetParameter("p");
-    if (!local) {
+    var page_name = findGetParameter("p");
+    if (!page_name) {
         //if null is returned for "p", try "g"
-        local = findGetParameter("g");
-        if (local) {
+        page_name = findGetParameter("g");
+        if (page_name) {
             //if get parameter for "g" is non-null then set data and template for adviser page
-            page_args["datafile"] = "js/adviser_info.json";
-            page_args["template"] = "goto_adviser.html";
+            datafile = "js/adviser_info.json";
+            template = "goto_adviser.html";
         } else {
-            //if both p and g return null then set local to index
-            local = "index"
+            //if both p and g return null then set page_name to index
+            page_name = "index";
         }
     }
 
-    page_args["name"] = local;
-
-    Page.getData(page_args["name"], page_args["datafile"], function(data){
-        page_args["data"] = data;
-        var page = new Page(page_args);
+    Page.getData(page_name, datafile, function(data){
+        var page = new Page(page_name, template, data);
+        History.update(page.hist, page_name);
+        History.storeHistory(page.hist);
         page.render();
     });
 }
@@ -31,16 +30,29 @@ async function main(){
 class Page {
 
     //upon object creation, set name and automatically get the data for the page
-    constructor(args){
-        this.name = args["name"];
-        this.datafile = args["datafile"];
-        this.template_name = args["template"];
-        this.data = args["data"];
+    constructor(name, template, data){
+
+        /*
+            Attributes for class Page:
+                name:       name of the page
+                template:   .html file used to render the page
+                data:       data for the page read from the datafile
+                hist:       an instance of class History, loaded from session storage
+        */
+
+        this.name = name;
+        this.template = template;
+        this.data = data;
+        this.hist = History.retrieveHistory();
+        console.log(this.hist);
+    }
+
+    static async getData(name, datafile, callback){
+        console.log("Getting data for: " + name + " from: " + datafile);
+        $.get(datafile, function(data) { callback(data[name]); });
     }
     
     setUpSubcats() {
-
-        console.log(this.data);
         //check whether subcats exists
         if (this.data["subcats"]) {
             var clickID = 0;
@@ -48,17 +60,14 @@ class Page {
             var subcats = this.data["subcats"];
             subcats.forEach(subcat => {
                 if (!subcat["linkexternal"]) {
-                    subcat["link"] = "/?p=" + subcat["link"]; //prepend proper string formatting to link
+                    var get_praram;
+                    subcat["goto_adviser"] ? get_praram = "g" : get_praram = "p";
+                    subcat["link"] = "/?" + get_praram + "=" + subcat["link"]; //prepend proper string formatting to link
                 }
                 //set clickID
                 subcat["clickID"] = clickID++;
             })
         }
-    }
-
-    static getData(name, datafile, callback){
-        console.log("Getting data for: " + name + " from: " + datafile);
-        $.get(datafile, function(data) { callback(data[name]); });
     }
 
     setMotm() {
@@ -70,21 +79,20 @@ class Page {
     }
 
     render() {
-
         //if the data for the page is null or undefined then redirect to 404 and return
         if (this.data) {
             this.setUpSubcats();
             this.setMotm();
-            console.log(this.data);
+            //console.log(this.data);
             document.title = this.data["title"];
         } else {
             console.log("yoooo");
-            this.template_name = "404.html";
+            this.template = "404.html";
             document.title = "(404) Page Not Found";
         }
 
         var self = this;
-        $.get(this.template_name, function(template) {
+        $.get(this.template, function(template) {
             document.body.innerHTML = Mustache.render(template, self.data);
         })
 
@@ -93,45 +101,55 @@ class Page {
 
 class History {
     constructor() {
-        this.full_hist = new Array();
-        this.breadcrumb = new Set();
-    }
 
-    //get history from session storage
-    static getHistory(){ sessionStorage.getItem("hist"); }
-    storeHistory(){ sessionStorage.setItem(this); }
-}
+        /*
+            Attributes for History:
+                hist:       array storing every page that the user has visited
+                breadcrumb: set storing previously visited pages (no duplicates), used as a navigation element
+        */
 
-// This function is the beginning of a new system which will replace the breadcrumb/history system. This click handler is used instead of links in most cases.
-function clickhandler(url,t,external,goto_adviser) {
-    // This retrives a small bit of information about the thing that has been clicked
-    clickid = t.getAttribute("data-clickid");
-
-    // This records the destination URL, clickid, name of the page you are on
-    console.log(url,clickid,pagename)
-
-    // this is a section of data which will be used in the new journey system
-    clickdata = {"type":"click","currentpage":pagename,"clickname":clickid};
-    console.log(JSON.stringify(clickdata))
-
-    // This simply redirects you to the location your click was supposed to go to
-    if (clickid.search(/subcat\_.*/) == 0) {
-        if (external) {
-            var win = window.open(url, '_blank');
-            win.focus();
-        } else if (goto_adviser) {
-            location = url
+        //see if there is any existing history
+        var hist = findGetParameter("h");
+        if (hist) {
+            //if so create array and set with existing history
+            split_hist = hist.split(",");
+            this.full_hist = new Array(split_hist);
+            this.breadcrumb = new Set(split_hist);    
         } else {
-            location = url
+            //otherwise create empty array and set
+            this.full_hist = new Array();
+            this.breadcrumb = new Set();
         }
-    } else if (clickID.search(/breadcrumb\_.*/) == 0) {
-        console.log("Lets go breadcrumbing")
+    }
+
+    //get history from session storage and return it, if history doesn't exist in session storage return new history
+    static retrieveHistory(){
+        var hist = JSON.parse(sessionStorage.getItem("hist"));
+        if (hist) { return hist; }
+        else { return new History(); }
+    }
+
+    //store a JSON serialized version of the history in session storage
+    static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
+
+    static update(hist, page) {
+        hist.full_hist.push(page);
+        console.log(hist.breadcrumb);
+
+        if (page === "index") {
+            hist.breadcrumb = new Set([page]);
+        } else {
+            var breadcrumb = new Set(hist.full_hist);
+            hist.breadcrumb = breadcrumb;
+        }
+    }
+
+    getPreviousPage() {
+        //if the length of the history is greater than 1 (ie a previous page exists), then return the previous page
+        var len = this.full_hist.length;
+        if (len > 1) { return this.full_hist[len - 2]; }
     }
 }
-
-
-
-
 
 // This just returns data for a get parameter named when calling the function
 function findGetParameter(parameterName) {
@@ -145,7 +163,7 @@ function findGetParameter(parameterName) {
             //then for each element in the array
             //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
             tmp = item.split("=");
-            if (tmp[0] === parameterName) { result = decodeURIComponent(tmp[1]) };
+            if (tmp[0] == parameterName) { result = decodeURIComponent(tmp[1]) };
         });
         return result;
 }

@@ -1,38 +1,68 @@
 {
-    "possible_to_drop_or_swap": {
+    "can_drop_or_swap": {
+        "title": "Able to Drop or Swap a Course",
         "who":"[sso or adviser]",
         "why":"",
         "what":"",
-        "notesforadviser":""
+        "notesforadviser":"",
+        "subcats": [{
+            "name": "Who is my adviser of studies?",
+            "link": "adviser_info"
+        }]
     },
-    "add_drop_period": {
+    "outside_add_drop": {
+        "title": "Change Courses Outside Add/Drop Period",
         "who":"[sso or adviser]",
         "why":"",
         "what":"",
-        "notesforadviser":""
+        "notesforadviser":"",
+        "subcats": [{
+            "name": "Who is my adviser of studies?",
+            "link": "adviser_info"
+        }]
     },
     "degree": {
+        "title": "Changes to Degree",
         "who":"[sso or adviser]",
         "why": "this is why",
         "what": "this is what",
-        "notesforadviser":""
+        "notesforadviser":"",
+        "subcats": [{
+            "name": "Who is my adviser of studies?",
+            "link": "adviser_info"
+        }]
     },
     "within_college": {
+        "title": "Switch Major Within College",
         "who":"[sso or adviser]",
         "why":"",
         "what":"",
-        "notesforadviser":""
+        "notesforadviser":"",
+        "subcats": [{
+            "name": "Who is my adviser of studies?",
+            "link": "adviser_info"
+        }]
     },
-    "health_fit_to_study": {
+    "consider_for_fit_to_study": {
+        "title": "Fitness to Study",
         "who":"[sso or adviser]",
         "why":"",
         "what":"",
-        "notesforadviser":""
+        "notesforadviser":"",
+        "subcats": [{
+            "name": "Who is my adviser of studies?",
+            "link": "adviser_info"
+        }]
     },
-    "exams": {
+    "cant_progress": {
+        "title": "Not Got the Results to Progress",
         "who":"[sso or adviser]",
         "why":"",
         "what":"",
-        "notesforadviser":""
+        "notesforadviser":"",
+        "subcats": [{
+            "name": "Who is my adviser of studies?",
+            "link": "adviser_info"
+        }]
     }
 }
