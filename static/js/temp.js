@@ -19,13 +19,18 @@ async function main(){
         }
     }
 
+    //retrieve history from session storage, update then store again
+    var hist = History.retrieveHistory();
+    hist.update(page_name);
+    History.storeHistory(hist);
+
+    //get the data from the datafile, create a page object then render
     Page.getData(page_name, datafile, function(data){
         var page = new Page(page_name, template, data);
-        page.hist.update(page_name);
-        console.log(page.hist);
-        History.storeHistory(page.hist);
-        page.render();
+        page.render(hist);
     });
+    
+    //hist.renderBreadcrumb();
 }
 
 class Page {
@@ -44,29 +49,27 @@ class Page {
         this.name = name;
         this.template = template;
         this.data = data;
-        this.hist = History.retrieveHistory();
-        this.hist.test
     }
 
     static async getData(name, datafile, callback){
         console.log("Getting data for: " + name + " from: " + datafile);
-        $.get(datafile, function(data) { callback(data[name]); });
+        $.get(datafile, function(data) { callback(data[name]); })
+        .fail(function(){
+
+        });
     }
     
     setUpSubcats() {
+        var subcats = this.data["subcats"];
         //check whether subcats exists
-        if (this.data["subcats"]) {
-            var clickID = 0;
-            //iterate through all the subcats
-            var subcats = this.data["subcats"];
+        if (subcats) {       
+            //for every non-external link, prepend "/?" and the appropriate get parameter
             subcats.forEach(subcat => {
                 if (!subcat["linkexternal"]) {
                     var get_praram;
                     subcat["goto_adviser"] ? get_praram = "g" : get_praram = "p";
-                    subcat["link"] = "/?" + get_praram + "=" + subcat["link"]; //prepend proper string formatting to link
+                    subcat["link"] = "/?" + get_praram + "=" + subcat["link"];
                 }
-                //set clickID
-                subcat["clickID"] = clickID++;
             })
         }
     }
@@ -79,22 +82,22 @@ class Page {
         });
     }
 
-    render() {
+    render(hist) {
         //if the data for the page is null or undefined then redirect to 404 and return
         if (this.data) {
             this.setUpSubcats();
             this.setMotm();
-            //console.log(this.data);
             document.title = this.data["title"];
         } else {
-            console.log("yoooo");
             this.template = "404.html";
             document.title = "(404) Page Not Found";
         }
 
+        //pass the page data and appropriate tempate to the moustache rendering engine
         var self = this;
         $.get(this.template, function(template) {
             document.body.innerHTML = Mustache.render(template, self.data);
+            hist.renderBreadcrumb();
         })
 
     }
@@ -137,18 +140,39 @@ class History {
                 break;
             }
         }
-
         //take slice from last instance of "index"
         var last_elements = this.full_hist.slice(last_index);
         return new Set(last_elements);
     }
 
     //get history from session storage and return it, if history doesn't exist in session storage return new history
-    static retrieveHistory(){
+    static retrieveHistory() {
         var hist = JSON.parse(sessionStorage.getItem("hist"));
         var items;
         hist ? items = hist["full_hist"] : items = [];
         return new History(items);
+    }
+
+    //takes the breadcrumb and builds and inserts the html for displaying it
+    renderBreadcrumb() {
+        var breadcrumb = this.breadcrumb;
+        $(document).ready(function(){
+
+            //the string we will be appending text to
+            var str = "";
+            breadcrumb.forEach(function(crumb){
+                //build anchor tag for the links in the breadcrumb
+                var link = "<a onclick=\"History.breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
+                //add the list item tags with appropriate class
+                str += "<li class=\"breadcrumb-item\">" + link + "</li>";
+            });
+    
+            document.getElementById("breadcrumb").innerHTML = str;
+        })
+    }
+
+    static breadcrumbClick(page) {
+        console.log(page); 
     }
 
     //store a JSON serialized version of the history in session storage
@@ -156,17 +180,19 @@ class History {
 
     update(page) {
 
-        //we don't want repeated entries in our history
-        //so check if the element we're trying to add is the same as the last element in the history
-        //if it isn't then we're okay to add
-        var last_page = this.full_hist[this.full_hist.length -1];
-        if (last_page != page) { 
-            this.full_hist.push(page);   
-        }
+        /*
+            we don't want repeated entries in our history
+            so check if the element we're trying to add is the same as the last element in the history
+            if it isn't then we're okay to add
+        */
 
-        if (page === "index") {
-            this.breadcrumb = new Set(["index"]);
-        } else {
+        var last_page = this.full_hist[this.full_hist.length -1];
+        if (last_page != page) { this.full_hist.push(page); }
+
+        //if the page we are adding is the index, then we want to reset the breadcrumb
+        if (page === "index") { this.breadcrumb = new Set(["index"]); } 
+        else {
+            //otherwise add new page to the breadcrumb
             var breadcrumb = this.breadcrumb.add(page);
             this.breadcrumb = breadcrumb;
         }
