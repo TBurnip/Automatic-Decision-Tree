@@ -27,10 +27,10 @@ async function main(){
     //get the data from the datafile, create a page object then render
     Page.getData(page_name, datafile, function(data){
         var page = new Page(page_name, template, data);
+        console.log(hist.breadcrumb);
         page.render(hist);
     });
     
-    //hist.renderBreadcrumb();
 }
 
 class Page {
@@ -43,7 +43,6 @@ class Page {
                 name:       name of the page
                 template:   .html file used to render the page
                 data:       data for the page read from the datafile
-                hist:       an instance of class History, loaded from session storage
         */
 
         this.name = name;
@@ -83,6 +82,10 @@ class Page {
     }
 
     render(hist) {
+
+        //if history is null/undefined then retrieve history from session storage
+        if (!hist) { var hist = History.retrieveHistory(); }
+
         //if the data for the page is null or undefined then redirect to 404 and return
         if (this.data) {
             this.setUpSubcats();
@@ -97,6 +100,7 @@ class Page {
         var self = this;
         $.get(this.template, function(template) {
             document.body.innerHTML = Mustache.render(template, self.data);
+            console.log(hist);
             hist.renderBreadcrumb();
         })
 
@@ -134,7 +138,7 @@ class History {
         //go through the history backwards
         var len = this.full_hist.length;
         for (var i = len - 1; i >= 0; i--) {
-            //if we match index then set the last occurence to i  and exit the loop
+            //if we match index then set the last occurence to i and exit the loop
             if (this.full_hist[i] === "index") {
                 last_index = i;
                 break;
@@ -156,13 +160,14 @@ class History {
     //takes the breadcrumb and builds and inserts the html for displaying it
     renderBreadcrumb() {
         var breadcrumb = this.breadcrumb;
+        console.log(breadcrumb);
         $(document).ready(function(){
 
             //the string we will be appending text to
             var str = "";
             breadcrumb.forEach(function(crumb){
                 //build anchor tag for the links in the breadcrumb
-                var link = "<a onclick=\"History.breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
+                var link = "<a onclick=\"breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
                 //add the list item tags with appropriate class
                 str += "<li class=\"breadcrumb-item\">" + link + "</li>";
             });
@@ -171,14 +176,10 @@ class History {
         })
     }
 
-    static breadcrumbClick(page) {
-        console.log(page); 
-    }
-
     //store a JSON serialized version of the history in session storage
     static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
 
-    update(page) {
+    update(page, crumb_click=false) {
 
         /*
             we don't want repeated entries in our history
@@ -189,13 +190,43 @@ class History {
         var last_page = this.full_hist[this.full_hist.length -1];
         if (last_page != page) { this.full_hist.push(page); }
 
-        //if the page we are adding is the index, then we want to reset the breadcrumb
-        if (page === "index") { this.breadcrumb = new Set(["index"]); } 
-        else {
-            //otherwise add new page to the breadcrumb
-            var breadcrumb = this.breadcrumb.add(page);
-            this.breadcrumb = breadcrumb;
+        console.log(crumb_click);
+        var breadcrumb;
+        
+        //if the page we are adding is "index" then we have returned to the index page so breadcrumb should only contain index"
+        if (page === "index") { breadcrumb = new Set(["index"]); }
+        else if (crumb_click) { //if we are updating from a click on the breadcrumb trail element
+
+            /*
+                we want to create a new breadcrumb trail that contains the elements of the previous breadcrumb up to the page that was clicked on (inclusive).
+                So we have:
+                    crumb_iter: an array containing the elements to the breadcrumb that we will use to iterate over
+                    new_crumb:  array for copying elements to
+                    i:          index for accessing the two arrays
+            */
+
+            var crumb_iter = Array.from(this.breadcrumb);
+            var new_crumb = new Array();
+            var i = 0;
+
+            do {
+                //assign the ith element of the old breadcrumb to the ith element of new breadcrumb
+                var old_page = crumb_iter[i];
+                new_crumb[i] = old_page;
+                i++;
+            } while (page != old_page); //if the ith element of the old breadcrumb matches the page being added we can stop
+
+            //create a set from the array
+            console.log(new_crumb);
+            breadcrumb = new Set(new_crumb);
+
+        } else {
+            //otherwise just add new page to the breadcrumb
+            breadcrumb = this.breadcrumb.add(page);
         }
+
+        //assign value of breadcrumb
+        this.breadcrumb = breadcrumb;
     }
 
     getPreviousPage() {
@@ -205,6 +236,29 @@ class History {
         //otherwise return the only element
         else { return this.full_hist[len - 1]; }
     }
+}
+
+function breadcrumbClick(page) {
+
+    //retrieve history, update it and store
+    var hist = History.retrieveHistory();
+    hist.update(page, crumb_click=true);
+    console.log(hist.breadcrumb);
+    History.storeHistory(hist);
+
+    //names of all the goto adviser pages
+    var adviser_pages = ["can_drop_or_swap", "outside_add_drop", "degree", "consider_for_fit_to_study", "cant_progress"];
+
+    //if the page is a goto_adviser page, set get parameter to "g", otherwise set to "p"
+    adviser_pages.includes(page) ? get_param = "g" : get_param = "p";
+
+    /*
+        NOTE: this is a very hacky way of doing things and needs rethought
+    */
+
+    //build URI and redirect
+    var uri = "\?" + get_param + "=" + page;
+    location = uri;
 }
 
 // This just returns data for a get parameter named when calling the function
