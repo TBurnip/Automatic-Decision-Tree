@@ -128,7 +128,7 @@ class History {
         } else if (hist){ //if history is stored
             this.full_hist = hist["full_hist"];
             this.breadcrumb = new Set(hist["breadcrumb"]);
-        } else {
+        } else { //otherwise just initialise with empty array and set
             this.full_hist = new Array();
             this.breadcrumb = new Set();
         }
@@ -140,6 +140,13 @@ class History {
         return new History(hist);
     }
 
+    //store a JSON serialized version of the history in session storage
+    static storeHistory(hist){
+        //JSON.stringify doesn't store Set objects, so convert to array
+        hist.breadcrumb = Array.from(hist.breadcrumb);
+        sessionStorage.setItem("hist", JSON.stringify(hist)); 
+    }
+
     //takes the breadcrumb and builds and inserts the html for displaying it
     renderBreadcrumb() {
         var breadcrumb = this.breadcrumb;
@@ -149,7 +156,7 @@ class History {
             var str = "";
             breadcrumb.forEach(function(crumb){
                 //build anchor tag for the links in the breadcrumb
-                var link = "<a onclick=\"breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
+                var link = "<a onclick=\"Nav.breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
                 //add the list item tags with appropriate class
                 str += "<li class=\"breadcrumb-item\">" + link + "</li>";
             });
@@ -158,14 +165,7 @@ class History {
         })
     }
 
-    //store a JSON serialized version of the history in session storage
-    static storeHistory(hist){
-        //JSON.stringify doesn't store Set objects, so convert to array
-        hist.breadcrumb = Array.from(hist.breadcrumb);
-        sessionStorage.setItem("hist", JSON.stringify(hist)); 
-    }
-
-    update(page, crumb_click=false) {
+    update(page, crumb_click=false, back=false) {
 
         /*
             we don't want repeated entries in our history
@@ -206,6 +206,10 @@ class History {
             console.log(new_crumb);
             breadcrumb = new Set(new_crumb);
 
+        } else if(back) {
+            var bc = Array.from(this.breadcrumb);
+            bc.pop();
+            breadcrumb = new Set(bc);
         } else {
             //otherwise just add new page to the breadcrumb
             breadcrumb = this.breadcrumb.add(page);
@@ -224,27 +228,41 @@ class History {
     }
 }
 
-function breadcrumbClick(page) {
+class Nav {
+    static goBack() {
+        var hist = History.retrieveHistory();
+        var prev_page = hist.getPreviousPage();
+        hist.update(prev_page, false, true);
+        History.storeHistory(hist);
+        Nav.redirect(prev_page);
+    }
 
-    //retrieve history, update it and store
-    var hist = History.retrieveHistory();
-    hist.update(page, crumb_click=true);
-    console.log(hist.breadcrumb);
-    History.storeHistory(hist);
+    static breadcrumbClick(page) {
+        var hist = History.retrieveHistory();
+        hist.update(page, true, false);
+        History.storeHistory(hist);
+        Nav.redirect(page);
+    }
 
-    //names of all the goto adviser pages
-    var adviser_pages = ["can_drop_or_swap", "outside_add_drop", "degree", "consider_for_fit_to_study", "cant_progress"];
+    //find approprate get parameter for page, build URI and redirect to that location
+    static redirect(page) {
+        var get_param = Nav.getParamForPage(page);
+        var uri = "\?" + get_param + "=" + page;
+        location = uri;
+    }
 
-    //if the page is a goto_adviser page, set get parameter to "g", otherwise set to "p"
-    adviser_pages.includes(page) ? get_param = "g" : get_param = "p";
+    //returns the "g" if page is an adviser page, "p" otherwise
+    static getParamForPage(page) {
+        /*
+            NOTE: this is a really hacky way of doing things and needs rethought
+        */
 
-    /*
-        NOTE: this is a very hacky way of doing things and needs rethought
-    */
-
-    //build URI and redirect
-    var uri = "\?" + get_param + "=" + page;
-    location = uri;
+        //names of all the goto adviser pages
+        var adviser_pages = ["can_drop_or_swap", "outside_add_drop", "degree", "consider_for_fit_to_study", "cant_progress"];
+        var get_param;
+        adviser_pages.includes(page) ? get_param = "g" : get_param = "p";
+        return get_param;
+    }
 }
 
 // This just returns data for a get parameter named when calling the function
