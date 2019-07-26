@@ -39,7 +39,7 @@ class Page {
     constructor(name, template, data){
 
         /*
-            Attributes for class Page:
+            Attributes:
                 name:       name of the page
                 template:   .html file used to render the page
                 data:       data for the page read from the datafile
@@ -108,59 +108,41 @@ class Page {
 }
 
 class History {
-    constructor(full_hist = []) {
+    constructor(hist) {
 
-        /*
-            Attributes for History:
-                hist:       array storing every page that the user has visited
+        /*  
+            Takes:
+                hist:      JSON object stored in session storage
+
+            Attributes:
+                full_hist:  array storing every page that the user has visited
                 breadcrumb: set storing previously visited pages (no duplicates), used as a navigation element
         */
 
         //see if there is any existing history
-        var hist = findGetParameter("h");
-        if (hist) {
-            //if so create array and set with existing history
+        var existing_hist = findGetParameter("h");
+        if (existing_hist) { //if so create array and set with existing history
             split_hist = hist.split(",");
             this.full_hist = new Array(split_hist);
             this.breadcrumb = new Set(split_hist);    
+        } else if (hist){ //if history is stored
+            this.full_hist = hist["full_hist"];
+            this.breadcrumb = new Set(hist["breadcrumb"]);
         } else {
-            //otherwise create empty array and set
-            this.full_hist = full_hist;
-            this.breadcrumb = this.getCrumbFromHist();
+            this.full_hist = new Array();
+            this.breadcrumb = new Set();
         }
-    }
-
-    //iterate through full_hist and find most recent instance of "index"
-    getCrumbFromHist() {
-        //by default the last instance of index will be the first element
-        var last_index = 0;
-
-        //go through the history backwards
-        var len = this.full_hist.length;
-        for (var i = len - 1; i >= 0; i--) {
-            //if we match index then set the last occurence to i and exit the loop
-            if (this.full_hist[i] === "index") {
-                last_index = i;
-                break;
-            }
-        }
-        //take slice from last instance of "index"
-        var last_elements = this.full_hist.slice(last_index);
-        return new Set(last_elements);
     }
 
     //get history from session storage and return it, if history doesn't exist in session storage return new history
     static retrieveHistory() {
         var hist = JSON.parse(sessionStorage.getItem("hist"));
-        var items;
-        hist ? items = hist["full_hist"] : items = [];
-        return new History(items);
+        return new History(hist);
     }
 
     //takes the breadcrumb and builds and inserts the html for displaying it
     renderBreadcrumb() {
         var breadcrumb = this.breadcrumb;
-        console.log(breadcrumb);
         $(document).ready(function(){
 
             //the string we will be appending text to
@@ -177,7 +159,11 @@ class History {
     }
 
     //store a JSON serialized version of the history in session storage
-    static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
+    static storeHistory(hist){
+        //JSON.stringify doesn't store Set objects, so convert to array
+        hist.breadcrumb = Array.from(hist.breadcrumb);
+        sessionStorage.setItem("hist", JSON.stringify(hist)); 
+    }
 
     update(page, crumb_click=false) {
 
