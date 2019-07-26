@@ -16,10 +16,10 @@
       <a class="nav-link" onclick="goback()">Back</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-success" href="#glossery" data-toggle="collapse">Glossary</u></a>
+      <a class="nav-link text-success" href="#glossary" data-toggle="collapse">Glossary</u></a>
     </li>
   </ul>
-  <div id="glossery" class="collapse">
+  <div id="glossary" class="collapse">
     <div class="row">
       <div class="col-sm-2"></div>
       <div class="col-sm-8">
@@ -58,12 +58,7 @@
   <div class="col-sm-10">
     <div class="d-flex flex-wrap">
       {{ #subcats }}
-      <a class="subcat flex-fill shadow-sm  p-4 mb-2 bg-white text-dark {{{ type }}}"
-        data-clickid="subcat_{{ clickid }}"
-        onclick="clickhandler('{{ link }}',this,{{ linkexternal }}{{ ^linkexternal }}false{{ /linkexternal }},{{ goto_adviser }}{{ ^goto_adviser }}false{{ /goto_adviser }})"
-        href="#">
-        <h2>{{ name }}</h2>
-      </a>
+      <a class="subcat flex-fill shadow-sm  p-4 mb-2 bg-white text-dark {{{ type }}}" href="{{ link }}"><h2>{{ name }}</h2></a>
       {{ /subcats }}
     </div>
   </div>
@@ -102,6 +97,6 @@
 
 <footer class="footer">
   <span class="text-muted">
-    <b><ul class="breadcrumb" style="margin-bottom: 0px!important;" id="breadcrumb"></ul></b>
+    <b><ul class="breadcrumb" id="breadcrumb" style="margin-bottom: 0px!important;"></ul></b>
   </span>
 </footer>

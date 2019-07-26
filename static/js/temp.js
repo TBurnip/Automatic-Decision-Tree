@@ -1,75 +1,75 @@
-function main(){
-    
-    //args object for passing to the page constructor, set default arguments for datafile and template_name, these only change if the get parameter "g" is non-null
+async function main(){
+    //args object for passing to the page constructor, set default arguments for datafile and template, these only change if the get parameter "g" is non-null
     page_args = Object();
-    page_args["datafile"] = "js/page_data.json";
-    page_args["template"] = "bodyexample.html"
+    var datafile = "js/page_data.json";
+    var template = "bodyexample.html";
 
     //find the name to be passed to the constructor
-    local = findGetParameter("p");
-    if (!local) {
+    var page_name = findGetParameter("p");
+    if (!page_name) {
         //if null is returned for "p", try "g"
-        local = findGetParameter("g");
-        if (local) {
+        page_name = findGetParameter("g");
+        if (page_name) {
             //if get parameter for "g" is non-null then set data and template for adviser page
-            page_args["datafile"] = "js/adviser_info.json";
-            page_args["template"] = "goto_adviser.html";
+            datafile = "js/adviser_info.json";
+            template = "goto_adviser.html";
         } else {
-            //if both p and g return null then set local to index
-            local = "index"
+            //if both p and g return null then set page_name to index
+            page_name = "index";
         }
     }
 
-    //set the page name in args to local
-    page_args["name"] = local;
+    //retrieve history from session storage, update then store again
+    var hist = History.retrieveHistory();
+    hist.update(page_name);
+    History.storeHistory(hist);
 
-    console.log(page_args);
-
-    //create new page object of pagename and render
-    page =  new Page(page_args);
-    console.log(JSON.stringify(page));
-    console.log(page.data);
-    page.render();
-}
-
-class History {
-    constructor() {
-        this.full_hist = new Array();
-        this.breadcrumb = new Set();
-    }
-
-    //get history from session storage
-    static getHistory(){ sessionStorage.getItem("hist"); }
-    storeHistory(){ sessionStorage.setItem(this); }
+    //get the data from the datafile, create a page object then render
+    Page.getData(page_name, datafile, function(data){
+        var page = new Page(page_name, template, data);
+        page.render(hist);
+    });
+    
+    //hist.renderBreadcrumb();
 }
 
 class Page {
 
     //upon object creation, set name and automatically get the data for the page
-    constructor(args){
-        this.name = args["name"];
-        this.datafile = args["datafile"];
-        this.template_name = args["template"];
-        var self = this;
-        console.log("getting data for: " + this.name + " from: " + this.datafile);
-        $.get(this.datafile, function(self, data) { self.data = data[self.name]; });
+    constructor(name, template, data){
+
+        /*
+            Attributes for class Page:
+                name:       name of the page
+                template:   .html file used to render the page
+                data:       data for the page read from the datafile
+                hist:       an instance of class History, loaded from session storage
+        */
+
+        this.name = name;
+        this.template = template;
+        this.data = data;
+    }
+
+    static async getData(name, datafile, callback){
+        console.log("Getting data for: " + name + " from: " + datafile);
+        $.get(datafile, function(data) { callback(data[name]); })
+        .fail(function(){
+
+        });
     }
     
     setUpSubcats() {
-
-        console.log(this.data);
+        var subcats = this.data["subcats"];
         //check whether subcats exists
-        if (this.data["subcats"]) {
-            var clickID = 0;
-            //iterate through all the subcats
-            subcats = this.data["subcats"];
+        if (subcats) {       
+            //for every non-external link, prepend "/?" and the appropriate get parameter
             subcats.forEach(subcat => {
-                target_page = new Page(subcat["link"]);
-                if (target_page.data) {
-                    subcat["link"] = "/p=" + subcat["link"]; //prepend proper string formatting to link
+                if (!subcat["linkexternal"]) {
+                    var get_praram;
+                    subcat["goto_adviser"] ? get_praram = "g" : get_praram = "p";
+                    subcat["link"] = "/?" + get_praram + "=" + subcat["link"];
                 }
-                //set clickID
-                subcat["clickID"] = clickID++;
             })
         }
     }
@@ -82,41 +82,130 @@ class Page {
         });
     }
 
-    render() {
-
+    render(hist) {
         //if the data for the page is null or undefined then redirect to 404 and return
         if (this.data) {
             this.setUpSubcats();
             this.setMotm();
-            document.title = data["title"];
+            document.title = this.data["title"];
         } else {
-            console.log("yoooo");
-            this.template_name = "404.html";
+            this.template = "404.html";
             document.title = "(404) Page Not Found";
         }
 
-        $.get(this.template_name, function(template) {
-            document.body.innerHTML = Mustache.render(template, this.data);
+        //pass the page data and appropriate tempate to the moustache rendering engine
+        var self = this;
+        $.get(this.template, function(template) {
+            document.body.innerHTML = Mustache.render(template, self.data);
+            hist.renderBreadcrumb();
         })
 
     }
 }
 
+class History {
+    constructor(full_hist = []) {
 
+        /*
+            Attributes for History:
+                hist:       array storing every page that the user has visited
+                breadcrumb: set storing previously visited pages (no duplicates), used as a navigation element
+        */
 
+        //see if there is any existing history
+        var hist = findGetParameter("h");
+        if (hist) {
+            //if so create array and set with existing history
+            split_hist = hist.split(",");
+            this.full_hist = new Array(split_hist);
+            this.breadcrumb = new Set(split_hist);    
+        } else {
+            //otherwise create empty array and set
+            this.full_hist = full_hist;
+            this.breadcrumb = this.getCrumbFromHist();
+        }
+    }
 
+    //iterate through full_hist and find most recent instance of "index"
+    getCrumbFromHist() {
+        //by default the last instance of index will be the first element
+        var last_index = 0;
 
+        //go through the history backwards
+        var len = this.full_hist.length;
+        for (var i = len - 1; i >= 0; i--) {
+            //if we match index then set the last occurence to i  and exit the loop
+            if (this.full_hist[i] === "index") {
+                last_index = i;
+                break;
+            }
+        }
+        //take slice from last instance of "index"
+        var last_elements = this.full_hist.slice(last_index);
+        return new Set(last_elements);
+    }
 
+    //get history from session storage and return it, if history doesn't exist in session storage return new history
+    static retrieveHistory() {
+        var hist = JSON.parse(sessionStorage.getItem("hist"));
+        var items;
+        hist ? items = hist["full_hist"] : items = [];
+        return new History(items);
+    }
 
+    //takes the breadcrumb and builds and inserts the html for displaying it
+    renderBreadcrumb() {
+        var breadcrumb = this.breadcrumb;
+        $(document).ready(function(){
 
+            //the string we will be appending text to
+            var str = "";
+            breadcrumb.forEach(function(crumb){
+                //build anchor tag for the links in the breadcrumb
+                var link = "<a onclick=\"History.breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
+                //add the list item tags with appropriate class
+                str += "<li class=\"breadcrumb-item\">" + link + "</li>";
+            });
+    
+            document.getElementById("breadcrumb").innerHTML = str;
+        })
+    }
 
+    static breadcrumbClick(page) {
+        console.log(page); 
+    }
 
+    //store a JSON serialized version of the history in session storage
+    static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
 
+    update(page) {
 
+        /*
+            we don't want repeated entries in our history
+            so check if the element we're trying to add is the same as the last element in the history
+            if it isn't then we're okay to add
+        */
 
+        var last_page = this.full_hist[this.full_hist.length -1];
+        if (last_page != page) { this.full_hist.push(page); }
 
+        //if the page we are adding is the index, then we want to reset the breadcrumb
+        if (page === "index") { this.breadcrumb = new Set(["index"]); } 
+        else {
+            //otherwise add new page to the breadcrumb
+            var breadcrumb = this.breadcrumb.add(page);
+            this.breadcrumb = breadcrumb;
+        }
+    }
 
-
+    getPreviousPage() {
+        //if the length of the history is greater than 1 (ie a previous page exists), then return the previous page
+        var len = this.full_hist.length;
+        if (len > 1) { return this.full_hist[len - 2]; }
+        //otherwise return the only element
+        else { return this.full_hist[len - 1]; }
+    }
+}
 
 // This just returns data for a get parameter named when calling the function
 function findGetParameter(parameterName) {
@@ -130,7 +219,7 @@ function findGetParameter(parameterName) {
             //then for each element in the array
             //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
             tmp = item.split("=");
-            if (tmp[0] === parameterName) { result = decodeURIComponent(tmp[1]) };
+            if (tmp[0] == parameterName) { result = decodeURIComponent(tmp[1]) };
         });
         return result;
 }
