@@ -133,6 +133,18 @@ body {
   color: aliceblue;
 }
 
+#useful {
+  color: aliceblue;
+  background-color: var(--gray-dark);
+}
+
+#useful > h5 > ul {
+  list-style-type: none;
+  text-indent: -20px;
+}
+#useful > h5 > ul > li::before {
+  content: "\2192 \0020";
+}
 
 a.nav-link {
   font-size: 18pt;
@@ -140,4 +152,16 @@ a.nav-link {
 
 ul#breadcrumb>li>a {
   font-size: 14pt;
+}
+
+nav {
+  margin-bottom: 0px!important;
+}
+
+#bodyeything {
+  padding-top: 50px;
+}
+
+#button {
+  margin: 0px;
 }
