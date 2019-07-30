@@ -1,6 +1,5 @@
 async function main(){
     //args object for passing to the page constructor, set default arguments for datafile and template, these only change if the get parameter "g" is non-null
-    page_args = Object();
     var datafile = "js/page_data.json";
     var template = "bodyexample.html";
 
@@ -110,7 +109,7 @@ class History {
 
         /*  
             Takes:
-                hist:      JSON object stored in session storage
+                hist:       JSON object stored in session storage
 
             Attributes:
                 full_hist:  array storing every page that the user has visited
@@ -123,7 +122,7 @@ class History {
 
             //split history on commas and create set object to remove duplicates
             split_hist = hist.split(",");
-            var bc = new Set(split_hist); 
+            var bc = new Set(split_hist); //this won't work as intended, need to get current page and get the breadcrumb from "index" -> ... -> "current page"
 
             //then assign memembers
             this.full_hist = split_hist;
