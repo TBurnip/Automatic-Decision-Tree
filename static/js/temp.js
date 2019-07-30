@@ -5,10 +5,10 @@ async function main(){
     var template = "bodyexample.html";
 
     //find the name to be passed to the constructor
-    var page_name = findGetParameter("p");
+    var page_name = Nav.findGetParameter("p");
     if (!page_name) {
         //if null is returned for "p", try "g"
-        page_name = findGetParameter("g");
+        page_name = Nav.findGetParameter("g");
         if (page_name) {
             //if get parameter for "g" is non-null then set data and template for adviser page
             datafile = "js/adviser_info.json";
@@ -22,7 +22,6 @@ async function main(){
     //retrieve history from session storage, update then store again
     var hist = History.retrieveHistory();
     hist.update(page_name);
-    History.storeHistory(hist);
 
     //get the data from the datafile, create a page object then render
     Page.getData(page_name, datafile, function(data){
@@ -30,7 +29,6 @@ async function main(){
         page.render(hist);
     });
     
-    //hist.renderBreadcrumb();
 }
 
 class Page {
@@ -39,11 +37,10 @@ class Page {
     constructor(name, template, data){
 
         /*
-            Attributes for class Page:
+            Attributes:
                 name:       name of the page
                 template:   .html file used to render the page
                 data:       data for the page read from the datafile
-                hist:       an instance of class History, loaded from session storage
         */
 
         this.name = name;
@@ -83,6 +80,10 @@ class Page {
     }
 
     render(hist) {
+
+        //if history is null/undefined then retrieve history from session storage
+        if (!hist) { var hist = History.retrieveHistory(); }
+
         //if the data for the page is null or undefined then redirect to 404 and return
         if (this.data) {
             this.setUpSubcats();
@@ -97,6 +98,7 @@ class Page {
         var self = this;
         $.get(this.template, function(template) {
             document.body.innerHTML = Mustache.render(template, self.data);
+            console.log(hist);
             hist.renderBreadcrumb();
         })
 
@@ -104,65 +106,57 @@ class Page {
 }
 
 class History {
-    constructor(full_hist = []) {
+    constructor(hist) {
 
-        /*
-            Attributes for History:
-                hist:       array storing every page that the user has visited
-                breadcrumb: set storing previously visited pages (no duplicates), used as a navigation element
+        /*  
+            Takes:
+                hist:      JSON object stored in session storage
+
+            Attributes:
+                full_hist:  array storing every page that the user has visited
+                breadcrumb: array storing previously visited pages (no duplicates), used as a navigation element
         */
 
         //see if there is any existing history
-        var hist = findGetParameter("h");
-        if (hist) {
-            //if so create array and set with existing history
+        var existing_hist = Nav.findGetParameter("h");
+        if (existing_hist) { //if so create array and set with existing history
+
+            //split history on commas and create set object to remove duplicates
             split_hist = hist.split(",");
-            this.full_hist = new Array(split_hist);
-            this.breadcrumb = new Set(split_hist);    
-        } else {
-            //otherwise create empty array and set
-            this.full_hist = full_hist;
-            this.breadcrumb = this.getCrumbFromHist();
-        }
-    }
+            var bc = new Set(split_hist); 
 
-    //iterate through full_hist and find most recent instance of "index"
-    getCrumbFromHist() {
-        //by default the last instance of index will be the first element
-        var last_index = 0;
+            //then assign memembers
+            this.full_hist = split_hist;
+            this.breadcrumb = Array.from(bc);
 
-        //go through the history backwards
-        var len = this.full_hist.length;
-        for (var i = len - 1; i >= 0; i--) {
-            //if we match index then set the last occurence to i  and exit the loop
-            if (this.full_hist[i] === "index") {
-                last_index = i;
-                break;
-            }
+        } else if (hist){ //if history is stored
+            this.full_hist = hist["full_hist"];
+            this.breadcrumb = hist["breadcrumb"];
+        } else { //otherwise just initialise with empty arrays
+            this.full_hist = [];
+            this.breadcrumb = [];
         }
-        //take slice from last instance of "index"
-        var last_elements = this.full_hist.slice(last_index);
-        return new Set(last_elements);
     }
 
     //get history from session storage and return it, if history doesn't exist in session storage return new history
     static retrieveHistory() {
         var hist = JSON.parse(sessionStorage.getItem("hist"));
-        var items;
-        hist ? items = hist["full_hist"] : items = [];
-        return new History(items);
+        return new History(hist);
     }
+
+    //store a JSON serialized version of the history in session storage
+    static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
 
     //takes the breadcrumb and builds and inserts the html for displaying it
     renderBreadcrumb() {
-        var breadcrumb = this.breadcrumb;
+        var bc = this.breadcrumb;
         $(document).ready(function(){
 
             //the string we will be appending text to
             var str = "";
-            breadcrumb.forEach(function(crumb){
+            bc.forEach(function(crumb){
                 //build anchor tag for the links in the breadcrumb
-                var link = "<a onclick=\"History.breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
+                var link = "<a onclick=\"Nav.breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
                 //add the list item tags with appropriate class
                 str += "<li class=\"breadcrumb-item\">" + link + "</li>";
             });
@@ -171,31 +165,23 @@ class History {
         })
     }
 
-    static breadcrumbClick(page) {
-        console.log(page); 
-    }
+    update(page, crumb_click=false, back_click=false) {
 
-    //store a JSON serialized version of the history in session storage
-    static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
-
-    update(page) {
-
-        /*
-            we don't want repeated entries in our history
-            so check if the element we're trying to add is the same as the last element in the history
-            if it isn't then we're okay to add
-        */
-
+        //add to full_hist if and only if the page is not the same as the most recent page in history (we don't want duplicates)
         var last_page = this.full_hist[this.full_hist.length -1];
         if (last_page != page) { this.full_hist.push(page); }
 
-        //if the page we are adding is the index, then we want to reset the breadcrumb
-        if (page === "index") { this.breadcrumb = new Set(["index"]); } 
-        else {
-            //otherwise add new page to the breadcrumb
-            var breadcrumb = this.breadcrumb.add(page);
-            this.breadcrumb = breadcrumb;
+        if (page === "index") { this.breadcrumb = ["index"]; }                      //page is index             => breadcrumb is reset to ["index"]
+        else if (!this.breadcrumb.includes(page)) { this.breadcrumb.push(page); }   //page not in breadcrumb    => add it to breadcrumb
+        else if (back_click) { this.breadcrumb.pop(); }                             //back button clicked       => remove last element from breadcrumb
+        else if (crumb_click) {                                                     //breadcrumb link clicked   => set breadcrumb to existing one up to the link clicked (inclusive)
+            var bc = this.breadcrumb;
+            var idx = bc.indexOf(page);
+            this.breadcrumb = bc.slice(0, idx+1);
         }
+
+        //store history after every update
+        History.storeHistory(this);
     }
 
     getPreviousPage() {
@@ -207,19 +193,55 @@ class History {
     }
 }
 
-// This just returns data for a get parameter named when calling the function
-function findGetParameter(parameterName) {
-    var result = null, tmp = [];
+class Nav {
+    static goBack() {
+        var hist = History.retrieveHistory();
+        var prev_page = hist.getPreviousPage();
+        hist.update(prev_page, false, true);
+        Nav.redirect(prev_page);
+    }
 
-    //using the url "http://localhost/?p=exams&h=index,exams" as an example
-    location.search //get the query URI - ie. "?p=exams&h=index,exams"
-        .substr(1) // => "p=exams&h=index,exams"
-        .split("&") //=> ["p=exams", "h=index,exams"]
-        .forEach(function (item) {
-            //then for each element in the array
-            //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
-            tmp = item.split("=");
-            if (tmp[0] == parameterName) { result = decodeURIComponent(tmp[1]) };
-        });
-        return result;
+    static breadcrumbClick(page) {
+        var hist = History.retrieveHistory();
+        hist.update(page, true, false);
+        History.storeHistory(hist);
+        Nav.redirect(page);
+    }
+
+    //find approprate get parameter for page, build URI and redirect to that location
+    static redirect(page) {
+        var get_param = Nav.getParamForPage(page);
+        var uri = "\?" + get_param + "=" + page;
+        location = uri;
+    }
+
+    //returns the "g" if page is an adviser page, "p" otherwise
+    static getParamForPage(page) {
+        /*
+            NOTE: this is a really hacky way of doing things and needs rethought
+        */
+
+        //names of all the goto adviser pages
+        var adviser_pages = ["can_drop_or_swap", "outside_add_drop", "degree", "consider_for_fit_to_study", "cant_progress"];
+        var get_param;
+        adviser_pages.includes(page) ? get_param = "g" : get_param = "p";
+        return get_param;
+    }
+
+    //returns the string followed by the get parameter (ie "/?=p" or "/?=g")
+    static findGetParameter(param) {
+        var result = null, tmp = [];
+
+        //using the url "http://localhost/?p=exams&h=index,exams" as an example
+        location.search //get the query URI - ie. "?p=exams&h=index,exams"
+            .substr(1) // => "p=exams&h=index,exams"
+            .split("&") //=> ["p=exams", "h=index,exams"]
+            .forEach(function (item) {
+                //then for each element in the array
+                //if the first character of the element is the get parameter passed to the function the return the unencoded version of the URI
+                tmp = item.split("=");
+                if (tmp[0] == param) { result = decodeURIComponent(tmp[1]) };
+            });
+            return result;
+    }
 }

@@ -28,17 +28,9 @@
         "what": "this is what",
         "notesforadviser":"",
         "subcats": [{
-            "name": "Who is my adviser of studies?",
-            "link": "adviser_info"
-        }]
-    },
-    "within_college": {
-        "title": "Switch Major Within College",
-        "who":"[sso or adviser]",
-        "why":"",
-        "what":"",
-        "notesforadviser":"",
-        "subcats": [{
+            "name": "Switch major outside of the College of Science and Engineering",
+            "link": "transfer_outside_college"
+        },{
             "name": "Who is my adviser of studies?",
             "link": "adviser_info"
         }]
