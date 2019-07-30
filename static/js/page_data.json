@@ -32,6 +32,10 @@
             "link": "exams"
             
         }, {
+            "name": "Appeals, Misconduct and Complaints",
+            "link": "standing_misconduct_and_appeals"
+            
+        }, {
             "name": "Other/FAQ",
             "link": "https://docs.google.com/document/d/1W5yhAEmaeQA2H5jwm0X7CFHLWm9eXROyf_OKeujYQTQ/edit?usp=sharing",
             "linkexternal": true
