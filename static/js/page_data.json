@@ -7,24 +7,31 @@
         "subcats": [{
             "name": "Courses, Timetabling & Enrolment",
             "link": "courses"
+            
         }, {
             "name": "Degree Programme and Course of Study",
             "link": "degree"
+            
         }, {
             "name": "Careers and Internships",
             "link": "careers"
+            
         }, {
             "name": "Health and Absence",
             "link": "health"
+            
         }, {
             "name": "Erasmus/ Study Abroad",
             "link": "study_abroad"
+            
         }, {
             "name": "Finance",
             "link": "finance"
+            
         }, {
             "name": "Exams, Assessments, Resits & Progression",
             "link": "exams"
+            
         }, {
             "name": "Other/FAQ",
             "link": "https://docs.google.com/document/d/1W5yhAEmaeQA2H5jwm0X7CFHLWm9eXROyf_OKeujYQTQ/edit?usp=sharing",
@@ -42,15 +49,19 @@
         }, {
             "name": "Guide on How to Enrol (MyCampus)",
             "link": "enrol_guide"
+            
         }, {
             "name": "Swap/Drop Course",
             "link": "swap_drop_courses"
+            
         }, {
             "name": "Advice on choice of Course and Electives",
             "link": "course_choice"
+            
         }, {
             "name": "Questions relating to course or project",
-            "link": "indivividual_courses_and_projects" 
+            "link": "indivividual_courses_and_projects"
+            
         }]
     },
     "indivividual_courses_and_projects": {
@@ -61,9 +72,11 @@
         "subcats": [{
             "name": "Yes",
             "link": "indivividual_courses_and_projects_enrolled"
+            
         }, {
             "name": "No",
-            "link": "indivividual_courses_and_projects_not_enrolled" 
+            "link": "indivividual_courses_and_projects_not_enrolled"
+            
         }]
     },
     "indivividual_courses_and_projects_enrolled": {
@@ -88,9 +101,11 @@
         "subcats": [{
             "name": "Timetable Clash",
             "link": "timetable_clash"
+            
         }, {
             "name": "Lab & Tutorial Swaps",
             "link": "lab_swaps"
+            
         }]
     },
     "timetable_clash": {
@@ -101,6 +116,7 @@
         "subcats": [{
             "name": "This doesn't solve the problem.",
             "link": "registry_doesnt_fix_clash"
+            
         }]
     },
     "registry_doesnt_fix_clash": {
@@ -111,9 +127,11 @@
         "subcats": [{
             "name": "Yes",
             "link": "lab_swaps"
+            
         }, {
             "name": "No",
             "link": "possible_to_drop_or_swap"
+            
         }]
     },
     "lab_swaps": {
@@ -124,7 +142,6 @@
         "subcats": [{
             "name": "This doesn't solve the problem.",
             "link": "possible_to_drop_or_swap"
-            
         }]
     },
     "possible_to_drop_or_swap": {
@@ -134,8 +151,8 @@
         "info": "Is it possible to solve the problem by dropping one of the courses?",
         "subcats": [{
             "name": "Yes",
-            "link": "can_drop_or_swap",
-            "goto_adviser": true
+            "link": "/goto_adviser.html?g=possible_to_drop_or_swap",
+            "goto_adviser":true
         }, {
             "name": "No",
             "link": "unavoidable_course_clash"
@@ -173,9 +190,11 @@
         "subcats": [{
             "name": "Yes",
             "link": "add_drop_period"
+            
         }, {
             "name": "No",
             "link": "course_choice"
+            
         }]
     },
     "add_drop_period": {
@@ -186,10 +205,11 @@
         "subcats": [ {
             "name": "Inside Add/Drop",
             "link": "compsci_teaching_office"
+            
         },{
             "name": "Outside Add/Drop",
-            "link": "outside_add_drop",
-            "goto_adviser": true
+            "link": "/goto_adviser.html?g=add_drop_period"
+            
         }]
     },
     "course_choice": {
@@ -200,15 +220,19 @@
         "subcats": [{
             "name": "1P vs 1CT",
             "link": "1p_or_1ct"
+            
         }, {
             "name": "Advice on Maths Courses",
             "link": "maths"
+            
         }, {
             "name": "General Advice on Course Choices",
             "link": "what_course"
+            
         }, {
             "name": "Enquires about number of credits",
             "link": "credit_enquiries"
+            
         }]
     },
     "1p_or_1ct": {
@@ -219,9 +243,11 @@
         "subcats": [{
             "name": "Still unsure about the what choice is best?",
             "link": "1p_or_1ct_resources_didnt_help"
+            
         }, {
             "name": "Swapping between 1P and 1CT",
             "link": "add_drop_period"
+            
         }]
     },
     "maths": {
@@ -232,6 +258,7 @@
         "subcats": [{
             "name": "Swapping with another course?",
             "link": "add_drop_period"
+            
         }]
     },
     "what_course": {
@@ -242,6 +269,7 @@
         "subcats": [{
             "name": "Swapping with another course?",
             "link": "add_drop_period"
+            
         }]
     },
     "credit_enquiries": {
@@ -254,13 +282,26 @@
         "filename": "degree",
         "title": "Degree Programme and Course of Study",
         "type": "category",
-        "info": "This covers things such as switching between different degree plans - i.e. changing from MSci to BSc (Hons) - and joint/combined honours. There can be a lot of complexity in this area so it it is generally best to discuss it with your adviser.<br><br>When contacting your adviser of studies try and include as much information  as possible about what you need help with and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
+        "info": "This covers things such as switching between different degree programmes - i.e. changing from MSci to BSc (Hons) - and joint/combined honours. There can be a lot of complexity in this area so it it is generally best to discuss it with your adviser.<br><br>When contacting your adviser of studies try and include as much information  as possible about what you need help with and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
         "subcats": [{
             "name": "Switch major outside of the College of Science and Engineering",
             "link": "transfer_outside_college"
+            
         },{
             "name": "Who is my adviser of studies?",
             "link": "adviser_info"
+            
+        }]
+    },
+    "goto_adviser": {
+        "filename": "goto_adviser",
+        "title": "Go to your adviser of studies.",
+        "type": "action",
+        "info": "When contacting your adviser of studies try and include as much information  as possible about what you need help with and the steps you have already taken, this will give your adviser something to go on and hopefully save you time.",
+        "subcats": [{
+            "name": "Who is my adviser of studies?",
+            "link": "adviser_info"
+            
         }]
     },
     "compsci_teaching_office": {
@@ -269,6 +310,7 @@
         "type":"action",
         "info":"You can find the teaching office in F161, 17 Lilybank Gardens",
         "subcats":[]
+
     },
     "adviser_info": {
         "filename": "adviser_info",
@@ -285,6 +327,7 @@
         "subcats": [{
             "name": "Who is my adviser of studies?",
             "link": "adviser_info"
+            
         }]
     },
     "health": {
@@ -295,15 +338,19 @@
         "subcats": [{
             "name": "Disabillities and Exam Arangements",
             "link": "health_disabled"
+            
         }, {
             "name": "Have you been absent or missed an assessment?",
             "link": "health_good_cause"
+            
         }, {
-            "name": "Do you have a prolonged health problem that is affecting your ability to study?",
+            "name": "Do you have prolonged a health problem or a personal issue that is affecting your ability to study?",
             "link": "health_fit_to_study"
+            
         }, {
             "name": "Local Health Sevices",
             "link": "local_health"
+            
         }]
     },
     "health_disabled": {
@@ -324,14 +371,15 @@
         "filename": "health_fit_to_study",
         "title": "Fitness to Study",
         "type": "category",
-        "info": "\"The Fitness to Study Procedure focuses on student welfare and seeks to support students encountering challenges which affect their ability to study and engage in wider University life.\" - Senate Office",
+        "info": "Sometimes, there are health or other personal issues in a student's life that prevent them from normal study on a course.  Hence they are losing time for proper preparation for subsequent assessments.  The University aims to support students in such situations, and this is formally known as \"Fitness to Study\" - although issues are not due to health alone.  Fitness to Study is usually first considered locally in the School.",
         "subcats": [{
             "name": "I would like to be Considered for a fitness to study case",
-            "link": "consider_for_fit_to_study",
-            "goto_adviser": true
+            "link": "/goto_adviser.html?g=health_fit_to_study"
+            
         }, {
             "name": "Senate Office Guidance on Fitness to Study",
             "link": "/pdf/fitness_to_study.pdf"
+            
         }]
     },
     "local_health": {
@@ -349,12 +397,15 @@
         "subcats": [{
             "name": "Scholarships and Funding",
             "link": "financial_aid_team"
+            
         }, {
             "name": "Disability Support and Funding",
             "link": "finance_disabled"
+            
         }, {
             "name": "Extra Resources",
             "link": "finance_extra"
+            
         }]
     },
     "financial_aid_team": {
@@ -389,7 +440,7 @@
         "filename": "study_abroad",
         "title": "Erasmus/Study Abroad",
         "type": "action",
-        "info": "Have a look at the <a href=\"https://moodle.gla.ac.uk/course/view.php?id=3322\">Computing Science Moodle on Study Abroad</a> and the <a href=\"https://www.gla.ac.uk/myglasgow/students/goabroad/\">University page on studying abroad</a>.",
+        "info": "Contact Gerardo Aragon Camarasa<a href=\"mailto:Gerardo.AragonCamarasa@glasgow.ac.uk\">Gerardo.AragonCamarasa@glasgow.ac.uk</a><br /><a href=\"https://www.universitiesuk.ac.uk/International/Documents/2019/Gone-Intl-2019.pdf\">PDF</a> on study abroad.",
         "subcats": []
     },
     "exams": {
@@ -400,19 +451,23 @@
         "subcats": [{
             "name": "Disability Arangements",
             "link": "exam_disability_access"
+            
         }, {
             "name": "Results Info",
             "link": "exam_registry_info"
+            
         }, {
             "name": "Resits",
             "link": "resits"
+            
         }, {
             "name": "Not got the results to progress",
-            "link": "cant_progress",
-            "goto_adviser": true
+            "link": "/goto_adviser.html?g=exams"
+            
         }, {
             "name": "Academic Standing, Misconduct and Appeals",
             "link": "standing_misconduct_and_appeals"
+            
         }]
     },
     "exam_disability_access": {
@@ -437,12 +492,15 @@
         "subcats": [{
             "name": "Resit Enrolment",
             "link": "exam_registry_info"
+            
         }, {
             "name": "International",
             "link": "exam_registry_info"
+            
         }, {
             "name": "MV (Good cause) Resits",
             "link": "compsci_teaching_office"
+            
         }]
     },
     "standing_misconduct_and_appeals": {
@@ -457,6 +515,7 @@
         }, {
             "name": "Appeals",
             "link": "appeals"
+            
         }, {
             "name": "Plagiarism",
             "link": "plagiarism"
@@ -470,6 +529,7 @@
         "subcats": [{
             "name": "Who is my adviser of studies?",
             "link": "adviser_info"
+            
         }]
     },
     "plagiarism": {
@@ -480,6 +540,7 @@
         "subcats": [{
             "name": "Plagiarism appeals",
             "link": "appeals"
+            
         }]
     }
 }

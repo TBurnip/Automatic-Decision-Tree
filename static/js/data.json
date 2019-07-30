@@ -345,7 +345,7 @@
                 "link": "health_good_cause"
                 
             }, {
-                "name": "Do you have a prolonged health problem that is affecting your ability to study?",
+                "name": "Do you have prolonged a health problem or a personal issue that is affecting your ability to study?",
                 "link": "health_fit_to_study"
                 
             }, {
@@ -372,7 +372,7 @@
             "filename": "health_fit_to_study",
             "title": "Fitness to Study",
             "type": "category",
-            "info": "\"The Fitness to Study Procedure focuses on student welfare and seeks to support students encountering challenges which affect their ability to study and engage in wider University life.\" - Senate Office",
+            "info": "Sometimes, there are health or other personal issues in a student's life that prevent them from normal study on a course.  Hence they are losing time for proper preparation for subsequent assessments.  The University aims to support students in such situations, and this is formally known as \"Fitness to Study\" - although issues are not due to health alone.  Fitness to Study is usually first considered locally in the School.",
             "subcats": [{
                 "name": "I would like to be Considered for a fitness to study case",
                 "link": "/goto_adviser.html?g=health_fit_to_study"
