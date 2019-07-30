@@ -25,7 +25,7 @@ async function main(){
     //get the data from the datafile, create a page object then render
     Page.getData(page_name, datafile, function(data){
         var page = new Page(page_name, template, data);
-        page.render(hist);
+        page.render();
     });
     
 }
@@ -49,13 +49,10 @@ class Page {
 
     static async getData(name, datafile, callback){
         console.log("Getting data for: " + name + " from: " + datafile);
-        $.get(datafile, function(data) { callback(data[name]); })
-        .fail(function(){
-
-        });
+        $.get(datafile, function(data) { callback(data[name]); });
     }
     
-    setUpSubcats() {
+    _setupSubcats() {
         var subcats = this.data["subcats"];
         //check whether subcats exists
         if (subcats) {       
@@ -70,7 +67,7 @@ class Page {
         }
     }
 
-    setMotm() {
+    _setMotm() {
         var self = this;
         $.get("js/motm.json", function(data) { 
             var d = new Date();
@@ -78,15 +75,15 @@ class Page {
         });
     }
 
-    render(hist) {
+    render() {
 
         //if history is null/undefined then retrieve history from session storage
-        if (!hist) { var hist = History.retrieveHistory(); }
+        var hist = History.retrieveHistory();
 
         //if the data for the page is null or undefined then redirect to 404 and return
         if (this.data) {
-            this.setUpSubcats();
-            this.setMotm();
+            this._setupSubcats();
+            this._setMotm();
             document.title = this.data["title"];
         } else {
             this.template = "404.html";
@@ -144,7 +141,26 @@ class History {
     }
 
     //store a JSON serialized version of the history in session storage
-    static storeHistory(hist){ sessionStorage.setItem("hist", JSON.stringify(hist)); }
+    _storeHistory(){ sessionStorage.setItem("hist", JSON.stringify(this)); }
+
+    update(page, type=null) {
+
+        //add to full_hist if and only if the page is not the same as the most recent page in history (we don't want duplicates)
+        var last_page = this.full_hist[this.full_hist.length -1];
+        if (last_page != page) { this.full_hist.push(page); }
+
+        if (page === "index") { this.breadcrumb = ["index"]; }                      //page is index             => breadcrumb is reset to ["index"]
+        else if (!this.breadcrumb.includes(page)) { this.breadcrumb.push(page); }   //page not in breadcrumb    => add it to breadcrumb
+        else if (type === "back") { this.breadcrumb.pop(); }                        //back button clicked       => remove last element from breadcrumb
+        else if (type === "breadcrumb") {                                           //breadcrumb link clicked   => set breadcrumb to existing one up to the link clicked (inclusive)
+            var bc = this.breadcrumb;
+            var idx = bc.indexOf(page);
+            this.breadcrumb = bc.slice(0, idx+1);
+        }
+
+        //store history after every update
+        this._storeHistory();
+    }
 
     //takes the breadcrumb and builds and inserts the html for displaying it
     renderBreadcrumb() {
@@ -161,26 +177,7 @@ class History {
             });
     
             document.getElementById("breadcrumb").innerHTML = str;
-        })
-    }
-
-    update(page, crumb_click=false, back_click=false) {
-
-        //add to full_hist if and only if the page is not the same as the most recent page in history (we don't want duplicates)
-        var last_page = this.full_hist[this.full_hist.length -1];
-        if (last_page != page) { this.full_hist.push(page); }
-
-        if (page === "index") { this.breadcrumb = ["index"]; }                      //page is index             => breadcrumb is reset to ["index"]
-        else if (!this.breadcrumb.includes(page)) { this.breadcrumb.push(page); }   //page not in breadcrumb    => add it to breadcrumb
-        else if (back_click) { this.breadcrumb.pop(); }                             //back button clicked       => remove last element from breadcrumb
-        else if (crumb_click) {                                                     //breadcrumb link clicked   => set breadcrumb to existing one up to the link clicked (inclusive)
-            var bc = this.breadcrumb;
-            var idx = bc.indexOf(page);
-            this.breadcrumb = bc.slice(0, idx+1);
-        }
-
-        //store history after every update
-        History.storeHistory(this);
+        }) 
     }
 
     getPreviousPage() {
@@ -196,14 +193,13 @@ class Nav {
     static goBack() {
         var hist = History.retrieveHistory();
         var prev_page = hist.getPreviousPage();
-        hist.update(prev_page, false, true);
+        hist.update(prev_page, "back");
         Nav.redirect(prev_page);
     }
 
     static breadcrumbClick(page) {
         var hist = History.retrieveHistory();
-        hist.update(page, true, false);
-        History.storeHistory(hist);
+        hist.update(page, "breadcrumb");
         Nav.redirect(page);
     }
 

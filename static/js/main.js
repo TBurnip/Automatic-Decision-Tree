@@ -159,32 +159,6 @@ function bodyexampleloaded(r) {
     load(pagename)
 }
 
-
-// Load is a whole bunch of miscellaneous stuff related to loading the page.
-function load(name) {
-    hist = getCookie("hist")
-    if (hist != "") {
-        if (location.pathname + location.search == "/?p="
-            || (location.search == "" && location.pathname != "/404.html")
-            || location.search == "?p=index") {
-            setCookie("hist", "index")
-        } else {
-            setCookie("hist", hist + "," + findGetParameter("p"))
-        }
-    } else {
-        setCookie("hist", findGetParameter("p"))
-    }
-    hist = getCookie("hist")
-    gethist = findGetParameter("h")
-    if (gethist != undefined) {
-        hist = gethist
-    }
-    removeconsecutiveduplicates()
-    removebrowserbackeventduplicates()
-    renderbreadcrumb()
-    bottomofpagelink(name,false)
-}
-
 // This function is used to detect if the browser back button has been used and if it has it removes the correct items from the bread crumb train.
 function removebrowserbackeventduplicates() {
 
