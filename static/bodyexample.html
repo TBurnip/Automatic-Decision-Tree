@@ -7,10 +7,10 @@
       {{ #accordion }}
       <div class="">
         <div class="">
-          <a class="collapsed acordlink" data-toggle="collapse" href="#{{ unique }}">{{ link }} </a>
+          <a class="collapsed acordlink" data-toggle="collapse" href="#{{ unique }}">{{ heading }} </a>
         </div>
         <div id="{{ unique }}" class="collapse" data-parent="#accordion">
-          <div class="">{{{ descp }}}</div>
+          <div class="">{{{ body }}}</div>
         </div>
       </div>
       {{ /accordion }}

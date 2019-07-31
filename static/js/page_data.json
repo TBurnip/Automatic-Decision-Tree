@@ -52,30 +52,30 @@
             "link": "course_choice"
         }, {
             "name": "Questions relating to course or project",
-            "link": "indivividual_courses_and_projects"
+            "link": "individual_courses_and_projects"
         }]
     },
-    "indivividual_courses_and_projects": {
-        "filename": "indivividual_courses_and_projects",
+    "individual_courses_and_projects": {
+        "filename": "individual_courses_and_projects",
         "title": "Questions relating to individual course or project",
         "info": "Are you already enrolled in the course?",
         "subcats": [{
             "name": "Yes",
-            "link": "indivividual_courses_and_projects_enrolled"
+            "link": "individual_courses_and_projects_enrolled"
         }, {
             "name": "No",
-            "link": "indivividual_courses_and_projects_not_enrolled"
+            "link": "individual_courses_and_projects_not_enrolled"
         }]
     },
-    "indivividual_courses_and_projects_enrolled": {
-        "filename": "indivividual_courses_and_projects_enrolled",
+    "individual_courses_and_projects_enrolled": {
+        "filename": "individual_courses_and_projects_enrolled",
         "title": "Questions relating to individual course or project and enrolled",
         "info": "Check the moodle for the course and if that still doesn't answer your question, email the course lecturer"
     },
-    "indivividual_courses_and_projects_not_enrolled": {
-        "filename": "indivividual_courses_and_projects_not_enrolled",
+    "individual_courses_and_projects_not_enrolled": {
+        "filename": "individual_courses_and_projects_not_enrolled",
         "title": "Questions relating to individual course or project and not enrolled",
-        "info": "Check the course catalogue for information on the course. If this still doesn't yield the info you want email you adviser for advice."
+        "info": "Check the course catalogue for information on the course. If you still can't find the information that you want email you adviser for advice."
     },
     "timetable": {
         "filename": "timetable",
@@ -135,7 +135,7 @@
     "unavoidable_course_clash": {
         "filename": "unavoidable_course_clash",
         "title": "Unavoidable Course Clash",
-        "info": "If two courses you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unaviodable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the courses in person</li></ul>"
+        "info": "If two courses you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unavoidable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the courses in person</li></ul>"
     },
     "enrol_guide": {
         "filename": "enrol_guide",
@@ -149,7 +149,7 @@
     "new_student": {
         "filename": "new_student",
         "title": "Enrolment as a new student",
-        "info": "New students can go to  the College of Science and Engineering helpdesk (located on Boyd Orr Level 3) for help with enrolling."
+        "info": "New students can go to  the College of Science and Engineering HelpDesk (located on Boyd Orr Level 3) for help with enrolling."
     },
     "add_swap": {
         "filename": "add_swap",
@@ -157,29 +157,29 @@
         "info": "Considering adding or swapping a course.<br> Before continuing consider the following<br>",
         "accordion":[
             {
-                "unique":"c1",
-                "link":"What course are you considering?",
-                "descp":"You need to know what course you are considering and whether it is suitable for you.<br> If you don't know what course to pick look at the course catalogue to help make a decision.<br> When you know what course to pick email your adviser of studies to find out if it is a suitable choice."
+                "unique": "c1",
+                "heading": "What course are you considering?",
+                "body": "You need to know what course you are considering and whether it is suitable for you.<br> If you don't know what course to pick look at the course catalogue to help make a decision.<br> When you know what course to pick email your adviser of studies to find out if it is a suitable choice."
             },
             {
-                "unique":"c2",
-                "link":"Are you adding or swapping?",
-                "descp":"If you are adding a course it is usually much simpler so long as it doesn't conflict with another course.<br> If it doesn't conflict then you can most likely do it on MyCampus. If it does conflict then read \"Who will change your courses\""
+                "unique": "c2",
+                "heading": "Are you adding or swapping?",
+                "body": "If you are adding a course it is usually much simpler so long as it doesn't conflict with another course.<br> If it doesn't conflict then you can most likely do it on MyCampus. If it does conflict then read \"Who will change your courses\""
             },
             {
-                "unique":"c3",
-                "link":"Are you in the Add/Drop period?",
-                "descp":"The add/drop period exists to give students time to try out courses and still be able to change without falling too far behind, therefore changing courses outside the add/drop period could result in a lot of extra work for you - especially if you have missed assessment for the course you wish to change to.<br>Changing courses is still possible however you should certainly discuss it with your adviser to ensure that you make the best decision for you."
+                "unique": "c3",
+                "heading": "Are you in the Add/Drop period?",
+                "body": "The add/drop period exists to give students time to try out courses and still be able to change without falling too far behind, therefore changing courses outside the add/drop period could result in a lot of extra work for you - especially if you have missed assessment for the course you wish to change to.<br>Changing courses is still possible however you should certainly discuss it with your adviser to ensure that you make the best decision for you."
             },
             {
-                "unique":"c4",
-                "link":"Who will Change your courses You or the College Office?",
-                "descp":"Though you can change courses yourself in almost all situations you should goto the SSO first.<br> The SSO can then tell you if they can solve the problem or if you need to go to the college office.<br>However going to the SSO is only necessary when you are going to drop a course (this includes dropping a course to pick another course up and any time where you will drop a course), this is because they can add a course before dropping one which means you will never get stuck without a course."
+                "unique": "c4",
+                "heading": "Who will Change your courses You or the College Office?",
+                "body": "Though you can change courses yourself in almost all situations you should goto the SSO first.<br> The SSO can then tell you if they can solve the problem or if you need to go to the college office.<br>However going to the SSO is only necessary when you are going to drop a course (this includes dropping a course to pick another course up and any time where you will drop a course), this is because they can add a course before dropping one which means you will never get stuck without a course."
             },
             {
-                "unique":"c5",
-                "link":"Getting advice on your proposed changes, are you confident?",
-                "descp":"Any time you are considering changing courses it is always recommended you discuss this with your adviser as they really are best placed to answer questions and help you decide what is right for you."
+                "unique": "c5",
+                "heading": "Getting advice on your proposed changes, are you confident?",
+                "body": "Any time you are considering changing courses it is always recommended you discuss this with your adviser as they really are best placed to answer questions and help you decide what is right for you."
             }
         ]
     },
@@ -235,7 +235,7 @@
     "adviser_info": {
         "filename": "adviser_info",
         "title": "Adviser of Studies",
-        "info": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the Universiry staff A-Z."
+        "info": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the University staff A-Z."
     },
     "transfer_outside_college": {
         "filename": "transfer_outside_college",
@@ -266,8 +266,8 @@
     },
     "health_disabled": {
         "filename": "health_disabled",
-        "title": "Disabillites",
-        "info": "See <a href=\"disabilitesunipage\">Disabilities Services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>"
+        "title": "Disabilities",
+        "info": "See <a href=\"https://www.gla.ac.uk/myglasgow/disability/\">Disabilities Services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>"
     },
     "health_good_cause": {
         "filename": "health_good_cause",
@@ -316,7 +316,7 @@
     "finance_disabled": {
         "filename": "finance_disabled",
         "title": "Disability Support and Funding",
-        "info": "Goto Disability Services page on <a href=\"https://www.gla.ac.uk/myglasgow/disability/financialassistance/\">finacial aid</a>"
+        "info": "Goto Disability Services page on <a href=\"https://www.gla.ac.uk/myglasgow/disability/financialassistance/\">financial aid</a>"
     },
     "finance_extra": {
         "filename": "finance_extra",
@@ -338,7 +338,7 @@
         "title": "Exams, Assessment, Resits and Progression",
         "info": "",
         "subcats": [{
-            "name": "Disability Arangements",
+            "name": "Disability Arrangements",
             "link": "exam_disability_access"
         }, {
             "name": "Results Info",
@@ -357,7 +357,7 @@
     },
     "exam_disability_access": {
         "filename": "exam_disability_access",
-        "title": "Exam Disability Arangements",
+        "title": "Exam Disability Arrangements",
         "info": "See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul>"
     },
     "exam_registry_info": {
