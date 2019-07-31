@@ -146,3 +146,8 @@ nav {
 #button {
   margin: 0px;
 }
+
+.acordlink {
+  color: lightgray!important;
+  font-size: 18px;
+}
