@@ -231,7 +231,7 @@
         "title": "Health and Absence",
         "info": "",
         "subcats": [{
-            "name": "Disabillities and Exam Arangements",
+            "name": "Disabilities and Exam Arrangements",
             "link": "health_disabled"
         }, {
             "name": "Have you been absent or missed an assessment?",
@@ -240,7 +240,7 @@
             "name": "Do you have prolonged a health problem or a personal issue that is affecting your ability to study?",
             "link": "health_fit_to_study"
         }, {
-            "name": "Local Health Sevices",
+            "name": "Local Health Services",
             "link": "local_health"
         }]
     },

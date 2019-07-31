@@ -90,7 +90,7 @@ class Page {
             document.title = "(404) Page Not Found";
         }
 
-        //pass the page data and appropriate tempate to the moustache rendering engine
+        //pass the page data and appropriate template to the moustache rendering engine
         var self = this;
         $.get(this.template, function(template) {
             document.body.innerHTML = Mustache.render(template, self.data);
@@ -121,7 +121,7 @@ class History {
             split_hist = hist.split(",");
             var bc = new Set(split_hist); //this won't work as intended, need to get current page and get the breadcrumb from "index" -> ... -> "current page"
 
-            //then assign memembers
+            //then assign members
             this.full_hist = split_hist;
             this.breadcrumb = Array.from(bc);
 
@@ -180,16 +180,26 @@ class History {
         }) 
     }
 
+    //if the length of the history is greater than 1 (ie a previous page exists), then return the previous page otherwise return the only element in the array
     getPreviousPage() {
-        //if the length of the history is greater than 1 (ie a previous page exists), then return the previous page
         var len = this.full_hist.length;
         if (len > 1) { return this.full_hist[len - 2]; }
-        //otherwise return the only element
-        else { return this.full_hist[len - 1]; }
+        else { return this.full_hist[0]; }
     }
 }
 
 class Nav {
+
+    //find appropriate get parameter for page, build URI and redirect to that location
+    static redirect(page) {
+        var get_param = Nav.getParamForPage(page);
+        var uri = "\?" + get_param + "=" + page;
+
+        try { location = uri; } 
+        catch { location = "/404.html"; }
+        
+    }
+
     static goBack() {
         var hist = History.retrieveHistory();
         var prev_page = hist.getPreviousPage();
@@ -201,13 +211,6 @@ class Nav {
         var hist = History.retrieveHistory();
         hist.update(page, "breadcrumb");
         Nav.redirect(page);
-    }
-
-    //find approprate get parameter for page, build URI and redirect to that location
-    static redirect(page) {
-        var get_param = Nav.getParamForPage(page);
-        var uri = "\?" + get_param + "=" + page;
-        location = uri;
     }
 
     //returns the "g" if page is an adviser page, "p" otherwise
