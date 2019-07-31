@@ -1,10 +1,10 @@
 # GuideMe Docs
 
-> Note: an underscore before a method name denotes pseudo-privacy, although the methods are publically accessible they should be treated as private methods and should not be treated as part of the class' public interface.
+> Note: an underscore before a method name denotes pseudo-privacy, although the methods are publicly accessible they should be treated as private methods and should not be treated as part of the class' public interface.
 
 ## **class** Page
 
-Class for pages being displayed. An instance of page is created on page load and destroyed when a new page is loaded.
+> Class for pages being displayed. An instance of page is created on page load and destroyed when a new page is loaded.
 
 ### Attributes
 
@@ -16,7 +16,7 @@ Class for pages being displayed. An instance of page is created on page load and
 
 #### constructor(name, template, data)
 
-Creates a new Page object witht the paramaters as described above.
+Creates a new Page object with the parameters as described above.
 
 #### **static async getData(name, datafile, callback)**
 
@@ -38,7 +38,7 @@ Page.getData("index", "page_data.json", function(data){
 
 #### **setupSubcats()**
 
-Private helper function, when page is being rendered takes the subcats for the page and prepends the appropiate URL formatting for the link, such that:
+Private helper function, when page is being rendered takes the subcats for the page and prepends the appropriate URL formatting for the link, such that:
 
 - Normal page: &rarr; "\\?p=" + link
 - Go to adviser page: &rarr; "\\?g=" + link
@@ -56,11 +56,11 @@ Takes the page data and passes it to the Moustache rendering engine. Also retrie
 
 ## **class** History
 
-Stores the history for the current session, this should be treated as a singleton with a global point of access at ```History.retrieveHistory()```, direct calls to the constructor should be avoided although this is difficult to enforce in Javascript.
+> Stores the history for the current session, this should be treated as a singleton with a global point of access at ```History.retrieveHistory()```, direct calls to the constructor should be avoided although this is difficult to enforce in Javascript.
 
 ### Attributes
 
-- **full_hist**: (array) Constains the name of every page the user has visited during the session.
+- **full_hist**: (array) Contains the name of every page the user has visited during the session.
 - **breadcrumb**: (array) The current path the user has taken form the index page, it does not contain duplicates and is reset every time the user returns to index.
 
 ### Methods
@@ -94,17 +94,46 @@ Private method. Converts the instance into a stringified JSON object and stores 
 
 Updates the contents of history then stores in ```sessionStorage```.
 
+In all cases, page is added to the end of `full_hist` provided that it is not the same as the last entry in the array. There is additional complexity when adding elements to the breadcrumb however.
+
+- If the current page is "index" then the breadcrumb is reset to only contain index
+- If `type` is `null` then the page is simply added to the breadcrumb provided it doesn't already contain the page
+- If `type` is `back` then the last element of the breadcrumb is removed
+- If `type` is `breadcrumb` then we set breadcrumb to the sub-array of breadcrumb from "index" the the page that is being added (inclusive)
+
 ##### Parameters
 
 - **page**: (str) Name of the page getting added to history
 - **type**: (str, default=null) Takes either the value "back" or "breadcrumb" and will determine the correct way to update the breadcrumb.
 
+#### renderBreadcrumb()
+
+Takes the breadcrumb, builds a string with proper html formatting and renders it in the DOM element with ID "breadcrumb". Called in Page.render().
+
+#### getPreviousPage()
+
+Will return the previous page from `full_hist` given that it contains more than one element. If not it will return the 0th element.
+
 ---
 
 ## **class** Nav
 
-### Atttributes
+> Nav is a container for several static methods used for navigation along with some helper functions. Its constructor is never intended to be called.
 
-Nav is simply a container for several static methods used for navigation along with some helper functions. Its constructor is never intended to be called.
+### Attributes
+
+None
 
 ### Methods
+
+#### static redirect(page)
+
+Builds URI for a given page and will redirects to it. Redirects to 404.html if there is an error.
+
+#### static goBack()
+
+Gets previous page from the history, updates it accordingly and redirects. Called by clicking on the back button in the html.
+
+#### static breadcrumbClick(page)
+
+
