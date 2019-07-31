@@ -392,7 +392,7 @@
         "info": "For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals. Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action.<br><br>Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">senate-appeals@glasgow.ac.uk</a> for further information on appeals.",
         "subcats": [{
             "name": "Who is my adviser of studies?",
-            "link": "adviser_info"
+            "link": "adviser_info" 
         }]
     },
     "plagiarism": {
