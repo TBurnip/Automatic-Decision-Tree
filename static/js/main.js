@@ -22,9 +22,7 @@ async function main(){
             page.render();
         });
     }
-
     //retrieve history from session storage, update then store again
     var hist = History.retrieveHistory();
     hist.update(page_name);
-
 }

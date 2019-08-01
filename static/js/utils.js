@@ -80,35 +80,26 @@ class AdviserPage extends Page {
         var who = this.data["who"];
         var grammar = grammar_lookup[who];
 
+
         Object.assign(this.data, grammar);
     }
 
-    _renderAdviserLink() {
+    _getAdviserLink() {
 
         //retrieve the history from session storage
         var hist = History.retrieveHistory();
-
-        //compress the full hist
         var full_hist = hist.full_hist.toString();
-        var short_hist = LZW.compress(full_hist);
 
         //build the string for the URL
-        var link = location.origin + location.pathname + "?g=" + this.name + "&h=" + short_hist;
-
-        //insert the string into the html
-        $(document).ready(function(){
-            var text = document.getElementById("link").getElementsByTagName("input")[0]
-            text.setAttribute("value", link);
-        });
+        return location.origin + location.pathname + "?g=" + this.name + "&h=" + full_hist;
     }
 
     render() {
         var who = this.data["who"];
         if (who) { this._assignProperGrammar(who); }
         console.log(this.data);
-        super.render();
-        this._renderAdviserLink();
-        
+        this.data["hist_link"] = this._getAdviserLink();
+        super.render(); 
     }
 }
 
@@ -129,7 +120,7 @@ class History {
         if (existing_hist) { //if so create array and set with existing history
 
             //split history on commas and create set object to remove duplicates
-            split_hist = hist.split(",");
+            var split_hist = existing_hist.split(",");
             var bc = new Set(split_hist); //this won't work as intended, need to get current page and get the breadcrumb from "index" -> ... -> "current page"
 
             //then assign members
@@ -142,6 +133,14 @@ class History {
         } else { //otherwise just initialise with empty arrays
             this.full_hist = [];
             this.breadcrumb = [];
+        }
+    }
+
+    _getBreadcrumbFromFullHist(hist) {
+        var len = hist.length;
+        console.log(hist);
+        for (var i = len; i >= 0; i--){
+            continue;
         }
     }
 

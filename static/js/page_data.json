@@ -249,7 +249,12 @@
     },
     "good_cause": {
         "title": "Good Cause",
-        "info": "Try and follow through <a href=\"/pdf/good_cause_flowchart.pdf\">this flowchart</a> to find the appropriate course of action. If you're still unsure you should speak to a Student Support Officer."
+        "info": "Try and follow through <a href=\"/pdf/good_cause_flowchart.pdf\">this flowchart</a> to find the appropriate course of action. If you're still unsure you should speak to a Student Support Officer.",
+        "accordion": [{
+            "unique": "c1",
+            "heading": "I have been ill and it has affected my performance in an exam.",
+            "body": "If this is the case, you can submit a good cause claim. If the good cause claim is accepted you will be able to resit the exam and your recorded grade will be the one that you achieve in the resit. This option should not be used as an \"insurance policy\" for exams however, as once the good cause is accepted you must take the resit and this will be your final grade."
+        }]
     },
     "fitness_to_study": {
         "title": "Fitness to Study",

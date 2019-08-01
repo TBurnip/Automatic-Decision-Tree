@@ -26,11 +26,11 @@
 
         <h4>Here is a link to this page with all the previous pages you have visited detailed: </h4> <br>
 
-            <div class="input-group mb-3" id="link">
-                <input type="text" class="form-control" value="" style="height: 38px;">
+            <div class="input-group mb-3">
+                <input type="text" id="link" class="form-control" value="{{ hist_link }}" onclick="this.select();" style="height: 38px;">
                 <div class="input-group-append">
                     <button class="btn btn-outline-success"
-                        onclick="clickToCopy(document.getElementById('link').getElementsByTagName('input')[0])">Click to copy</button>
+                        onclick="clickToCopy(document.getElementById('link'));">Click to copy</button>
                 </div>
             </div>
 
@@ -111,4 +111,5 @@
     <span class="text-muted">
         <ul class="breadcrumb" style="margin-bottom: 0px!important;" id="breadcrumb"></ul>
     </span>
-</footer> 
+</footer>
+
