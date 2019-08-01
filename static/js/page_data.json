@@ -4,8 +4,8 @@
         "title": "General",
         "info": "",
         "subcats": [{
-            "name": "Courses, Timetabling & Enrolment",
-            "link": "courses"
+            "name": "Modules, Timetabling & Enrolment",
+            "link": "modules"
         }, {
             "name": "Degree Programme and Course of Study",
             "link": "degree",
@@ -32,11 +32,62 @@
             "name": "Other/FAQ",
             "link": "https://docs.google.com/document/d/1W5yhAEmaeQA2H5jwm0X7CFHLWm9eXROyf_OKeujYQTQ/edit?usp=sharing",
             "linkexternal": true
+        },{
+            "name": "Issues with my study/course",
+            "link": "issues_with_course_study"
+        }
+    ]
+    },
+    "issues_with_course_study": {
+        "filename": "issues_with_course_study",
+        "title": "Issues with my study/course",
+        "info": "Since this is such a board category bellow are some options to help narrow down who you should go to.",
+        "subcats": [{
+            "name": "Is you issue relating to an individual module?",
+            "link": "individual_module_issues"
+        },{
+            "name": "Is your issue relating to your ability to study?",
+            "link": "study_issues"
+        },{
+            "name":"",
+            "link":"Is the issue with your plan/course of stduy?"
         }]
     },
-    "courses": {
-        "filename": "courses",
-        "title": "Courses, Timetabling & Enrolment",
+    "individual_module_issues": {
+        "filename": "individual_module_issues",
+        "title": "Issues with an individual module",
+        "info": "Issues with an individual module can be redirected in many ways.",
+        "accordion":[
+            {
+                "unique":"c1",
+                "link":"Do you have a question about an individual module or to do with an individual module?",
+                "descp":"First you should check that modules moodle page,<br> and if that doesn't answer your question then you should email the lecturer."
+            },            {
+                "unique":"c2",
+                "link":"Do you have a problem with the module and/or the way it is being taught?",
+                "descp":"First you should go to the class rep and discuss your problem then they will help you bring it to the year head if that is necessary."
+            }
+        ]
+    },   
+    "study_issues": {
+        "filename": "study_issues",
+        "title": "Issues with your study",
+        "info": "If you are having problems with you study",
+        "accordion":[
+            {
+                "unique":"c1",
+                "link":"Do you have a question about an individual module or to do with an individual module?",
+                "descp":"First you should check that modules moodle page,<br> and if that doesn't answer your question then you should email the lecturer."
+            },            {
+                "unique":"c2",
+                "link":"Do you have a problem with the module and/or the way it is being taught?",
+                "descp":"First you should go to the class rep and discuss your problem then they will help you bring it to the year head if that is necessary."
+            }
+        ]
+    },
+    "modules": {
+        "filename": "modules",
+        "title": "Modules, Timetabling & Enrolment",
         "info": "",
         "subcats": [{
             "name": "Timetable",
@@ -45,37 +96,37 @@
             "name": "Guide on How to Enrol (MyCampus)",
             "link": "enrol_guide"
         }, {
-            "name": "Swap/Drop Course",
+            "name": "Swap/Drop module",
             "link": "add_swap"
         }, {
-            "name": "Advice on choice of Course and Electives",
-            "link": "course_choice"
+            "name": "Advice on choice of Modules and Electives",
+            "link": "module_choice"
         }, {
-            "name": "Questions relating to course or project",
-            "link": "indivividual_courses_and_projects"
+            "name": "Questions relating to a module or project",
+            "link": "individual_modules_and_projects"
         }]
     },
-    "indivividual_courses_and_projects": {
-        "filename": "indivividual_courses_and_projects",
-        "title": "Questions relating to individual course or project",
-        "info": "Are you already enrolled in the course?",
+    "individual_modules_and_projects": {
+        "filename": "individual_modules_and_projects",
+        "title": "Questions relating to individual Modules or project",
+        "info": "Are you already enrolled in the Module?",
         "subcats": [{
             "name": "Yes",
-            "link": "indivividual_courses_and_projects_enrolled"
+            "link": "individual_modules_and_projects_enrolled"
         }, {
             "name": "No",
-            "link": "indivividual_courses_and_projects_not_enrolled"
+            "link": "individual_modules_and_projects_not_enrolled"
         }]
     },
-    "indivividual_courses_and_projects_enrolled": {
-        "filename": "indivividual_courses_and_projects_enrolled",
-        "title": "Questions relating to individual course or project and enrolled",
-        "info": "Check the moodle for the course and if that still doesn't answer your question, email the course lecturer"
+    "individual_modules_and_projects_enrolled": {
+        "filename": "individual_modules_and_projects_enrolled",
+        "title": "Questions relating to individual Modules or project and enrolled",
+        "info": "Check the moodle for the module and if that still doesn't answer your question, email the module lecturer"
     },
-    "indivividual_courses_and_projects_not_enrolled": {
-        "filename": "indivividual_courses_and_projects_not_enrolled",
-        "title": "Questions relating to individual course or project and not enrolled",
-        "info": "Check the course catalogue for information on the course. If this still doesn't yield the info you want email you adviser for advice."
+    "individual_modules_and_projects_not_enrolled": {
+        "filename": "individual_modules_and_projects_not_enrolled",
+        "title": "Questions relating to individual Modules or project and not enrolled",
+        "info": "Check the module catalogue for information on the module. If this still doesn't yield the info you want email you adviser for advice."
     },
     "timetable": {
         "filename": "timetable",
@@ -92,7 +143,7 @@
     "timetable_clash": {
         "filename": "timetable_clash",
         "title": "Timetable Clash",
-        "info": "A timetable clash may occur between courses or class sections within a course.<br><br>If the course you are enrolling in to is a compulsory course try enrolling in to a different class section (e.g. a different seminar group).<br><br>If the course you are enrolling in to is an optional course try enrolling in to a different class section (e.g. a different seminar group), alternatively enrol in to a new course.<br><br>Download a pdf guide: <a href=\"https://www.gla.ac.uk/media/media_350111_en.pdf\" target=\"_blank\">Timetable clash (pdf)</a><br>Watch the how-to video: <a href=\"https://www.gla.ac.uk/myglasgow/registry/registration/videos/headline_284985_en.html\" target=\"_blank\">Enrolment - timetable clash</a>",
+        "info": "A timetable clash may occur between modules or class sections within a module.<br><br>If the module you are enrolling in to is a compulsory module try enrolling in to a different class section (e.g. a different seminar group).<br><br>If the module you are enrolling in to is an optional module try enrolling in to a different class section (e.g. a different seminar group), alternatively enrol in to a new module.<br><br>Download a pdf guide: <a href=\"https://www.gla.ac.uk/media/media_350111_en.pdf\" target=\"_blank\">Timetable clash (pdf)</a><br>Watch the how-to video: <a href=\"https://www.gla.ac.uk/myglasgow/registry/registration/videos/headline_284985_en.html\" target=\"_blank\">Enrolment - timetable clash</a>",
         "subcats": [{
             "name": "This doesn't solve the problem.",
             "link": "registry_doesnt_fix_clash"
@@ -121,21 +172,21 @@
     },
     "possible_to_drop_or_swap": {
         "filename": "possible_to_drop_or_swap",
-        "title": "Can you drop one of the courses?",
-        "info": "Is it possible to solve the problem by dropping one of the courses?",
+        "title": "Can you drop one of the modules?",
+        "info": "Is it possible to solve the problem by dropping one of the modules?",
         "subcats": [{
             "name": "Yes",
             "link": "can_drop_or_swap",
             "goto_adviser": true
         }, {
             "name": "No",
-            "link": "unavoidable_course_clash"
+            "link": "unavoidable_module_clash"
         }]
     },
-    "unavoidable_course_clash": {
-        "filename": "unavoidable_course_clash",
-        "title": "Unavoidable Course Clash",
-        "info": "If two courses you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unaviodable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the courses in person</li></ul>"
+    "unavoidable_module_clash": {
+        "filename": "unavoidable_module_clash",
+        "title": "Unavoidable module Clash",
+        "info": "If two modules you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unaviodable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the modules in person</li></ul>"
     },
     "enrol_guide": {
         "filename": "enrol_guide",
@@ -154,47 +205,47 @@
     "add_swap": {
         "filename": "add_swap",
         "title": "Add/Swap",
-        "info": "Considering adding or swapping a course.<br> Before continuing consider the following<br>",
+        "info": "Considering adding or swapping a module.<br> Before continuing consider the following<br>",
         "accordion":[
             {
                 "unique":"c1",
-                "link":"What course are you considering?",
-                "descp":"You need to know what course you are considering and whether it is suitable for you.<br> If you don't know what course to pick look at the course catalogue to help make a decision.<br> When you know what course to pick email your adviser of studies to find out if it is a suitable choice."
+                "link":"What module are you considering?",
+                "descp":"You need to know what module you are considering and whether it is suitable for you.<br> If you don't know what module to pick look at the course catalogue to help make a decision.<br> When you know what module to pick email your adviser of studies to find out if it is a suitable choice."
             },
             {
                 "unique":"c2",
                 "link":"Are you adding or swapping?",
-                "descp":"If you are adding a course it is usually much simpler so long as it doesn't conflict with another course.<br> If it doesn't conflict then you can most likely do it on MyCampus. If it does conflict then read \"Who will change your courses\""
+                "descp":"If you are adding a module it is usually much simpler so long as it doesn't conflict with another module.<br> If it doesn't conflict then you can most likely do it on MyCampus. If it does conflict then read \"Who will change your modules\""
             },
             {
                 "unique":"c3",
                 "link":"Are you in the Add/Drop period?",
-                "descp":"The add/drop period exists to give students time to try out courses and still be able to change without falling too far behind, therefore changing courses outside the add/drop period could result in a lot of extra work for you - especially if you have missed assessment for the course you wish to change to.<br>Changing courses is still possible however you should certainly discuss it with your adviser to ensure that you make the best decision for you."
+                "descp":"The add/drop period exists to give students time to try out modules and still be able to change without falling too far behind, therefore changing modules outside the add/drop period could result in a lot of extra work for you - especially if you have missed assessment for the module you wish to change to.<br>Changing modules is still possible however you should certainly discuss it with your adviser to ensure that you make the best decision for you."
             },
             {
                 "unique":"c4",
-                "link":"Who will Change your courses You or the College Office?",
-                "descp":"Though you can change courses yourself in almost all situations you should goto the SSO first.<br> The SSO can then tell you if they can solve the problem or if you need to go to the college office.<br>However going to the SSO is only necessary when you are going to drop a course (this includes dropping a course to pick another course up and any time where you will drop a course), this is because they can add a course before dropping one which means you will never get stuck without a course."
+                "link":"Who will Change your module You or the College Office?",
+                "descp":"Though you can change modules yourself in almost all situations you should goto the SSO first.<br> The SSO can then tell you if they can solve the problem or if you need to go to the college office.<br>However going to the SSO is only necessary when you are going to drop a module (this includes dropping a module to pick another module up and any time where you will drop a module), this is because they can add a module before dropping one which means you will never get stuck without a module."
             },
             {
                 "unique":"c5",
                 "link":"Getting advice on your proposed changes, are you confident?",
-                "descp":"Any time you are considering changing courses it is always recommended you discuss this with your adviser as they really are best placed to answer questions and help you decide what is right for you."
+                "descp":"Any time you are considering changing modules it is always recommended you discuss this with your adviser as they really are best placed to answer questions and help you decide what is right for you."
             }
         ]
     },
-    "course_choice": {
-        "filename": "course_choice",
-        "title": "Advice on choice of course and electives",
+    "module_choice": {
+        "filename": "module_choice",
+        "title": "Advice on choice of Modules and electives",
         "info": "",
         "subcats": [{
             "name": "1P vs 1CT",
             "link": "1p_or_1ct"
         }, {
-            "name": "Advice on Maths Courses",
+            "name": "Advice on Maths Modules",
             "link": "maths"
         }, {
-            "name": "What course should I pick",
+            "name": "What module should I pick",
             "link": "add_swap"
         }, {
             "name": "Enquires about number of credits",
@@ -215,17 +266,17 @@
     },
     "maths": {
         "filename": "maths",
-        "title": "Maths Courses",
+        "title": "Maths modules",
         "info": "Look at the <a href=\"https://www.gla.ac.uk/coursecatalogue/\">course catalogue</a> and this <a href=\"https://docs.google.com/document/d/1jp_B6i8Q01axzDfMM56u6DkQ_TT9ZPbBr-aW6zcVzUE/edit\">guide</a>.",
         "subcats": [{
-            "name": "Swapping with another course?",
+            "name": "Swapping with another module?",
             "link": "add_drop_period"
         }]
     },
     "credit_enquiries": {
         "filename": "credit_enquiries",
         "title": "How Many Credits to Take",
-        "info": "Students should enroll in 120 credits (usually 60 per semester) worth of courses before the start of teaching time. If you have any further questions about taking credits, speak to a Student Support Officer."
+        "info": "Students should enroll in 120 credits (usually 60 per semester) worth of modules before the start of teaching time. If you have any further questions about taking credits, speak to a Student Support Officer."
     },
     "compsci_teaching_office": {
         "filename": "compsci_teaching_office",
