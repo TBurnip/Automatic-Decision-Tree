@@ -241,9 +241,10 @@
         "filename": "transfer_outside_college",
         "title": "Transfer out of College of Science and Engineering",
         "info": "Go to your adviser of studies and discuss your options. You will also need to contact the college that you wish to transfer to and see if they will accept you.",
-        "subcats": [{
-            "name": "Who is my adviser of studies?",
-            "link": "adviser_info"
+        "accordion": [{
+            "unique": "c1",
+            "heading": "Who is my adviser of studies?",
+            "body": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the University staff A-Z."
         }]
     },
     "health": {
@@ -252,30 +253,30 @@
         "info": "",
         "subcats": [{
             "name": "Disabilities and Exam Arrangements",
-            "link": "health_disabled"
+            "link": "disability_arrangements"
         }, {
             "name": "Have you been absent or missed an assessment?",
-            "link": "health_good_cause"
+            "link": "good_cause"
         }, {
             "name": "Do you have prolonged a health problem or a personal issue that is affecting your ability to study?",
-            "link": "health_fit_to_study"
+            "link": "fitness_to_study"
         }, {
             "name": "Local Health Services",
             "link": "local_health"
         }]
     },
-    "health_disabled": {
-        "filename": "health_disabled",
+    "disability_arrangements": {
+        "filename": "disability_arrangements",
         "title": "Disabilities",
         "info": "See <a href=\"https://www.gla.ac.uk/myglasgow/disability/\">Disabilities Services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>"
     },
-    "health_good_cause": {
-        "filename": "health_good_cause",
+    "good_cause": {
+        "filename": "good_cause",
         "title": "Good Cause",
-        "info": "Try and follow through <a href=\"/pdf/good_cause_flowchart.pdf\">this flowchart</a> to find the appropriate course of action. If you're still unsure you should speak to a Student Support Officer."
+        "info": "Try and follow through <a href=\"/pdf/good_cause_flowchart.pdf\">this flowchart</a> to find the appropriate course of action. If you're still unsure you should speak to a Student Support Officer.",
     },
-    "health_fit_to_study": {
-        "filename": "health_fit_to_study",
+    "fitness_to_study": {
+        "filename": "fitness_to_study",
         "title": "Fitness to Study",
         "type": "category",
         "info": "Sometimes, there are health or other personal issues in a student's life that prevent them from normal study on a course.  Hence they are losing time for proper preparation for subsequent assessments.  The University aims to support students in such situations, and this is formally known as \"Fitness to Study\" - although issues are not due to health alone.  Fitness to Study is usually first considered locally in the School.",
@@ -302,7 +303,7 @@
             "link": "financial_aid_team"
         }, {
             "name": "Disability Support and Funding",
-            "link": "finance_disabled"
+            "link": "disability_funding"
         }, {
             "name": "Extra Resources",
             "link": "finance_extra"
@@ -313,8 +314,8 @@
         "title": "Scholarships and funding",
         "info": "See financial aid <a href=\"https://www.gla.ac.uk/myglasgow/registry/finance/funds/\">registry page</a> or contact the Financial Aid Team<ul><li><a href=\"mailto:reg.finaid@glasgow.ac.uk\">reg.finaid@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul>"
     },
-    "finance_disabled": {
-        "filename": "finance_disabled",
+    "disability_funding": {
+        "filename": "disability_funding",
         "title": "Disability Support and Funding",
         "info": "Goto Disability Services page on <a href=\"https://www.gla.ac.uk/myglasgow/disability/financialassistance/\">financial aid</a>"
     },
@@ -341,8 +342,9 @@
             "name": "Disability Arrangements",
             "link": "exam_disability_access"
         }, {
-            "name": "Results Info",
-            "link": "exam_registry_info"
+            "name": "General Information on Exams and Results",
+            "link": "https://www.gla.ac.uk/myglasgow/registry/exams/",
+            "linkexternal": true
         }, {
             "name": "Resits",
             "link": "resits"
@@ -359,11 +361,6 @@
         "filename": "exam_disability_access",
         "title": "Exam Disability Arrangements",
         "info": "See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul>"
-    },
-    "exam_registry_info": {
-        "filename": "exam_registry_info",
-        "title": "Exams Info",
-        "info": "See <a href=\"https://www.gla.ac.uk/myglasgow/registry/exams/\">registry page</a> on exams."
     },
     "resits": {
         "filename": "resits",
@@ -400,9 +397,10 @@
         "filename": "appeals",
         "title": "Appeals",
         "info": "For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals. Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action.<br><br>Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">senate-appeals@glasgow.ac.uk</a> for further information on appeals.",
-        "subcats": [{
-            "name": "Who is my adviser of studies?",
-            "link": "adviser_info" 
+        "accordion": [{
+            "unique": "c1",
+            "heading": "Who is my adviser of studies?",
+            "body": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the University staff A-Z."
         }]
     },
     "plagiarism": {
