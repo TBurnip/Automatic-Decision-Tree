@@ -254,19 +254,12 @@
         "subcats": [{
             "name": "Still unsure about the what choice is best?",
             "link": "1p_or_1ct_resources_didnt_help"
-        }, {
-            "name": "Swapping between 1P and 1CT",
-            "link": "add_drop_period"
         }]
     },
     "maths": {
         "filename": "maths",
         "title": "Maths modules",
-        "info": "Look at the <a href=\"https://www.gla.ac.uk/coursecatalogue/\">course catalogue</a> and this <a href=\"https://docs.google.com/document/d/1jp_B6i8Q01axzDfMM56u6DkQ_TT9ZPbBr-aW6zcVzUE/edit\">guide</a>.",
-        "subcats": [{
-            "name": "Swapping with another module?",
-            "link": "add_drop_period"
-        }]
+        "info": "Look at the <a href=\"https://www.gla.ac.uk/coursecatalogue/\">course catalogue</a> and this <a href=\"https://docs.google.com/document/d/1jp_B6i8Q01axzDfMM56u6DkQ_TT9ZPbBr-aW6zcVzUE/edit\">guide</a>."
     },
     "credit_enquiries": {
         "title": "How Many Credits to Take",
