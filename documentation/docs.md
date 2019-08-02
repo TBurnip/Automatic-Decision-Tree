@@ -46,7 +46,31 @@ Page rendered from JSON
 
 ### adviser_info.json
 
+Stores information for the adviser pages. It is indexed in the same way as `page_data.json`. The structure is described below:
 
+```json
+    "page_name": {
+        "title": (str, required) //name of the page being
+        "who": (str, required) //the person that the student is being directed to (either SSO or adviser)
+        "why": (str, required) //why the student is being directed to that person
+        "subcats": (arr[obj], optional)[ //links to different pages in the system
+            {
+                "name": (str, required) //text that is displayed on the rendered link
+                "link": (str, required) //page name that is being linked to, can also be an external hyperlink
+                "goto_adviser": (bool, optional) //true if page being linked to is an adviser page. Not present otherwise
+                "linkexternal": (bool, optional) //true if page being linked to is an external link. Not present otherwise. Note, cannot have both goto_adviser and linkexternal be true
+            }
+    }
+```
+
+### motm.json
+
+Stores the messages of the month. These are set automatically from the system data.
+
+```json
+{
+    0: 
+}
 ## Classes
 
 > Note: an underscore before a method name denotes pseudo-privacy, although the methods are publicly accessible they should be treated as private methods and should not be treated as part of the class' public interface.
