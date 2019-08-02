@@ -1,0 +1,43 @@
+{
+    "accordion": [{
+            "unique": "c1",
+            "heading": "Course",
+            "body": "In Glasgow terminology, course has a strict meaning as a unit of learning, made up of lectures, tutorial, exercises and an exam, and for which you will receive a grade eventually that appears on your transcript (the record of all the courses you have taken while at the University). [Transcript could be a glossary term.]  It is typically given by one, or a small number of, lecturers.  In any one year, you register for a number of courses."
+        },
+        {
+            "unique": "c2",
+            "heading": "Course of Study",
+            "body": "This is an informal term that students and staff may use to mean the Programme/Plan on which a student is registered - see elsewhere in the Glossary for precise definitions of Programme/Plan."
+        },
+        {
+            "unique": "c3",
+            "heading": "Module",
+            "body": "This is not a word formally used in Glasgow terminology - but it has the same meaning as course."
+        },
+        {
+            "unique": "c6",
+            "heading": "Programme and Plan",
+            "body": "These two words are closely linked and easy to confuse.  Because you are reading this Glossary, you are probably registered for a Computing Science degree - for example BSc (Hons) Software Engineering.  Breaking this down, the Programme you are on is BSc (Hons) - this is a type of degree - others in the University are MSci, MA, MEng, PhD and so on; the Plan that you are on is Software Engineering.  So the plan is akin to the topic or subject area of your degree, and the programme relates to the level at which you are studying that topic.  (Folk often informally use \"Course of Study\" to mean a combination of their Programme and Plan.)"
+        },
+        {
+            "unique": "c7",
+            "heading": "Subject",
+            "body": "Subject can be found to be loosely analogous to a school. E.g. The Maths subject is taught by the School of Mathematics & Statistics and Physics is taught by the School of Physics & Astronomy"
+        },
+        {
+            "unique": "c8",
+            "heading": "Credits",
+            "body": "Every course has a credit value associated with it, usually in steps of 10 credits - e.g. 10 credits, 20 credits and so on - and this value relates to the amount of learning that is expected on that course.  Each single credit represents 10 learning hours, so if you are studying for a 10 credit course, you should expect to spend around 100 hours on the course - made up of lectures, labs, tutorials and your own study time.  The formal contact time of lectures, labs and tutorials will usually only be 20-40% of this total time.  You typically must take 120 credits of courses each year."
+        },
+        {
+            "unique": "c9",
+            "heading": "Grade",
+            "body": "For every course, you will be awarded a grade on completion.  This is an amalgam/average of all the exercises/assessments you completed on the course.  A grade consists of a letter - A to H - and then within each grade there are bands - e.g. A1, D3 and so on.  Formally, there are 22 points on the scale of grades: A1-5, B1-3, C1-3, D1-3, E1-3, F1-3, G1-2, and then finally H is a zero award."
+        },
+        {
+            "unique": "c10",
+            "heading": "GPA - Grade Point Average",
+            "body": "This is a weighted average of a collection of your grades - for example, all the grades this year, all the grades in one subject area, or all the grades so far in your degree.  Hence, in the GPA calculation, a 20-credit course will count more significantly than a 10-credit course towards your overall GPA."
+        }
+    ]
+}
