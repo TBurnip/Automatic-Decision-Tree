@@ -56,7 +56,12 @@ nav.navbar-expand-sm {
   margin:5px;
   color:black!important;
   background-color: #B06C96!important;
-  box-shadow: 10px, 10px;
+  border-radius: 3px;
+}
+
+.subcat:hover {
+  color:white!important;
+  background-color: #951272!important;
 }
 
 .d-flex flex-wrap {
@@ -136,7 +141,11 @@ body {
 
 a.nav-link {
   font-size: 18pt;
-  opacity: 80%!important;
+  color: rgba(255,255,255,.7)!important;
+}
+
+a.nav-link:hover {
+  color: rgba(255,255,255,1)!important;
 }
 
 ul#breadcrumb>li>a {
