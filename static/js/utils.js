@@ -15,7 +15,7 @@ class Page {
 
     static async getData(name, datafile, callback){
         console.log("Getting data for: " + name + " from: " + datafile);
-        $.get(datafile, function(data) { callback(data[name]); });
+        $.getJSON(datafile, function(data) { callback(data[name]); });
     }
     
     _setupSubcats() {
@@ -35,7 +35,7 @@ class Page {
 
     _setMotm() {
         var self = this;
-        $.get("js/motm.json", function(data) { 
+        $.getJSON("js/motm.json", function(data) { 
             var d = new Date();
             self.data["motm"] = data[d.getMonth()];            
         });
@@ -79,7 +79,6 @@ class AdviserPage extends Page {
         }
         var who = this.data["who"];
         var grammar = grammar_lookup[who];
-
 
         Object.assign(this.data, grammar);
     }
