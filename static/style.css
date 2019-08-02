@@ -39,6 +39,12 @@ body {
   margin: 0px;
 }
 
+.navbar-nav {
+  background-color: #005398!important;
+}
+
+
+
 nav.navbar-expand-sm {
   margin-bottom: 50px;
 }
@@ -48,9 +54,14 @@ nav.navbar-expand-sm {
   text-align: center;
   width: 33.3%;
   margin:5px;
-  color:#343a40!important;
-  background-color: #cfe2f3ff!important;
-  box-shadow: 10px, 10px;
+  color:black!important;
+  background-color: #B06C96!important;
+  border-radius: 3px;
+}
+
+.subcat:hover {
+  color:white!important;
+  background-color: #951272!important;
 }
 
 .d-flex flex-wrap {
@@ -112,6 +123,7 @@ body {
 
 #glossary {
   color: aliceblue;
+  background-color: #005398!important;
 }
 
 #useful {
@@ -129,6 +141,11 @@ body {
 
 a.nav-link {
   font-size: 18pt;
+  color: rgba(255,255,255,.7)!important;
+}
+
+a.nav-link:hover {
+  color: rgba(255,255,255,1)!important;
 }
 
 ul#breadcrumb>li>a {
@@ -152,11 +169,11 @@ nav {
   font-size: 18px;
 }
 
-.acordlink:not(.collapsed)::after{
+.acordlink:not(.collapsed)::before{
   content: "-";
 }
 
-.acordlink.collapsed::after{
+.acordlink.collapsed::before{
   content: "+";
 }
 
@@ -164,10 +181,24 @@ nav {
   margin: 3px;
 }
 
-.glossary:not(.collapsed)::after{
+.glossary:not(.collapsed)::before{
   content: "-";
 }
 
-.glossary.collapsed::after{
+.glossary.collapsed::before{
   content: "+";
+}
+
+#accordion2 {
+  margin-left: 40px;
+}
+
+#accordionBody {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+#glossary-link {
+  color: #FFB948!important
 }
