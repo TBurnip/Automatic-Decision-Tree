@@ -165,6 +165,7 @@ a.nav-link:hover {
 
 ul#breadcrumb>li>a {
   font-size: 14pt;
+  font-weight: bold;
 }
 
 nav {
