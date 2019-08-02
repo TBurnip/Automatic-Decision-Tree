@@ -159,3 +159,7 @@ nav {
 .acordlink.collapsed::after{
   content: "+";
 }
+
+#accordionBody {
+  margin: 3px;
+}
