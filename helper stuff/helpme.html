@@ -13,7 +13,7 @@
             console.log(t,j,o)
             console.log(t.value,j.value,o.value)
             d = JSON.parse(j.value)
-            o.value = Mustache.render(t, d);
+            o.value = Mustache.render(t.value, d);
         }    
     </script>
     <textarea name="template" id="template" cols="30" rows="10"></textarea>
