@@ -1,5 +1,7 @@
 # GuideMe Docs
 
+---
+
 ## JSON files
 
 All the data for GuideMe is stored in JSON files that are accessed through jQuery http requests. Data is stored in three separate files described below.
@@ -31,10 +33,23 @@ Structure of a given page:
 }
 ```
 
-> Note: an underscore before a method name denotes pseudo-privacy, although the methods are publicly accessible they should be treated as private methods and should not be treated as part of the class' public interface.
+#### Example with Demo Page
+
+Below is an example usage for a page in page_data.json and the corresponding page shown in the browser.
+
+<img src="demo_page_json.png">
+
+Page rendered from JSON
+<img src="demo_page_rendered.png" width="800">
+
+---
+
+### adviser_info.json
 
 
 ## Classes
+
+> Note: an underscore before a method name denotes pseudo-privacy, although the methods are publicly accessible they should be treated as private methods and should not be treated as part of the class' public interface.
 
 ### **class** Page
 
