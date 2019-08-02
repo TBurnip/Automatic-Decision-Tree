@@ -1,7 +1,6 @@
 {
     "index": {
         "title": "General",
-        "info": "",
         "subcats": [{
             "name": "Courses, Timetabling & Enrolment",
             "link": "courses"
@@ -38,7 +37,6 @@
     ]
     },
     "issues_with_course_study": {
-        "filename": "issues_with_course_study",
         "title": "Issues with my study/course",
         "info": "Since this is such a board category bellow are some options to help narrow down who you should go to.",
         "subcats": [{
@@ -54,7 +52,6 @@
         }]
     },
     "individual_course_issues": {
-        "filename": "individual_course_issues",
         "title": "Issues with an individual course",
         "info": "Issues with an individual course can be redirected in many ways.",
         "accordion":[
@@ -71,7 +68,6 @@
         ]
     },   
     "study_issues": {
-        "filename": "study_issues",
         "title": "Issues with your study",
         "info": "If you are having problems with you study",
         "accordion":[
@@ -89,9 +85,7 @@
         ]
     },
     "courses": {
-        "filename": "courses",
         "title": "courses, Timetabling & Enrolment",
-        "info": "",
         "subcats": [{
             "name": "Timetable",
             "link": "timetable"
@@ -110,7 +104,6 @@
         }]
     },
     "individual_courses_and_projects": {
-        "filename": "individual_courses_and_projects",
         "title": "Questions relating to individual courses or project",
         "info": "Are you already enrolled in the course?",
         "subcats": [{
@@ -122,18 +115,15 @@
         }]
     },
     "individual_courses_and_projects_enrolled": {
-        "filename": "individual_courses_and_projects_enrolled",
         "title": "Questions relating to individual courses or project and enrolled",
         "info": "Check the moodle for the course and if that still doesn't answer your question, email the course lecturer"
     },
     "individual_courses_and_projects_not_enrolled": {
-        "filename": "individual_courses_and_projects_not_enrolled",
         "title": "Questions relating to individual courses or project and not enrolled",
         "info": "Check the course catalogue for information on the course. If this still doesn't yield the info you want email you adviser for advice."
     },
     "timetable": {
         "title": "Timetable",
-        "info": "",
         "subcats": [{
             "name": "Timetable Clash",
             "link": "timetable_clash"
@@ -170,7 +160,6 @@
         }]
     },
     "possible_to_drop_or_swap": {
-        "filename": "possible_to_drop_or_swap",
         "title": "Can you drop one of the courses?",
         "info": "Is it possible to solve the problem by dropping one of the courses?",
         "subcats": [{
@@ -183,7 +172,6 @@
         }]
     },
     "unavoidable_course_clash": {
-        "filename": "unavoidable_course_clash",
         "title": "Unavoidable course Clash",
         "info": "If two courses you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unavoidable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the courses in person</li></ul>"
     },
@@ -231,9 +219,7 @@
         ]
     },
     "course_choice": {
-        "filename": "course_choice",
         "title": "Advice on choice of courses and electives",
-        "info": "",
         "subcats": [{
             "name": "1P vs 1CT",
             "link": "1p_or_1ct"
@@ -257,7 +243,6 @@
         }]
     },
     "maths": {
-        "filename": "maths",
         "title": "Maths courses",
         "info": "Look at the <a href=\"https://www.gla.ac.uk/coursecatalogue/\">course catalogue</a> and this <a href=\"https://docs.google.com/document/d/1jp_B6i8Q01axzDfMM56u6DkQ_TT9ZPbBr-aW6zcVzUE/edit\">guide</a>."
     },
@@ -284,7 +269,6 @@
     },
     "health": {
         "title": "Health and Absence",
-        "info": "",
         "subcats": [{
             "name": "Disabilities and Exam Arrangements",
             "link": "disability_arrangements"
@@ -333,7 +317,6 @@
     },
     "finance": {
         "title": "Finance",
-        "info": "",
         "subcats": [{
             "name": "Scholarships and Funding",
             "link": "financial_aid_team"
@@ -367,7 +350,6 @@
     },
     "exams": {
         "title": "Exams, Assessment, Resits and Progression",
-        "info": "",
         "subcats": [{
             "name": "Disability Arrangements",
             "link": "exam_disability_access"
@@ -393,7 +375,6 @@
     },
     "resits": {
         "title": "Resits",
-        "info": "",
         "subcats": [{
             "name": "Resit Enrolment",
             "link": "exam_registry_info"
@@ -407,7 +388,6 @@
     },
     "standing_misconduct_and_appeals": {
         "title": "Academic Standing",
-        "info": "",
         "subcats": [{
             "name": "List of Academic Standing Codes",
             "link": "https://www.gla.ac.uk/myglasgow/registry/registration/#/accesstoregistration",
