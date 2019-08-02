@@ -308,7 +308,8 @@
             "goto_adviser": true
         }, {
             "name": "Senate Office Guidance on Fitness to Study",
-            "link": "/pdf/fitness_to_study.pdf"
+            "link": "/pdf/fitness_to_study.pdf",
+            "linkexternal":true
         }]
     },
     "local_health": {
