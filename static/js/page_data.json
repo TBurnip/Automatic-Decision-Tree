@@ -49,8 +49,9 @@
             "name": "Is your issue relating to your ability to study?",
             "link": "study_issues"
         },{
-            "name":"",
-            "link":"Is the issue with your plan/course of stduy?"
+            "name":"Is the issue with your plan/course of study?",
+            "link":"problem_with_plan",
+            "goto_adviser":true
         }]
     },
     "individual_module_issues": {
@@ -60,12 +61,13 @@
         "accordion":[
             {
                 "unique":"c1",
-                "link":"Do you have a question about an individual module or to do with an individual module?",
-                "descp":"First you should check that modules moodle page,<br> and if that doesn't answer your question then you should email the lecturer."
-            },            {
+                "heading":"Do you have a question about an individual module or to do with an individual module?",
+                "body":"First you should check that modules moodle page,<br> and if that doesn't answer your question then you should email the lecturer."
+            },
+            {
                 "unique":"c2",
-                "link":"Do you have a problem with the module and/or the way it is being taught?",
-                "descp":"First you should go to the class rep and discuss your problem then they will help you bring it to the year head if that is necessary."
+                "heading":"Do you have a problem with the module and/or the way it is being taught?",
+                "body":"First you should go to the class rep and discuss your problem then they will help you bring it to the year head if that is necessary."
             }
         ]
     },   
@@ -76,12 +78,14 @@
         "accordion":[
             {
                 "unique":"c1",
-                "link":"Do you have a question about an individual module or to do with an individual module?",
-                "descp":"First you should check that modules moodle page,<br> and if that doesn't answer your question then you should email the lecturer."
-            },            {
-                "unique":"c2",
-                "link":"Do you have a problem with the module and/or the way it is being taught?",
-                "descp":"First you should go to the class rep and discuss your problem then they will help you bring it to the year head if that is necessary."
+                "heading":"Are you are having trouble studying?",
+                "body":"Goto <a href=\"https://www.gla.ac.uk/myglasgow/leads/students/\">LEADs</a>. <br> They have some excellent resources and people to help with your studying."
+            }
+        ],
+        "subcats":[
+            {
+                "name":"Do you have prolonged a health problem or a personal issue that is affecting your ability to study?",
+                "link":"fitness_to_study"
             }
         ]
     },
@@ -186,7 +190,7 @@
     "unavoidable_module_clash": {
         "filename": "unavoidable_module_clash",
         "title": "Unavoidable module Clash",
-        "info": "If two modules you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unaviodable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the modules in person</li></ul>"
+        "info": "If two modules you want to take clash and no workaround exists, you will need to:<ul><li><a href=\"/pdf/Unavoidable_Course_Clash_Guide.pdf\">Consult this guide</a></li><li>Speak to your adviser</li><li>Discuss with the lectures of the modules in person</li></ul>"
     },
     "enrol_guide": {
         "filename": "enrol_guide",
@@ -200,7 +204,7 @@
     "new_student": {
         "filename": "new_student",
         "title": "Enrolment as a new student",
-        "info": "New students can go to  the College of Science and Engineering helpdesk (located on Boyd Orr Level 3) for help with enrolling."
+        "info": "New students can go to  the College of Science and Engineering HelpDesk (located on Boyd Orr Level 3) for help with enrolling."
     },
     "add_swap": {
         "filename": "add_swap",
@@ -209,28 +213,28 @@
         "accordion":[
             {
                 "unique":"c1",
-                "link":"What module are you considering?",
-                "descp":"You need to know what module you are considering and whether it is suitable for you.<br> If you don't know what module to pick look at the course catalogue to help make a decision.<br> When you know what module to pick email your adviser of studies to find out if it is a suitable choice."
+                "heading":"What module are you considering?",
+                "body":"You need to know what module you are considering and whether it is suitable for you.<br> If you don't know what module to pick look at the course catalogue to help make a decision.<br> When you know what module to pick email your adviser of studies to find out if it is a suitable choice."
             },
             {
                 "unique":"c2",
-                "link":"Are you adding or swapping?",
-                "descp":"If you are adding a module it is usually much simpler so long as it doesn't conflict with another module.<br> If it doesn't conflict then you can most likely do it on MyCampus. If it does conflict then read \"Who will change your modules\""
+                "heading":"Are you adding or swapping?",
+                "body":"If you are adding a module it is usually much simpler so long as it doesn't conflict with another module.<br> If it doesn't conflict then you can most likely do it on MyCampus. If it does conflict then read \"Who will change your modules\""
             },
             {
                 "unique":"c3",
-                "link":"Are you in the Add/Drop period?",
-                "descp":"The add/drop period exists to give students time to try out modules and still be able to change without falling too far behind, therefore changing modules outside the add/drop period could result in a lot of extra work for you - especially if you have missed assessment for the module you wish to change to.<br>Changing modules is still possible however you should certainly discuss it with your adviser to ensure that you make the best decision for you."
+                "heading":"Are you in the Add/Drop period?",
+                "body":"The add/drop period exists to give students time to try out modules and still be able to change without falling too far behind, therefore changing modules outside the add/drop period could result in a lot of extra work for you - especially if you have missed assessment for the module you wish to change to.<br>Changing modules is still possible however you should certainly discuss it with your adviser to ensure that you make the best decision for you."
             },
             {
                 "unique":"c4",
-                "link":"Who will Change your module You or the College Office?",
-                "descp":"Though you can change modules yourself in almost all situations you should goto the SSO first.<br> The SSO can then tell you if they can solve the problem or if you need to go to the college office.<br>However going to the SSO is only necessary when you are going to drop a module (this includes dropping a module to pick another module up and any time where you will drop a module), this is because they can add a module before dropping one which means you will never get stuck without a module."
+                "heading":"Who will Change your module You or the College Office?",
+                "body":"Though you can change modules yourself in almost all situations you should goto the SSO first.<br> The SSO can then tell you if they can solve the problem or if you need to go to the college office.<br>However going to the SSO is only necessary when you are going to drop a module (this includes dropping a module to pick another module up and any time where you will drop a module), this is because they can add a module before dropping one which means you will never get stuck without a module."
             },
             {
                 "unique":"c5",
-                "link":"Getting advice on your proposed changes, are you confident?",
-                "descp":"Any time you are considering changing modules it is always recommended you discuss this with your adviser as they really are best placed to answer questions and help you decide what is right for you."
+                "heading":"Getting advice on your proposed changes, are you confident?",
+                "body":"Any time you are considering changing modules it is always recommended you discuss this with your adviser as they really are best placed to answer questions and help you decide what is right for you."
             }
         ]
     },
@@ -286,15 +290,16 @@
     "adviser_info": {
         "filename": "adviser_info",
         "title": "Adviser of Studies",
-        "info": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the Universiry staff A-Z."
+        "info": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the University staff A-Z."
     },
     "transfer_outside_college": {
         "filename": "transfer_outside_college",
         "title": "Transfer out of College of Science and Engineering",
         "info": "Go to your adviser of studies and discuss your options. You will also need to contact the college that you wish to transfer to and see if they will accept you.",
-        "subcats": [{
-            "name": "Who is my adviser of studies?",
-            "link": "adviser_info"
+        "accordion": [{
+            "unique": "c1",
+            "heading": "Who is my adviser of studies?",
+            "body": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the University staff A-Z."
         }]
     },
     "health": {
@@ -303,30 +308,37 @@
         "info": "",
         "subcats": [{
             "name": "Disabilities and Exam Arrangements",
-            "link": "health_disabled"
+            "link": "disability_arrangements"
         }, {
             "name": "Have you been absent or missed an assessment?",
-            "link": "health_good_cause"
+            "link": "good_cause"
         }, {
             "name": "Do you have prolonged a health problem or a personal issue that is affecting your ability to study?",
-            "link": "health_fit_to_study"
+            "link": "fitness_to_study"
         }, {
             "name": "Local Health Services",
             "link": "local_health"
         }]
     },
-    "health_disabled": {
-        "filename": "health_disabled",
-        "title": "Disabillites",
-        "info": "See <a href=\"disabilitesunipage\">Disabilities Services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>"
+    "disability_arrangements": {
+        "filename": "disability_arrangements",
+        "title": "Disabilities",
+        "info": "See <a href=\"https://www.gla.ac.uk/myglasgow/disability/\">Disabilities Services page</a><br><ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Mon-Fri 0900-1700</li></ul>"
     },
-    "health_good_cause": {
-        "filename": "health_good_cause",
+    "good_cause": {
+        "filename": "good_cause",
         "title": "Good Cause",
-        "info": "Try and follow through <a href=\"/pdf/good_cause_flowchart.pdf\">this flowchart</a> to find the appropriate course of action. If you're still unsure you should speak to a Student Support Officer."
+        "info": "Try and follow through <a href=\"/pdf/good_cause_flowchart.pdf\">this flowchart</a> to find the appropriate course of action. If you're still unsure you should speak to a Student Support Officer.",
+        "accordion":[
+            {
+                "unique":"c1",
+                "heading":"Are you considering submitting a good cause for an exam?",
+                "body":"Be aware that if a good cause is accepted for an exam you will have to resit it even if your exam results are good. This is possibly something you may want to discuss with the SSO."
+            }
+        ]
     },
-    "health_fit_to_study": {
-        "filename": "health_fit_to_study",
+    "fitness_to_study": {
+        "filename": "fitness_to_study",
         "title": "Fitness to Study",
         "type": "category",
         "info": "Sometimes, there are health or other personal issues in a student's life that prevent them from normal study on a course.  Hence they are losing time for proper preparation for subsequent assessments.  The University aims to support students in such situations, and this is formally known as \"Fitness to Study\" - although issues are not due to health alone.  Fitness to Study is usually first considered locally in the School.",
@@ -353,7 +365,7 @@
             "link": "financial_aid_team"
         }, {
             "name": "Disability Support and Funding",
-            "link": "finance_disabled"
+            "link": "disability_funding"
         }, {
             "name": "Extra Resources",
             "link": "finance_extra"
@@ -364,10 +376,10 @@
         "title": "Scholarships and funding",
         "info": "See financial aid <a href=\"https://www.gla.ac.uk/myglasgow/registry/finance/funds/\">registry page</a> or contact the Financial Aid Team<ul><li><a href=\"mailto:reg.finaid@glasgow.ac.uk\">reg.finaid@glasgow.ac.uk</a></li><li>Level 2, Fraser Building</li><li>Mon-Fri: 1000-1600</li></ul>"
     },
-    "finance_disabled": {
-        "filename": "finance_disabled",
+    "disability_funding": {
+        "filename": "disability_funding",
         "title": "Disability Support and Funding",
-        "info": "Goto Disability Services page on <a href=\"https://www.gla.ac.uk/myglasgow/disability/financialassistance/\">finacial aid</a>"
+        "info": "Goto Disability Services page on <a href=\"https://www.gla.ac.uk/myglasgow/disability/financialassistance/\">financial aid</a>"
     },
     "finance_extra": {
         "filename": "finance_extra",
@@ -389,11 +401,12 @@
         "title": "Exams, Assessment, Resits and Progression",
         "info": "",
         "subcats": [{
-            "name": "Disability Arangements",
+            "name": "Disability Arrangements",
             "link": "exam_disability_access"
         }, {
-            "name": "Results Info",
-            "link": "exam_registry_info"
+            "name": "General Information on Exams and Results",
+            "link": "https://www.gla.ac.uk/myglasgow/registry/exams/",
+            "linkexternal": true
         }, {
             "name": "Resits",
             "link": "resits"
@@ -408,13 +421,8 @@
     },
     "exam_disability_access": {
         "filename": "exam_disability_access",
-        "title": "Exam Disability Arangements",
+        "title": "Exam Disability Arrangements",
         "info": "See disabilities services page or contact them at:<ul><li><a href=\"mailto:disability@glasgow.ac.uk\">disability@glasgow.ac.uk</a></li><li>65 Southpark Avenue</li><li>Open Monday-Friday: 09:00-17:00</li></ul>"
-    },
-    "exam_registry_info": {
-        "filename": "exam_registry_info",
-        "title": "Exams Info",
-        "info": "See <a href=\"https://www.gla.ac.uk/myglasgow/registry/exams/\">registry page</a> on exams."
     },
     "resits": {
         "filename": "resits",
@@ -451,9 +459,10 @@
         "filename": "appeals",
         "title": "Appeals",
         "info": "For information on appeals, see the <a href=\"https://www.gla.ac.uk/myglasgow/senateoffice/studentcodes/students/academicappeals/#/\">senate office page</a> on appeals. Consider consulting your adviser on whether or not filing an appeal is the most appropriate course of action.<br><br>Additionally you can email Jane MacAllistar at <a href=\"mailto:senate-appeals@glasgow.ac.uk\">senate-appeals@glasgow.ac.uk</a> for further information on appeals.",
-        "subcats": [{
-            "name": "Who is my adviser of studies?",
-            "link": "adviser_info" 
+        "accordion": [{
+            "unique": "c1",
+            "heading": "Who is my adviser of studies?",
+            "body": "To find out who your adviser of studies is, go to MyCampus->My Student Center. Their name should appear on the right of the screen. For their contact information try the University staff A-Z."
         }]
     },
     "plagiarism": {

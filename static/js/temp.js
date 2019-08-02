@@ -170,8 +170,15 @@ class History {
             //the string we will be appending text to
             var str = "";
             bc.forEach(function(crumb){
+                
+                //replace underscores with spaces and capitalise all words
+                var clean_crumb = crumb.replace(/_/g, " ");
+                clean_crumb = clean_crumb.replace(/\w\S*/g, function(txt){
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                });
+                
                 //build anchor tag for the links in the breadcrumb
-                var link = "<a onclick=\"Nav.breadcrumbClick('" + crumb + "')\" href=\"#\">" + crumb + "</a>";
+                var link = "<a onclick=\"Nav.breadcrumbClick('" + crumb + "')\" href=\"#\">" + clean_crumb + "</a>";
                 //add the list item tags with appropriate class
                 str += "<li class=\"breadcrumb-item\">" + link + "</li>";
             });

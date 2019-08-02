@@ -14,6 +14,8 @@
 
 ### Methods
 
+---
+
 #### constructor(name, template, data)
 
 Creates a new Page object with the parameters as described above.
@@ -64,6 +66,8 @@ Takes the page data and passes it to the Moustache rendering engine. Also retrie
 - **breadcrumb**: (array) The current path the user has taken form the index page, it does not contain duplicates and is reset every time the user returns to index.
 
 ### Methods
+
+---
 
 #### constructor(hist)
 
@@ -126,6 +130,8 @@ None
 
 ### Methods
 
+---
+
 #### static redirect(page)
 
 Builds URI for a given page and will redirects to it. Redirects to 404.html if there is an error.
@@ -136,4 +142,9 @@ Gets previous page from the history, updates it accordingly and redirects. Calle
 
 #### static breadcrumbClick(page)
 
+Redirects to the page corresponding to a link on the breadcrumb trail and updates the history accordingly. Called by clicking an link in the breadcrumb element.
 
+##### Parameters
+
+- **page**: (str) Item in the breadcrumb trail that has been clicked on. Passed through the html build in History.renderBreadcrumb().
+ 

@@ -28,6 +28,10 @@
         "subcats": [{
             "name": "Who is my adviser of studies?",
             "link": "adviser_info"
+        },
+        {
+            "name": "Transfer outside College of Science and Engineering",
+            "link": "transfer_outside_college"
         }]
     },
     "consider_for_fit_to_study": {
