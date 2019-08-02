@@ -12,7 +12,7 @@
         function compile(t,j,o) {
             console.log(t,j,o)
             console.log(t.value,j.value,o.value)
-            d = JSON.parse(j)
+            d = JSON.parse(j.value)
             o.value = Mustache.render(t, d);
         }    
     </script>
