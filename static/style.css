@@ -129,6 +129,7 @@ body {
 #glossary {
   color: aliceblue;
   background-color: #005398 !important;
+  padding-bottom: 10px;
 }
 
 #useful {
