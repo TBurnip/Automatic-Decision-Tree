@@ -37,7 +37,51 @@ Structure of a given page:
 
 Below is an example usage for a page in page_data.json and the corresponding page shown in the browser.
 
-<img src="demo_page_json.png">
+```json
+    "demo_page": {
+        "title": "this is the title",
+        "info": "This is the info section. It supports <b>HTML</b>",
+        "accordion":[
+            {
+                "unique":"this_must_be_unique_and_cant_contain_spaces",
+                "heading":"this is the heading for this accordion card",
+                "body":"this is the body for this accordion card <b>also supports HTML</b>"
+            },
+            {
+                "unique":"otherwise_this_happens",
+                "heading":"non unique unique variable",
+                "body":"this is the body for this accordion card <b>also supports HTML</b>"
+            },
+            {
+                "unique":"otherwise_this_happens",
+                "heading":"non unique unique variable",
+                "body":"this is the body for this accordion card <b>also supports HTML</b>"
+            }
+        ],
+        "subcats":[
+            {
+                "name":"this is the text of the subcat",
+                "link":"this is the link. this is the filename for the page you want to visit e.g. this page has the filename demo_page. when goto_adviser or linkexternal are false they can be omitted",
+                "goto_adviser":false,
+                "linkexternal":false
+            },
+            {
+                "name":"Internal example (goes to fitness to study ordinary page)",
+                "link":"fitness_to_study"
+            },
+            {
+                "name":"Goto Adviser example (goes to fitness to study goto_adviser page)",
+                "link":"consider_for_fit_to_study",
+                "goto_adviser":true
+            },
+            {
+                "name":"External example (goes to uni homepage)",
+                "link": "https://www.gla.ac.uk/",
+                "linkexternal": true
+            }
+        ]
+    }
+```
 
 Page rendered from JSON
 <img src="demo_page_rendered.png" width="800">
