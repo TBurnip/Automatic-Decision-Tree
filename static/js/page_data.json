@@ -460,7 +460,7 @@
         "subcats":[
             {
                 "name":"this is the text of the subcat",
-                "link":"this is the link. when goto_adviser or linkexternal are false they can be omitted",
+                "link":"this is the link. this is the filename for the page you want to visit e.g. this page has the filename demo_page. when goto_adviser or linkexternal are false they can be omitted",
                 "goto_adviser":false,
                 "linkexternal":false
             },
