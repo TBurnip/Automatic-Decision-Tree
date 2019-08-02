@@ -32,11 +32,11 @@
             "linkexternal": true
         },{
             "name": "Issues with my study/course",
-            "link": "issues_with_course_study"
+            "link": "issues_with_course_of_study"
         }
     ]
     },
-    "issues_with_course_study": {
+    "issues_with_course_of_study": {
         "title": "Issues with my study/course",
         "info": "Since this is such a board category bellow are some options to help narrow down who you should go to.",
         "subcats": [{
