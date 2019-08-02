@@ -383,6 +383,10 @@
             "link": "compsci_teaching_office"
         }]
     },
+    "exam_registry_info": {
+        "title": "See the Exam Registry Page",
+        "info": "Goto <a href=\"https://www.gla.ac.uk/myglasgow/registry/exams/resultsandresits/\">Registry Page</a>"
+    },
     "standing_misconduct_and_appeals": {
         "title": "Academic Standing",
         "subcats": [{
