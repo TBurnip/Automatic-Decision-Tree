@@ -68,7 +68,7 @@ class AdviserPage extends Page {
 
     _getProperGrammar() {
         var grammar_lookup = {
-            "SSO": {
+            "sso": {
                 "dp": "the SSO",
                 "fdp": "the SSO"
             },
