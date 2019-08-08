@@ -27,7 +27,7 @@ class Page {
                 if (!subcat["linkexternal"]) {
                     var get_praram;
                     subcat["goto_adviser"] ? get_praram = "g" : get_praram = "p";
-                    subcat["link"] = document.location.pathname + "/?" + get_praram + "=" + subcat["link"];
+                    subcat["link"] = document.location.pathname + "?" + get_praram + "=" + subcat["link"];
                 }
             })
         }
