@@ -12,7 +12,7 @@ Used to store all the information relating to pages and their contents. Page nam
 
 Structure of a given page:
 
-```json
+```text
 "pagename": {
     "title": (str, required) //title of the page that will be displayed in the browser
     "info": (str, optional) //the main body of information to be displayed to the user. Can use html tags for formatting
@@ -92,7 +92,7 @@ Page rendered from JSON
 
 Stores information for the adviser pages. It is indexed in the same way as `page_data.json`. The structure is described below:
 
-```json
+```text
     "page_name": {
         "title": (str, required) //name of the page being
         "who": (str, required) //the person that the student is being directed to (either SSO or adviser)
@@ -111,10 +111,12 @@ Stores information for the adviser pages. It is indexed in the same way as `page
 
 Stores the messages of the month. These are set automatically from the system data.
 
-```json
+```text
 {
-    0: 
+    0: (str, required) // This is the message for the month 0 (January)
 }
+```
+
 ## Classes
 
 > Note: an underscore before a method name denotes pseudo-privacy, although the methods are publicly accessible they should be treated as private methods and should not be treated as part of the class' public interface.
